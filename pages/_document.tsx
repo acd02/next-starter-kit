@@ -32,12 +32,11 @@ export default class MyDocument extends Document<ExtractCriticalProps> {
     return { ...page, ...styles }
   }
 
-  constructor(
-    props: MergedProps) {
+  constructor(props: MergedProps) {
     super(props)
     const { __NEXT_DATA__, ids } = props
     if (ids) {
-      (__NEXT_DATA__ as any).ids = ids
+      ;(__NEXT_DATA__ as any).ids = ids
     }
   }
 

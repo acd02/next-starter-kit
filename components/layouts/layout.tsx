@@ -17,7 +17,7 @@ const containerStyles = css({
 
 export const Layout = (props: React.Props<{}>) => (
   <div className={rootStyles}>
-    <Meta/>
+    <Meta />
     <Nav />
     <div className={containerStyles}>{props.children}</div>
     <Footer />

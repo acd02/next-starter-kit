@@ -1,4 +1,3 @@
-
 import { css } from 'react-emotion'
 
 const root = css({
