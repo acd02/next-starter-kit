@@ -5,14 +5,14 @@
   "license": "MIT",
   "scripts": {
     "dev": "next",
-    "build": "next build",
+    "build": "npm run lint && next build",
     "start": "next start",
     "export": "next export",
     "now": "now",
-    "lint": "tslint --config tslint.json --project tsconfig.json --format stylish --fix --force",
+    "lint": "tslint --config tslint.json --project tsconfig.json --format stylish --fix",
+    "lint-force": "tslint --config tslint.json --project tsconfig.json --format stylish --fix --force",
     "lint-staged": "lint-staged --config .lintstagedrc.json",
-    "prettier": "prettier --config .prettierrc.json --write \"{pages,components}/**/*.{ts,tsx}\"",
-    "api": "nodemon --config ./server/nodemon.json"
+    "prettier": "prettier --config .prettierrc.json --write \"{pages,components}/**/*.{ts,tsx}\""
   },
   "husky": {
     "hooks": {

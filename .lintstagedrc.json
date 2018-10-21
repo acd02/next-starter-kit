@@ -1,5 +1,5 @@
 {
-  "src/**/*.{ts,tsx}": [
+  "{pages,components}/**/*.{ts,tsx}": [
     "tslint --fix --config tslint.json --project tsconfig.json --format stylish",
     "git add",
     "prettier --config .prettierrc.json --write",
