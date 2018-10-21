@@ -14,7 +14,6 @@ export class Other extends React.Component<{}, State> {
   handleClick = () => this.setState(_ => ({ isOpen: !_.isOpen }))
 
   render() {
-
     const btnStyles = css({
       backgroundColor: '#eee',
       marginBottom: '1rem',
@@ -27,8 +26,12 @@ export class Other extends React.Component<{}, State> {
         <Link href="/">
           <a className={css({ display: 'block', marginBottom: '1rem' })}>home ⬅️</a>
         </Link>
-        <button className={btnStyles} onClick={this.handleClick}>update state</button>
-        <div>state: <span>{`${JSON.stringify(this.state)}`}</span></div>
+        <button className={btnStyles} onClick={this.handleClick}>
+          update state
+        </button>
+        <div>
+          state: <span>{`${JSON.stringify(this.state)}`}</span>
+        </div>
       </>
     )
   }
