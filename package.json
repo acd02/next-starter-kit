@@ -1,0 +1,53 @@
+{
+  "name": "next-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "export": "next export",
+    "now": "now",
+    "lint": "tslint --config tslint.json --project tsconfig.json --format stylish --fix --force",
+    "lint-staged": "lint-staged --config .lintstagedrc.json",
+    "prettier": "prettier --config .prettierrc.json --write \"{pages,components}/**/*.{ts,tsx}\"",
+    "api": "nodemon --config ./server/nodemon.json"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "devDependencies": {
+    "@babel/core": "7.1.2",
+    "@babel/plugin-proposal-class-properties": "7.1.0",
+    "@babel/plugin-proposal-object-rest-spread": "7.0.0",
+    "@types/express": "4.16.0",
+    "@types/next": "7.0.2",
+    "@types/react-transition-group": "2.0.14",
+    "@zeit/next-typescript": "1.1.1",
+    "babel-plugin-emotion": "9.2.11",
+    "express": "4.16.3",
+    "emotion": "9.2.12",
+    "emotion-server": "9.2.12",
+    "react-emotion": "9.2.12",
+    "fork-ts-checker-webpack-plugin": "0.4.10",
+    "husky": "1.1.2",
+    "immer": "1.7.2",
+    "lint-staged": "7.3.0",
+    "next": " 7.0.2",
+    "nodemon": "1.17.5",
+    "now": "11.4.6",
+    "prettier": "1.14.3",
+    "react": "16.5.2",
+    "react-dom": "16.5.2",
+    "react-transition-group": "2.5.0",
+    "space-lift": "0.8.3",
+    "ts-node": "7.0.0",
+    "tslint": "5.11.0",
+    "tslint-loader": "3.6.0",
+    "typescript": "3.1.3",
+    "unstated": "2.1.1"
+  }
+}
