@@ -10,4 +10,4 @@
 ## Features:
 
 - State management: [Unstated](https://github.com/jamiebuilds/unstated)
-- Styles: [emotion](https://github.com/emotion-js/emotion)
+- Styles: [TypeStyle](https://typestyle.github.io/)
