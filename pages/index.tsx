@@ -1,13 +1,17 @@
 import * as React from 'react'
 import Link from 'next/link'
-import { css } from 'react-emotion'
+import { style } from 'typestyle'
+
+const textStyles = style({
+  fontSize: '40px'
+})
 
 export const Home = () => (
   <div>
     <Link href="/other">
-      <a className={css({ display: 'block', marginBottom: '1rem' })}>other ➡️</a>
+      <a className={style({ display: 'block', marginBottom: '1rem' })}>other ➡️</a>
     </Link>
-    <p>content</p>
+    <p className={textStyles}>content</p>
   </div>
 )
 

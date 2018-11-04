@@ -1,16 +1,20 @@
 import * as React from 'react'
 import App, { Container } from 'next/app'
-import { injectGlobal } from 'react-emotion'
+import { setStylesTarget, cssRaw } from 'typestyle'
 
 import { Layout } from '../components/layouts'
 
-injectGlobal(`
+cssRaw(`
   #__next {
     height: 100%;
   }
 `)
 
 class Root extends App {
+  componentDidMount() {
+    setStylesTarget(document.getElementById('styles-target') as HTMLElement)
+  }
+
   render() {
     const { Component } = this.props
 

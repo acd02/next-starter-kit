@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Link from 'next/link'
-import { css } from 'react-emotion'
+import { style } from 'typestyle'
 
 type State = {
   isOpen: boolean
@@ -14,7 +14,7 @@ export class Other extends React.Component<{}, State> {
   handleClick = () => this.setState(_ => ({ isOpen: !_.isOpen }))
 
   render() {
-    const btnStyles = css({
+    const btnStyles = style({
       backgroundColor: '#eee',
       marginBottom: '1rem',
       padding: '0.5rem 1rem',
@@ -24,7 +24,7 @@ export class Other extends React.Component<{}, State> {
     return (
       <>
         <Link href="/">
-          <a className={css({ display: 'block', marginBottom: '1rem' })}>home ⬅️</a>
+          <a className={style({ display: 'block', marginBottom: '1rem' })}>home ⬅️</a>
         </Link>
         <button className={btnStyles} onClick={this.handleClick}>
           update state

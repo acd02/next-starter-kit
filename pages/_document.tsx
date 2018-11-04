@@ -6,38 +6,18 @@ import Document, {
   NextDocumentContext,
   DocumentProps
 } from 'next/document'
-import { extractCritical } from 'emotion-server'
 
-import { hydrate } from 'react-emotion'
+import { getStyles } from 'typestyle'
 
-// the returned value from the 'extractCritical' function
-type ExtractCriticalProps = {
-  html: string
-  ids: string[]
-  css: string
+type MergedProps = DocumentProps & {
+  typeStyles: string
 }
 
-type MergedProps = DocumentProps & ExtractCriticalProps
-
-// Adds server generated styles to emotion cache
-if (typeof window !== 'undefined') {
-  hydrate((window as any).__NEXT_DATA__.ids)
-}
-
-export default class MyDocument extends Document<ExtractCriticalProps> {
+export default class MyDocument extends Document<MergedProps> {
   static async getInitialProps(ctx: NextDocumentContext) {
     const page = ctx.renderPage()
-    const styles = extractCritical(page.html as string)
 
-    return { ...page, ...styles }
-  }
-
-  constructor(props: MergedProps) {
-    super(props)
-    const { __NEXT_DATA__, ids } = props
-    if (ids) {
-      ;(__NEXT_DATA__ as any).ids = ids
-    }
+    return { ...page, typeStyles: getStyles() }
   }
 
   render() {
@@ -45,7 +25,7 @@ export default class MyDocument extends Document<ExtractCriticalProps> {
       <html>
         <Head>
           <link rel="stylesheet" type="text/css" href="/static/reset.css" />
-          <style dangerouslySetInnerHTML={{ __html: this.props.css }} />
+          <style id="styles-target">{this.props.typeStyles}</style>
         </Head>
         <body>
           <Main />
