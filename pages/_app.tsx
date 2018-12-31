@@ -1,6 +1,7 @@
 import * as React from 'react'
 import App, { Container } from 'next/app'
 import { setStylesTarget, cssRaw } from 'typestyle'
+import 'space-lift/es/all'
 
 import { Layout } from '../components/layouts'
 
