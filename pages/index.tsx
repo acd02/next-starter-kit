@@ -20,21 +20,13 @@ function labelToUpperCase(item: Item, key?: number): React.ReactElement<{}> {
   return <p key={key}>{item.label.toUpperCase()}</p>
 }
 
-function labelsToUpperCase(_items: Item[]): React.ReactElement<{}>[] {
-  return _items.map(labelToUpperCase)
-}
-
 function filterEvenItem(item: Item): boolean {
   return item.id % 2 === 0
 }
 
-function filterEvenItems(_items: Item[]): Item[] {
-  return _items.filter(filterEvenItem)
-}
-
 const evenLabelsToUpperCase = compose<Item[], Item[], React.ReactElement<{}>[]>(
-  labelsToUpperCase,
-  filterEvenItems
+  _ => _.map(labelToUpperCase),
+  _ => _.filter(filterEvenItem)
 )
 
 const textStyles = style({
