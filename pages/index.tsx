@@ -2,7 +2,7 @@ import * as React from 'react'
 import Link from 'next/link'
 import { style } from 'typestyle'
 
-import { compose } from '@typed/compose'
+import { compose } from 'fp-ts/lib/function'
 
 type Item = {
   label: string
