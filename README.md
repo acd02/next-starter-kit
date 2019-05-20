@@ -9,5 +9,4 @@
 
 ## Features:
 
-- State management: [Unstated](https://github.com/jamiebuilds/unstated)
-- Styles: [TypeStyle](https://typestyle.github.io/)
+- Styles: [emotion](https://emotion.sh/docs/introduction)
