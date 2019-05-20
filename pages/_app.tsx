@@ -1,7 +1,6 @@
 import * as React from 'react'
 import App, { Container } from 'next/app'
 import { injectGlobal } from 'emotion'
-import { Layout } from '../components/layouts'
 
 injectGlobal(`
   #__next {
@@ -15,9 +14,7 @@ class Root extends App {
 
     return (
       <Container>
-        <Layout>
-          <Component />
-        </Layout>
+        <Component />
       </Container>
     )
   }

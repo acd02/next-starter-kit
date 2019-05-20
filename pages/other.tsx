@@ -2,7 +2,9 @@ import * as React from 'react'
 import Link from 'next/link'
 import { css } from 'emotion'
 
-function OtherPage() {
+import { Layout } from 'components/layouts'
+
+export default function OtherPage() {
   const [isOpen, setIsOpen] = React.useState(false)
 
   function handleClick() {
@@ -17,7 +19,7 @@ function OtherPage() {
   })
 
   return (
-    <>
+    <Layout title="other">
       <Link href="/">
         <a className={css({ display: 'block', marginBottom: '1rem' })}>home ⬅️</a>
       </Link>
@@ -27,8 +29,6 @@ function OtherPage() {
       <div>
         state: <span>{`${isOpen}`}</span>
       </div>
-    </>
+    </Layout>
   )
 }
-
-export default OtherPage

@@ -15,9 +15,13 @@ const containerStyles = css({
   padding: '1rem'
 })
 
-export const Layout = (props: React.Props<{}>) => (
+type Props = {
+  title: string
+}
+
+export const Layout = (props: Props & React.Props<{}>) => (
   <div className={rootStyles}>
-    <Meta />
+    <Meta title={props.title} />
     <Nav />
     <div className={containerStyles}>{props.children}</div>
     <Footer />
