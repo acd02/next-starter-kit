@@ -15,6 +15,11 @@ module.exports = withTypescript({
     // Do not run type checking twice:
     if (options.isServer) config.plugins.push(new ForkTsCheckerWebpackPlugin())
 
+    config.resolve.alias = Object.assign({}, config.resolve.alias, {
+      components: computePath('./components/'),
+      pages: computePath('./pages/')
+    })
+
     return config
   }
 })
