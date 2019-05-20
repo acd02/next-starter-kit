@@ -27,6 +27,7 @@
     "@typescript-eslint/eslint-plugin": "1.9.0",
     "@typescript-eslint/parser": "1.9.0",
     "@zeit/next-typescript": "1.1.1",
+    "babel-plugin-emotion": "10.0.9",
     "emotion": "10.0.9",
     "emotion-server": "10.0.9",
     "eslint": "5.16.0",
