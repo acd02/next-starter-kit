@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Link from 'next/link'
-import { style } from 'typestyle'
+import { css } from 'emotion'
 
 function OtherPage() {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -9,7 +9,7 @@ function OtherPage() {
     setIsOpen(s => !s)
   }
 
-  const btnStyles = style({
+  const btnStyles = css({
     backgroundColor: '#eee',
     marginBottom: '1rem',
     padding: '0.5rem 1rem',
@@ -19,7 +19,7 @@ function OtherPage() {
   return (
     <>
       <Link href="/">
-        <a className={style({ display: 'block', marginBottom: '1rem' })}>home ⬅️</a>
+        <a className={css({ display: 'block', marginBottom: '1rem' })}>home ⬅️</a>
       </Link>
       <button className={btnStyles} onClick={handleClick}>
         update state

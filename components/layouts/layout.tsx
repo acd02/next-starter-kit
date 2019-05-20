@@ -1,16 +1,16 @@
 import * as React from 'react'
-import { style } from 'typestyle'
+import { css } from 'emotion'
 
 import { Meta } from '../atoms'
 import { Nav, Footer } from '../organisms'
 
-const rootStyles = style({
+const rootStyles = css({
   display: 'flex',
   flexDirection: 'column',
   height: '100%'
 })
 
-const containerStyles = style({
+const containerStyles = css({
   flex: '1 0 auto',
   padding: '1rem'
 })

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Link from 'next/link'
-import { style } from 'typestyle'
+import { css } from 'emotion'
 
 import { compose } from 'fp-ts/lib/function'
 
@@ -29,14 +29,14 @@ const evenLabelsToUpperCase = compose<Item[], Item[], React.ReactElement<{}>[]>(
   _ => _.filter(filterEvenItem)
 )
 
-const textStyles = style({
+const textStyles = css({
   fontSize: '40px'
 })
 
 export const Home = () => (
   <div>
     <Link href="/other">
-      <a className={style({ display: 'block', marginBottom: '1rem' })}>other ➡️</a>
+      <a className={css({ display: 'block', marginBottom: '1rem' })}>other ➡️</a>
     </Link>
     <p className={textStyles}>content</p>
     {evenLabelsToUpperCase(items)}

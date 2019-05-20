@@ -6,18 +6,32 @@ import Document, {
   NextDocumentContext,
   DocumentProps
 } from 'next/document'
+import { extractCritical } from 'emotion-server'
 
-import { getStyles } from 'typestyle'
-
-type MergedProps = DocumentProps & {
-  typeStyles: string
+// the returned value from the 'extractCritical' function
+type ExtractCriticalProps = {
+  html: string
+  ids: string[]
+  css: string
 }
 
-export default class MyDocument extends Document<MergedProps> {
+type MergedProps = DocumentProps & ExtractCriticalProps
+
+export default class MyDocument extends Document<ExtractCriticalProps> {
   public static async getInitialProps(ctx: NextDocumentContext) {
     const page = ctx.renderPage()
+    const styles = extractCritical(page.html as string)
 
-    return { ...page, typeStyles: getStyles() }
+    return { ...page, ...styles }
+  }
+
+  private constructor(props: MergedProps) {
+    super(props)
+
+    const { __NEXT_DATA__, ids } = props
+    if (ids) {
+      __NEXT_DATA__.ids = ids
+    }
   }
 
   public render() {
@@ -25,7 +39,7 @@ export default class MyDocument extends Document<MergedProps> {
       <html>
         <Head>
           <link rel="stylesheet" type="text/css" href="/static/reset.css" />
-          <style id="styles-target">{this.props.typeStyles}</style>
+          <style dangerouslySetInnerHTML={{ __html: this.props.css }} />
         </Head>
         <body>
           <Main />
