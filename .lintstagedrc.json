@@ -1,6 +1,6 @@
 {
   "{pages,components}/**/*.{ts,tsx}": [
-    "tslint --fix --config tslint.json --project tsconfig.json --format stylish",
+    "eslint --config .eslintrc.js ./components ./pages --ext .ts,.tsx,.js --fix",
     "git add",
     "prettier --config .prettierrc.json --write",
     "git add"

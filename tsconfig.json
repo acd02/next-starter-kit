@@ -2,23 +2,21 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": false,
     "baseUrl": ".",
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "react",
-    "lib": [ "es5", "es2018", "dom" ],
+    "lib": ["dom", "es2018", "es5"],
+    "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "resolveJsonModule": true,
-    "sourceMap": true,
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
+    "sourceMap": true,
     "strict": true,
-    "target": "esnext",
-    "module": "esnext",
-  },
-  "exclude": [
-    "./server"
-  ]
+    "target": "esnext"
+  }
 }

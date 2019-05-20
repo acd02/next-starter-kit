@@ -10,11 +10,11 @@ cssRaw(`
 `)
 
 class Root extends App {
-  componentDidMount() {
+  public componentDidMount() {
     setStylesTarget(document.getElementById('styles-target') as HTMLElement)
   }
 
-  render() {
+  public render() {
     const { Component } = this.props
 
     return (

@@ -5,16 +5,13 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 
 module.exports = withTypescript({
   webpack(config, options) {
-    const tsLintRule = {
+    const esLintRule = {
       test: /\.tsx$/,
       enforce: 'pre',
-      loader: 'tslint-loader',
-      options: {
-        formatter: 'stylish',
-        configFile: computePath('./tslint.json')
-      }
+      exclude: ['/node_modules/', '/.next/'],
+      loader: 'eslint-loader'
     }
-    config.module.rules.push(tsLintRule)
+    config.module.rules.push(esLintRule)
     // Do not run type checking twice:
     if (options.isServer) config.plugins.push(new ForkTsCheckerWebpackPlugin())
 

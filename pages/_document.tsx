@@ -14,13 +14,13 @@ type MergedProps = DocumentProps & {
 }
 
 export default class MyDocument extends Document<MergedProps> {
-  static async getInitialProps(ctx: NextDocumentContext) {
+  public static async getInitialProps(ctx: NextDocumentContext) {
     const page = ctx.renderPage()
 
     return { ...page, typeStyles: getStyles() }
   }
 
-  render() {
+  public render() {
     return (
       <html>
         <Head>

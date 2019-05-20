@@ -2,39 +2,33 @@ import * as React from 'react'
 import Link from 'next/link'
 import { style } from 'typestyle'
 
-type State = {
-  isOpen: boolean
-}
+function OtherPage() {
+  const [isOpen, setIsOpen] = React.useState(false)
 
-export class Other extends React.Component<{}, State> {
-  state: Readonly<State> = {
-    isOpen: false
+  function handleClick() {
+    setIsOpen(s => !s)
   }
 
-  handleClick = () => this.setState(_ => ({ isOpen: !_.isOpen }))
+  const btnStyles = style({
+    backgroundColor: '#eee',
+    marginBottom: '1rem',
+    padding: '0.5rem 1rem',
+    cursor: 'pointer'
+  })
 
-  render() {
-    const btnStyles = style({
-      backgroundColor: '#eee',
-      marginBottom: '1rem',
-      padding: '0.5rem 1rem',
-      cursor: 'pointer'
-    })
-
-    return (
-      <>
-        <Link href="/">
-          <a className={style({ display: 'block', marginBottom: '1rem' })}>home ⬅️</a>
-        </Link>
-        <button className={btnStyles} onClick={this.handleClick}>
-          update state
-        </button>
-        <div>
-          state: <span>{`${JSON.stringify(this.state)}`}</span>
-        </div>
-      </>
-    )
-  }
+  return (
+    <>
+      <Link href="/">
+        <a className={style({ display: 'block', marginBottom: '1rem' })}>home ⬅️</a>
+      </Link>
+      <button className={btnStyles} onClick={handleClick}>
+        update state
+      </button>
+      <div>
+        state: <span>{`${isOpen}`}</span>
+      </div>
+    </>
+  )
 }
 
-export default Other
+export default OtherPage
