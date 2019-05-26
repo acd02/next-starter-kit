@@ -1,8 +1,7 @@
 import * as React from 'react'
-import Link from 'next/link'
-import { css } from 'emotion'
+import { css } from '@emotion/core'
 
-import { Layout } from 'components/layouts'
+import { MainLayout } from 'components/layouts/main'
 
 const textStyles = css({
   fontSize: '40px'
@@ -10,11 +9,8 @@ const textStyles = css({
 
 export default function Home() {
   return (
-    <Layout title="app">
-      <Link href="/other">
-        <a className={css({ display: 'block', marginBottom: '1rem' })}>other ➡️</a>
-      </Link>
-      <p className={textStyles}>content</p>
-    </Layout>
+    <MainLayout title="app">
+      <p css={textStyles}>content</p>
+    </MainLayout>
   )
 }

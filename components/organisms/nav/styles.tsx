@@ -1,4 +1,4 @@
-import { css } from 'emotion'
+import { css } from '@emotion/core'
 
 const root = css({
   flex: 'none',
@@ -7,15 +7,21 @@ const root = css({
   textAlign: 'center'
 })
 
-const second = css({
-  $nest: {
-    'p:first-of-type': {
-      fontSize: '2rem'
-    }
+const header = css({
+  marginBottom: '16px'
+})
+
+const links = css({
+  display: 'flex',
+  flexWrap: 'wrap',
+  justifyContent: 'center',
+  'a:not(:last-of-type)': {
+    marginRight: '12px'
   }
 })
 
 export const styles = {
   root,
-  second
+  header,
+  links
 }

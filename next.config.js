@@ -1,7 +1,9 @@
 const computePath = require('./utils').computePath
 
+/* eslint-disable */
 const withTypescript = require('@zeit/next-typescript')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+/* eslint-enable */
 
 module.exports = withTypescript({
   webpack(config, options) {
@@ -17,7 +19,9 @@ module.exports = withTypescript({
 
     config.resolve.alias = Object.assign({}, config.resolve.alias, {
       components: computePath('./components/'),
-      pages: computePath('./pages/')
+      pages: computePath('./pages/'),
+      routes: computePath('./routes.ts'),
+      static: computePath('./static/')
     })
 
     return config

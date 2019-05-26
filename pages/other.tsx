@@ -1,10 +1,17 @@
 import * as React from 'react'
-import Link from 'next/link'
-import { css } from 'emotion'
+import { css } from '@emotion/core'
 
-import { Layout } from 'components/layouts'
+import { MainLayout } from 'components/layouts/main'
 
 export default function OtherPage() {
+  return (
+    <MainLayout title="other">
+      <Switch />
+    </MainLayout>
+  )
+}
+
+function Switch() {
   const [isOpen, setIsOpen] = React.useState(false)
 
   function handleClick() {
@@ -19,16 +26,13 @@ export default function OtherPage() {
   })
 
   return (
-    <Layout title="other">
-      <Link href="/">
-        <a className={css({ display: 'block', marginBottom: '1rem' })}>home ⬅️</a>
-      </Link>
-      <button className={btnStyles} onClick={handleClick}>
+    <>
+      <button css={btnStyles} onClick={handleClick}>
         update state
       </button>
       <div>
         state: <span>{`${isOpen}`}</span>
       </div>
-    </Layout>
+    </>
   )
 }

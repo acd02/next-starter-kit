@@ -1,8 +1,8 @@
 import * as React from 'react'
-import { css } from 'emotion'
+import { css } from '@emotion/core'
 
-import { Meta } from '../atoms'
-import { Nav, Footer } from '../organisms'
+import { Meta } from '../../atoms/meta'
+import { Nav, Footer } from '../../organisms'
 
 const rootStyles = css({
   display: 'flex',
@@ -19,11 +19,11 @@ type Props = {
   title: string
 }
 
-export const Layout = (props: Props & React.Props<{}>) => (
-  <div className={rootStyles}>
+export const MainLayout = (props: Props & React.Props<{}>) => (
+  <div css={rootStyles}>
     <Meta title={props.title} />
     <Nav />
-    <div className={containerStyles}>{props.children}</div>
+    <div css={containerStyles}>{props.children}</div>
     <Footer />
   </div>
 )

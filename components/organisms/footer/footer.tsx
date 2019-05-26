@@ -4,6 +4,6 @@ import { styles } from './styles'
 
 export const Footer = () => (
   <>
-    <footer className={styles.root}>footer</footer>
+    <footer css={styles.root}>footer</footer>
   </>
 )
