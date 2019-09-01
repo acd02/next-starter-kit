@@ -1,10 +1,9 @@
-import { styles } from './styles'
-
-import * as React from 'react'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
-
+import * as React from 'react'
 import { Routes } from 'routes'
+
+import { styles } from './styles'
 
 type Props = {
   to: Routes

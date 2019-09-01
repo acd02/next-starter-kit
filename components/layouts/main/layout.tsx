@@ -1,8 +1,8 @@
-import * as React from 'react'
 import { css } from '@emotion/core'
+import * as React from 'react'
 
 import { Meta } from '../../atoms/meta'
-import { Nav, Footer } from '../../organisms'
+import { Footer, Nav } from '../../organisms'
 
 const rootStyles = css({
   display: 'flex',

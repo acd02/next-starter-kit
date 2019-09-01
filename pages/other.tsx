@@ -1,7 +1,6 @@
-import * as React from 'react'
 import { css } from '@emotion/core'
-
 import { MainLayout } from 'components/layouts/main'
+import * as React from 'react'
 
 export default function OtherPage() {
   return (
