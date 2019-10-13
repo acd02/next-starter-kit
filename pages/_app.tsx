@@ -1,4 +1,4 @@
-import App, { Container } from 'next/app'
+import App from 'next/app'
 import * as React from 'react'
 
 /**
@@ -19,11 +19,7 @@ class Root extends App {
       props: { Component }
     } = (this as unknown) as Props /* 1 */
 
-    return (
-      <Container>
-        <Component />
-      </Container>
-    )
+    return <Component />
   }
 }
 
