@@ -1,8 +1,8 @@
 {
   "{pages,components}/**/*.{ts,tsx}": [
-    "eslint --config .eslintrc.js ./components ./pages --ext .ts,.tsx,.js --fix",
+    "npm run lint",
     "git add",
-    "prettier --config .prettierrc.json --write",
+    "npm run prettier",
     "git add"
   ]
 }
