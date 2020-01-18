@@ -1,6 +1,6 @@
 {
   "{pages,components}/**/*.{ts,tsx}": [
-    "npm run lint",
+    "npm run lint:prod",
     "git add",
     "npm run prettier",
     "git add"
