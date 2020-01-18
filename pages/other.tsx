@@ -1,6 +1,7 @@
 import { css } from '@emotion/core'
 import { MainLayout } from 'components/layouts/main'
 import * as React from 'react'
+import { Theme } from 'theme'
 
 export default function OtherPage() {
   return (
@@ -10,12 +11,13 @@ export default function OtherPage() {
   )
 }
 
-const btnStyles = css({
-  backgroundColor: '#eee',
-  marginBottom: '1rem',
-  padding: '0.5rem 1rem',
-  cursor: 'pointer'
-})
+const btnStyles = (t: Theme) =>
+  css({
+    backgroundColor: t.colors.primary,
+    marginBottom: t.spacings.sm,
+    padding: `${t.spacings.xs} ${t.spacings.sm}`,
+    cursor: 'pointer'
+  })
 
 function Content() {
   const [isOpen, setIsOpen] = React.useState(false)

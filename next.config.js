@@ -14,7 +14,8 @@ module.exports = {
       components: computePath('./components/'),
       pages: computePath('./pages/'),
       routes: computePath('./routes.ts'),
-      public: computePath('./public/')
+      public: computePath('./public/'),
+      theme: computePath('./theme.ts')
     })
 
     return config
