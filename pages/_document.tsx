@@ -7,7 +7,7 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <link rel="stylesheet" type="text/css" href="/static/reset.css" />
+          <link rel="stylesheet" type="text/css" href="/reset.css" />
         </Head>
         <body>
           <Main />
