@@ -60,6 +60,7 @@ module.exports = {
     'no-console': [1, { allow: ['error'] }],
     'no-debugger': 1,
     'no-shadow': 2,
+    'no-unused-expressions': 0,
     'no-var': 2,
     quotes: ['error', 'single', { allowTemplateLiterals: false }],
     'space-before-function-paren': [

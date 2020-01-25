@@ -59,6 +59,7 @@ module.exports = {
     'no-console': ['error', { allow: ['error'] }],
     'no-debugger': 2,
     'no-shadow': 2,
+    'no-unused-expressions': 0,
     'no-var': 2,
     quotes: ['error', 'single', { allowTemplateLiterals: false }],
     'space-before-function-paren': [
