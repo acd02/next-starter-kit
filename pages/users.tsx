@@ -2,12 +2,11 @@ import { css } from '@emotion/core'
 import { MainLayout } from 'components/layouts/main'
 import { User } from 'models/user'
 import { NextPage } from 'next'
-import absoluteUrl from 'next-absolute-url'
 import { RenderUsers } from 'pagesContent/users'
 import { api, useStore } from 'pagesContent/users/store'
 import * as React from 'react'
 import { Theme } from 'theme'
-import { get } from 'utils/http'
+import { get, setAPIUrl } from 'utils/http'
 
 type Props = {
   data: User[]
@@ -46,9 +45,7 @@ Users.getInitialProps = async ({ req }): Promise<Partial<Props>> => {
   if (maybeUsers) {
     return { data: maybeUsers }
   } else {
-    const { protocol, host } = absoluteUrl(req)
-    const apiURL = `${protocol}//${host}/api/users`
-    const data = await get<User[]>(apiURL)
+    const data = await get<User[]>(setAPIUrl('api/users', req))
 
     return {
       data

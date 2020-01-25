@@ -8,7 +8,7 @@ import { RenderUser } from 'pagesContent/user'
 import { useStore } from 'pagesContent/users/store'
 import * as React from 'react'
 import { DynamicRoutes, getRouteDetails, Routes } from 'routes'
-import { get } from 'utils/http'
+import { get, setAPIUrl } from 'utils/http'
 
 type Props = {
   maybeUser?: User
@@ -20,6 +20,7 @@ const UserDetail: NextPage<Props, {}> = props => {
 
   const router = useRouter()
   const { paramKey } = getRouteDetails(DynamicRoutes.user)
+
   const user = when(maybeUsers).fold(
     () => maybeUser,
     users => users.find(u => String(u.id) === (router.query[paramKey] as string))
@@ -37,15 +38,15 @@ UserDetail.getInitialProps = async ({ req, res, query }): Promise<Partial<Props>
     // meaning the page is being rendered on the server
     const { paramKey } = getRouteDetails(DynamicRoutes.user)
     const userID = query[paramKey] as string
-    const [err, user] = await to<User>(
-      get(`https://jsonplaceholder.typicode.com/users/${userID}`)
-    )
 
-    if (err)
+    const [err, user] = await to<User>(get(setAPIUrl(`api/user?id=${userID}`, req)))
+
+    if (err) {
       res?.writeHead(301, {
         Location: Routes.users
       })
-    res?.end()
+      res?.end()
+    }
 
     if (user)
       return {

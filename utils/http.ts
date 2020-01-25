@@ -1,4 +1,6 @@
+import { IncomingMessage } from 'http'
 import fetch from 'isomorphic-unfetch'
+import absoluteUrl from 'next-absolute-url'
 
 // see: https://bit.ly/2JVfEgv
 function handleErrors<Err>(res: Response) {
@@ -28,4 +30,10 @@ export function post<Data, Res>(body: Data) {
     })
       .then(handleErrors)
       .then(i => i.json())
+}
+
+export function setAPIUrl(url: string, req?: IncomingMessage) {
+  const { protocol, host } = absoluteUrl(req)
+
+  return `${protocol}//${host}/${url}`
 }
