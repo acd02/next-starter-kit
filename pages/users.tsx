@@ -2,6 +2,7 @@ import { css } from '@emotion/core'
 import { MainLayout } from 'components/layouts/main'
 import { User } from 'models/user'
 import { NextPage } from 'next'
+import absoluteUrl from 'next-absolute-url'
 import { RenderUsers } from 'pagesContent/users'
 import { api, useStore } from 'pagesContent/users/store'
 import * as React from 'react'
@@ -45,8 +46,9 @@ Users.getInitialProps = async ({ req }): Promise<Partial<Props>> => {
   if (maybeUsers) {
     return { data: maybeUsers }
   } else {
-    const baseUrl = req ? req.headers.host : window.location.host
-    const data = await get<User[]>(`http://${baseUrl}/api/users`)
+    const { protocol, host } = absoluteUrl(req)
+    const apiURL = `${protocol}//${host}/api/users`
+    const data = await get<User[]>(apiURL)
 
     return {
       data
