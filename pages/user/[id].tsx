@@ -5,19 +5,18 @@ import { User } from 'models/user'
 import { NextPage } from 'next'
 import NextErrorPage from 'next/error'
 import { useRouter } from 'next/router'
+import { RenderUser } from 'pagesContent/user'
 import { useStore } from 'pagesContent/users/store'
 import * as React from 'react'
 import { DynamicRoutes, getRouteDetails } from 'routes'
 import { get } from 'utils/http'
-
-import { renderUserBlock } from './utils'
 
 type Props = {
   maybeUser?: User
   hasError?: boolean
 }
 
-const RenderUser: NextPage<Props, {}> = props => {
+const UserDetail: NextPage<Props, {}> = props => {
   const { hasError, maybeUser } = props
   const maybeUsers = useStore(s => s.maybeUsers)
 
@@ -30,12 +29,17 @@ const RenderUser: NextPage<Props, {}> = props => {
 
   const ErrorPage = NextErrorPage as any
   const errorPage = hasError ? <ErrorPage /> : undefined
-  const userBlock = renderUserBlock(user)
 
-  return errorPage || <MainLayout title={user?.name ?? ''}>{userBlock}</MainLayout>
+  return (
+    errorPage || (
+      <MainLayout title={user?.name ?? ''}>
+        <RenderUser user={user} />
+      </MainLayout>
+    )
+  )
 }
 
-RenderUser.getInitialProps = async ({ req, query }): Promise<Partial<Props>> => {
+UserDetail.getInitialProps = async ({ req, query }): Promise<Partial<Props>> => {
   if (req) {
     // meaning the page is being rendered on the server
     const { paramKey } = getRouteDetails(DynamicRoutes.user)
@@ -58,4 +62,4 @@ RenderUser.getInitialProps = async ({ req, query }): Promise<Partial<Props>> => 
   return {}
 }
 
-export default RenderUser
+export default UserDetail
