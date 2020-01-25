@@ -1,11 +1,11 @@
-import Document, { Head, Main, NextScript } from 'next/document'
+import Document, { Head, Html, Main, NextScript } from 'next/document'
 import * as React from 'react'
 
 /* eslint-disable-next-line fp/no-class */
 export default class MyDocument extends Document {
   public render() {
     return (
-      <html>
+      <Html>
         <Head>
           <link rel="stylesheet" type="text/css" href="/reset.css" />
         </Head>
@@ -13,7 +13,7 @@ export default class MyDocument extends Document {
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     )
   }
 }

@@ -12,10 +12,13 @@ module.exports = {
 
     config.resolve.alias = Object.assign({}, config.resolve.alias, {
       components: computePath('./components/'),
+      models: computePath('./models/'),
       pages: computePath('./pages/'),
-      routes: computePath('./routes.ts'),
+      pagesContent: computePath('./pagesContent/'),
       public: computePath('./public/'),
-      theme: computePath('./theme.ts')
+      routes: computePath('./routes.ts'),
+      theme: computePath('./theme.ts'),
+      utils: computePath('./utils')
     })
 
     return config

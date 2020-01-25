@@ -9,7 +9,7 @@ export const Nav = () => (
     <header css={styles.header}>nav</header>
     <div css={styles.links}>
       <Link to={Routes.index} label="home" />
-      <Link to={Routes.otherPage} label="other page" />
+      <Link to={Routes.users} label="users" />
     </div>
   </nav>
 )

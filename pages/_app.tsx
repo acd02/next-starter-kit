@@ -7,12 +7,12 @@ import { theme } from 'theme'
 class Root extends App {
   public render() {
     const {
-      props: { Component }
+      props: { Component, pageProps }
     } = this as any
 
     return (
       <ThemeProvider theme={theme}>
-        <Component />
+        <Component {...pageProps} />
       </ThemeProvider>
     )
   }

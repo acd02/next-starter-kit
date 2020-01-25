@@ -8,8 +8,8 @@
     "build-static": "npm run lint:prod && next build && next export",
     "dev": "next",
     "export": "rm -rf .next && npm run build && next export",
-    "lint": "eslint --config .eslintrc.js ./components ./pages --ext .ts,.tsx,.js --fix",
-    "lint:prod": "eslint --config .eslintrc.prod.js ./components ./pages --ext .ts,.tsx,.js --fix",
+    "lint": "eslint --config .eslintrc.js ./ --ext .ts,.tsx,.js --fix",
+    "lint:prod": "eslint --config .eslintrc.prod.js ./ --ext .ts,.tsx,.js --fix",
     "lint-staged": "lint-staged --config .lintstagedrc.json",
     "now": "now",
     "prettier": "prettier --config .prettierrc.json --write \"{pages,components}/**/*.{ts,tsx}\"",
@@ -27,6 +27,8 @@
     "@types/react-transition-group": "4.2.3",
     "@typescript-eslint/eslint-plugin": "2.16.0",
     "@typescript-eslint/parser": "2.16.0",
+    "acd-utils": "6.0.0",
+    "await-to-js": "2.1.1",
     "babel-plugin-emotion": "10.0.27",
     "emotion-theming": "10.0.27",
     "eslint": "6.8.0",
@@ -43,14 +45,16 @@
     "eslint-plugin-simple-import-sort": "5.0.0",
     "eslint-plugin-standard": "4.0.1",
     "husky": "3.1.0",
+    "isomorphic-unfetch": "3.0.0",
     "lint-staged": "9.2.5",
-    "next": "9.2.0",
+    "next": "9.2.1",
     "now": "16.7.3",
     "prettier": "1.19.1",
     "react": "16.12.0",
     "react-dom": "16.12.0",
     "react-transition-group": "4.3.0",
     "ts-node": "8.6.2",
-    "typescript": "3.7.5"
+    "typescript": "3.7.5",
+    "zustand": "2.2.2"
   }
 }
