@@ -9,10 +9,10 @@
     "dev": "next",
     "export": "rm -rf .next && npm run build && next export",
     "lint": "eslint --config .eslintrc.js ./ --ext .ts,.tsx,.js --fix",
-    "lint:prod": "eslint --config .eslintrc.prod.js ./ --ext .ts,.tsx,.js --fix",
+    "lint:prod": "eslint --config .eslintrc.prod.js ./components ./models ./pages ./pagesContent ./utils --ext .ts,.tsx,.js --fix",
     "lint-staged": "lint-staged --config .lintstagedrc.json",
-    "now": "now",
-    "prettier": "prettier --config .prettierrc.json --write \"{pages,components}/**/*.{ts,tsx}\"",
+    "now": "now --prod",
+    "prettier": "prettier --config .prettierrc.json --write \"{components,models,pages,pagesContent,utils}/**/*.{ts,tsx}\"",
     "start": "next start"
   },
   "husky": {
