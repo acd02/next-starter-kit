@@ -14,8 +14,7 @@ module.exports = {
     'utils.js',
     '.next/',
     'next.config.js',
-    'node_modules/',
-    'zeit/'
+    'node_modules/'
   ],
   parserOptions: {
     ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
