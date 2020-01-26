@@ -16,7 +16,13 @@ export function Link(props: Props) {
 
   return (
     <NextLink href={props.to}>
-      <a css={[styles.root, isActive && styles.isActive]}>{props.label}</a>
+      <a
+        tabIndex={0}
+        css={[styles.root, isActive && styles.isActive]}
+        onKeyPress={handleKeyPress}
+      >
+        {props.label}
+      </a>
     </NextLink>
   )
 }
@@ -35,7 +41,16 @@ export function DynamicLink(props: DynamicLinkProps) {
       href={`${routeDetails.basePath}/${routeDetails.paramBracket}`}
       as={`${routeDetails.basePath}/${param}`}
     >
-      <a css={[styles.root]}>{label}</a>
+      <a tabIndex={0} onKeyPress={handleKeyPress} css={[styles.root]}>
+        {label}
+      </a>
     </NextLink>
   )
+}
+
+function handleKeyPress(e: React.KeyboardEvent<HTMLAnchorElement>) {
+  if (e.key === 'Enter' || e.location === 0) {
+    const target = e.target as HTMLAnchorElement
+    target.click()
+  }
 }
