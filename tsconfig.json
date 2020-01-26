@@ -2,14 +2,19 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": false,
     "baseUrl": ".",
+    "paths": {
+      "components/*": ["./src/components/*"],
+      "models/*": ["./src/models/*"],
+      "pages/*": ["./src/pages/*"],
+      "pagesContent/*": ["./src/pagesContent/*"],
+      "utils/*": ["./src/utils/*"],
+      "routes": ["./src/routes.ts"],
+      "theme": ["./src/theme.ts"]
+    },
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "preserve",
-    "lib": [
-      "dom",
-      "es2018",
-      "es5"
-    ],
+    "lib": ["dom", "es2018", "es5"],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
@@ -25,12 +30,6 @@
     "allowJs": true,
     "isolatedModules": true
   },
-  "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ]
+  "exclude": ["node_modules"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }

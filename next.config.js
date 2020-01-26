@@ -10,16 +10,17 @@ module.exports = {
     }
     config.module.rules.push(esLintRule)
 
-    config.resolve.alias = Object.assign({}, config.resolve.alias, {
-      components: computePath('./components/'),
-      models: computePath('./models/'),
-      pages: computePath('./pages/'),
-      pagesContent: computePath('./pagesContent/'),
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      components: computePath('./src/components/'),
+      models: computePath('./src/models/'),
+      pages: computePath('./src/pages/'),
+      pagesContent: computePath('./src/pagesContent/'),
       public: computePath('./public/'),
-      routes: computePath('./routes.ts'),
-      theme: computePath('./theme.ts'),
-      utils: computePath('./utils')
-    })
+      routes: computePath('./src/routes.ts'),
+      theme: computePath('./src/theme.ts'),
+      utils: computePath('./src/utils')
+    }
 
     return config
   }
