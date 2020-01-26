@@ -9,7 +9,7 @@ import { Theme } from 'theme'
 import { get, setAPIUrl } from 'utils/http'
 
 type Props = {
-  data: User[]
+  fetchedUsers: User[]
 }
 
 const btnStyles = (t: Theme) =>
@@ -26,7 +26,7 @@ const Users: NextPage<Props, {}> = props => {
   const maybeUsers = useStore(s => s.maybeUsers)
 
   React.useEffect(() => {
-    initUsers(props.data)
+    !maybeUsers && initUsers(props.fetchedUsers)
   }, [])
 
   return (
@@ -43,12 +43,12 @@ Users.getInitialProps = async ({ req }): Promise<Partial<Props>> => {
   const { maybeUsers } = api.getState()
 
   if (maybeUsers) {
-    return { data: maybeUsers }
+    return { fetchedUsers: maybeUsers }
   } else {
-    const data = await get<User[]>(setAPIUrl('api/users', req))
+    const fetchedUsers = await get<User[]>(setAPIUrl('api/users', req))
 
     return {
-      data
+      fetchedUsers
     }
   }
 }

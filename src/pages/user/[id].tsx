@@ -11,18 +11,18 @@ import { DynamicRoutes, getRouteDetails, Routes } from 'routes'
 import { get, setAPIUrl } from 'utils/http'
 
 type Props = {
-  maybeUser?: User
+  fetchedUser?: User
 }
 
 const UserDetail: NextPage<Props, {}> = props => {
-  const { maybeUser } = props
+  const { fetchedUser } = props
   const maybeUsers = useStore(s => s.maybeUsers)
 
   const router = useRouter()
   const { paramKey } = getRouteDetails(DynamicRoutes.user)
 
   const user = when(maybeUsers).fold(
-    () => maybeUser,
+    () => fetchedUser,
     users => users.find(u => String(u.id) === (router.query[paramKey] as string))
   )
 
@@ -34,27 +34,22 @@ const UserDetail: NextPage<Props, {}> = props => {
 }
 
 UserDetail.getInitialProps = async ({ req, res, query }): Promise<Partial<Props>> => {
-  if (req) {
-    // meaning the page is being rendered on the server
-    const { paramKey } = getRouteDetails(DynamicRoutes.user)
-    const userID = query[paramKey] as string
+  // if page is being rendered on the client
+  if (!req) return {}
 
-    const [err, user] = await to<User>(get(setAPIUrl(`api/user?id=${userID}`, req)))
+  const { paramKey } = getRouteDetails(DynamicRoutes.user)
+  const userID = query[paramKey] as string
 
-    if (err) {
-      res?.writeHead(301, {
-        Location: Routes.users
-      })
-      res?.end()
-    }
+  const [err, fetchedUser] = await to<User>(get(setAPIUrl(`api/user?id=${userID}`, req)))
 
-    if (user)
-      return {
-        maybeUser: user
-      }
+  if (err) {
+    res?.writeHead(301, {
+      Location: Routes.users
+    })
+    res?.end()
   }
 
-  return {}
+  return { fetchedUser }
 }
 
 export default UserDetail
