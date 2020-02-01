@@ -6,6 +6,7 @@ import { RenderUsers } from 'pagesContent/users'
 import { api, useStore } from 'pagesContent/users/store'
 import * as React from 'react'
 import { Theme } from 'theme'
+import { when } from 'acd-utils'
 import { get, setAPIUrl } from 'utils/http'
 
 type Props = {
@@ -23,10 +24,11 @@ const btnStyles = (t: Theme) =>
 const Users: NextPage<Props, {}> = props => {
   const [showUsers, setShowUsers] = React.useState(true)
   const initUsers = useStore(s => s.initUsers)
-  const maybeUsers = useStore(s => s.maybeUsers)
+  const storeUsers = useStore(s => s.maybeUsers)
+  const users = when(storeUsers).getOrElse(props.fetchedUsers)
 
   React.useEffect(() => {
-    !maybeUsers && initUsers(props.fetchedUsers)
+    !storeUsers && initUsers(props.fetchedUsers)
   }, [])
 
   return (
@@ -34,7 +36,7 @@ const Users: NextPage<Props, {}> = props => {
       <button css={btnStyles} onClick={() => setShowUsers(s => !s)}>
         {showUsers ? 'hide' : 'show'} users
       </button>
-      {showUsers && maybeUsers && <RenderUsers users={maybeUsers} />}
+      {showUsers && <RenderUsers users={users} />}
     </MainLayout>
   )
 }
