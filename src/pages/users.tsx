@@ -7,7 +7,7 @@ import { api, useStore } from 'pagesContent/users/store'
 import * as React from 'react'
 import { Theme } from 'theme'
 import { when } from 'acd-utils'
-import { get, setAPIUrl } from 'utils/http'
+import { get } from 'utils/http'
 
 type Props = {
   fetchedUsers: User[]
@@ -47,7 +47,7 @@ Users.getInitialProps = async ({ req }): Promise<Partial<Props>> => {
   if (maybeUsers) {
     return { fetchedUsers: maybeUsers }
   } else {
-    const fetchedUsers = await get<User[]>(setAPIUrl('api/users', req))
+    const fetchedUsers = await get<User[]>('api/users', req)
 
     return {
       fetchedUsers

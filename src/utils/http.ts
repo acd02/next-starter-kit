@@ -2,16 +2,10 @@ import { IncomingMessage } from 'http'
 import fetch from 'isomorphic-unfetch'
 import absoluteUrl from 'next-absolute-url'
 
-// see: https://bit.ly/2JVfEgv
-function handleErrors<Err>(res: Response) {
-  if (!res.ok)
-    /* eslint-disable-next-line prefer-promise-reject-errors */
-    return Promise.reject((res as unknown) as Err)
-  else return Promise.resolve(res)
-}
+export function get<Res>(url: string, req?: IncomingMessage): Promise<Res> {
+  const formattedUrl = !!req ? formatAPIUrl(url, req) : url
 
-export function get<Res>(url: string): Promise<Res> {
-  return fetch(url)
+  return fetch(formattedUrl)
     .then(handleErrors)
     .then(i => i.json())
 }
@@ -32,7 +26,17 @@ export function post<Data, Res>(body: Data) {
       .then(i => i.json())
 }
 
-export function setAPIUrl(url: string, req?: IncomingMessage) {
+// utils
+
+// see: https://bit.ly/2JVfEgv
+function handleErrors<Err>(res: Response) {
+  if (!res.ok)
+    /* eslint-disable-next-line prefer-promise-reject-errors */
+    return Promise.reject((res as unknown) as Err)
+  else return Promise.resolve(res)
+}
+
+function formatAPIUrl(url: string, req: IncomingMessage) {
   const { protocol, host } = absoluteUrl(req)
 
   return `${protocol}//${host}/${url}`

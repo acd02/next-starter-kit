@@ -8,7 +8,7 @@ import { RenderUser } from 'pagesContent/user'
 import { useStore } from 'pagesContent/users/store'
 import * as React from 'react'
 import { DynamicRoutes, getRouteDetails, Routes } from 'routes'
-import { get, setAPIUrl } from 'utils/http'
+import { get } from 'utils/http'
 
 type Props = {
   fetchedUser?: User
@@ -40,7 +40,7 @@ UserDetail.getInitialProps = async ({ req, res, query }): Promise<Partial<Props>
   const { paramKey } = getRouteDetails(DynamicRoutes.user)
   const userID = query[paramKey] as string
 
-  const [err, fetchedUser] = await to<User>(get(setAPIUrl(`api/user?id=${userID}`, req)))
+  const [err, fetchedUser] = await to<User>(get(`api/user?id=${userID}`, req))
 
   if (err) {
     res?.writeHead(301, {
