@@ -7,7 +7,6 @@ type State = {
 }
 
 export const [useStore, api] = create<State>(set => ({
-  maybeUsers: undefined,
   initUsers(users) {
     set({ maybeUsers: users })
   }

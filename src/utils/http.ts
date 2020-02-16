@@ -3,7 +3,7 @@ import fetch from 'isomorphic-unfetch'
 import absoluteUrl from 'next-absolute-url'
 
 export function get<Res>(url: string, req?: IncomingMessage): Promise<Res> {
-  const formattedUrl = !!req ? formatAPIUrl(url, req) : url
+  const formattedUrl = req ? formatAPIUrl(url, req) : url
 
   return fetch(formattedUrl)
     .then(handleErrors)

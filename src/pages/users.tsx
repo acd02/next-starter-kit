@@ -1,4 +1,5 @@
 import { css } from '@emotion/core'
+import { when } from 'acd-utils'
 import { MainLayout } from 'components/layouts/main'
 import { User } from 'models/user'
 import { NextPage } from 'next'
@@ -6,7 +7,6 @@ import { RenderUsers } from 'pagesContent/users'
 import { api, useStore } from 'pagesContent/users/store'
 import * as React from 'react'
 import { Theme } from 'theme'
-import { when } from 'acd-utils'
 import { get } from 'utils/http'
 
 type Props = {
