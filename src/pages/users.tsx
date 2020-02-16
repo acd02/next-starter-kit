@@ -44,15 +44,16 @@ const Users: NextPage<Props, {}> = props => {
 Users.getInitialProps = async ({ req }): Promise<Partial<Props>> => {
   const { maybeUsers } = api.getState()
 
-  if (maybeUsers) {
-    return { fetchedUsers: maybeUsers }
-  } else {
-    const fetchedUsers = await get<User[]>('api/users', req)
+  return when(maybeUsers).fold(
+    async () => {
+      const fetchedUsers = await get<User[]>('api/users', req)
 
-    return {
-      fetchedUsers
-    }
-  }
+      return {
+        fetchedUsers
+      }
+    },
+    async users => ({ fetchedUsers: users })
+  )
 }
 
 export default Users
