@@ -4,13 +4,13 @@ import * as React from 'react'
 import { styles } from './styles'
 
 type Props = {
-  user?: User
+  user: User
 }
 
 export function RenderUser(props: Props) {
   const { user } = props
 
-  return user ? (
+  return (
     <div css={styles.root}>
       <p>
         <span>name:</span> {user.name}
@@ -28,7 +28,5 @@ export function RenderUser(props: Props) {
         <span>street:</span> {user.address.street}
       </p>
     </div>
-  ) : (
-    <></>
   )
 }

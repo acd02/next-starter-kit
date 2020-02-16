@@ -11,7 +11,7 @@ import { DynamicRoutes, getRouteDetails, Routes } from 'routes'
 import { get } from 'utils/http'
 
 type Props = {
-  fetchedUser?: User
+  fetchedUser: User
 }
 
 const UserDetail: NextPage<Props, {}> = props => {
@@ -27,9 +27,7 @@ const UserDetail: NextPage<Props, {}> = props => {
   )
 
   return (
-    <MainLayout title={user?.name ?? ''}>
-      <RenderUser user={user} />
-    </MainLayout>
+    <MainLayout title={user?.name ?? ''}>{user && <RenderUser user={user} />}</MainLayout>
   )
 }
 
