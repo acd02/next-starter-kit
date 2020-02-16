@@ -43,10 +43,12 @@ UserDetail.getInitialProps = async ({ req, res, query }): Promise<Partial<Props>
   const [err, fetchedUser] = await to<User>(get(`api/user?id=${userID}`, req))
 
   if (err) {
+    /* eslint-disable no-unused-expressions */
     res?.writeHead(301, {
       Location: Routes.users
     })
     res?.end()
+    /* eslint-enable */
   }
 
   return { fetchedUser }

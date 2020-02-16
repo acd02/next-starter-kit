@@ -9,13 +9,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:prettier/recommended' // Enables eslint-plugin-prettier and displays prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
   ],
-  ignorePatterns: [
-    'out/',
-    'utils.js',
-    '.next/',
-    'next.config.js',
-    'node_modules/'
-  ],
+  ignorePatterns: ['out/', 'utils.js', '.next/', 'next.config.js', 'node_modules/'],
   parserOptions: {
     ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
     sourceType: 'module' // Allows for the use of imports
@@ -59,7 +53,7 @@ module.exports = {
     'no-console': [1, { allow: ['error'] }],
     'no-debugger': 1,
     'no-shadow': 2,
-    'no-unused-expressions': 0,
+    'no-unused-expressions': [2, { allowShortCircuit: true }],
     'no-var': 2,
     quotes: ['error', 'single', { allowTemplateLiterals: false }],
     'space-before-function-paren': [
