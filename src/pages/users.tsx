@@ -46,7 +46,9 @@ Users.getInitialProps = async ({ req }): Promise<Partial<Props>> => {
 
   return when(maybeUsers).fold(
     async () => {
-      const fetchedUsers = await get<User[]>('api/users', req)
+      const clientSidePrefix = req ? '' : '/'
+
+      const fetchedUsers = await get<User[]>(`${clientSidePrefix}api/users`, req)
 
       return {
         fetchedUsers
