@@ -1,4 +1,4 @@
-import { err, ok, Result } from 'acd-utils'
+import { err, ok, Result, result } from 'acd-utils'
 import to from 'await-to-js'
 import { IncomingMessage } from 'http'
 import fetch from 'isomorphic-unfetch'
@@ -17,8 +17,7 @@ export async function get<Res, Err>(
       .then(i => i.json())
   )
 
-  if (error) return err(error)
-  else return ok(data as Res)
+  return result(error ? err(error) : ok(data as Res))
 }
 
 export function post<Data, Res>(body: Data) {

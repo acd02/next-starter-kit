@@ -28,7 +28,7 @@
     "@types/react-transition-group": "4.2.3",
     "@typescript-eslint/eslint-plugin": "2.16.0",
     "@typescript-eslint/parser": "2.16.0",
-    "acd-utils": "6.0.0",
+    "acd-utils": "7.0.0",
     "await-to-js": "2.1.1",
     "babel-plugin-emotion": "10.0.27",
     "emotion-theming": "10.0.27",

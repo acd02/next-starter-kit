@@ -1,4 +1,4 @@
-import { result, when } from 'acd-utils'
+import { when } from 'acd-utils'
 import { MainLayout } from 'components/layouts/main'
 import { User } from 'models/user'
 import { NextPage } from 'next'
@@ -37,7 +37,7 @@ UserDetail.getInitialProps = async ({ req, res, query }): Promise<Partial<Props>
   const { paramKey } = getRouteDetails(DynamicRoutes.user)
   const userID = query[paramKey] as string
 
-  return result(await get<User, {}>(`api/user?id=${userID}`, req)).fold(
+  return (await get<User, {}>(`api/user?id=${userID}`, req)).fold(
     () => {
       /* eslint-disable no-unused-expressions */
       res?.writeHead(301, {
