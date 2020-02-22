@@ -1,14 +1,24 @@
+import { err, ok, Result } from 'acd-utils'
+import to from 'await-to-js'
 import { IncomingMessage } from 'http'
 import fetch from 'isomorphic-unfetch'
 import absoluteUrl from 'next-absolute-url'
 
-export function get<Res>(url: string, req?: IncomingMessage): Promise<Res> {
+export async function get<Res, Err>(
+  url: string,
+  req?: IncomingMessage
+): Promise<Result<Err, Res>> {
   const prefixedUrl = `${/^api/.test(url) ? '/' : ''}${url}`
   const formattedUrl = req ? formatAPIUrl(url, req) : prefixedUrl
 
-  return fetch(formattedUrl)
-    .then(handleErrors)
-    .then(i => i.json())
+  const [error, data] = await to<Res, Err>(
+    fetch(formattedUrl)
+      .then(handleErrors)
+      .then(i => i.json())
+  )
+
+  if (error) return err(error)
+  else return ok(data as Res)
 }
 
 export function post<Data, Res>(body: Data) {

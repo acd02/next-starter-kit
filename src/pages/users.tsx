@@ -1,5 +1,5 @@
 import { css } from '@emotion/core'
-import { when } from 'acd-utils'
+import { result, when } from 'acd-utils'
 import { MainLayout } from 'components/layouts/main'
 import { User } from 'models/user'
 import { NextPage } from 'next'
@@ -46,10 +46,13 @@ Users.getInitialProps = async ({ req }): Promise<Partial<Props>> => {
 
   return when(maybeUsers).fold(
     async () => {
-      const fetchedUsers = await get<User[]>('api/users', req)
+      const fetchedUsers = await get<User[], {}>('api/users', req)
 
       return {
-        fetchedUsers
+        fetchedUsers: result(fetchedUsers).fold(
+          () => [],
+          users => users
+        )
       }
     },
     async users => ({ fetchedUsers: users })

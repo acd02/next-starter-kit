@@ -1,5 +1,4 @@
-import { when } from 'acd-utils'
-import to from 'await-to-js'
+import { result, when } from 'acd-utils'
 import { MainLayout } from 'components/layouts/main'
 import { User } from 'models/user'
 import { NextPage } from 'next'
@@ -38,18 +37,19 @@ UserDetail.getInitialProps = async ({ req, res, query }): Promise<Partial<Props>
   const { paramKey } = getRouteDetails(DynamicRoutes.user)
   const userID = query[paramKey] as string
 
-  const [err, fetchedUser] = await to<User>(get(`api/user?id=${userID}`, req))
+  return result(await get<User, {}>(`api/user?id=${userID}`, req)).fold(
+    () => {
+      /* eslint-disable no-unused-expressions */
+      res?.writeHead(301, {
+        Location: Routes.users
+      })
+      res?.end()
+      /* eslint-enable */
 
-  if (err) {
-    /* eslint-disable no-unused-expressions */
-    res?.writeHead(301, {
-      Location: Routes.users
-    })
-    res?.end()
-    /* eslint-enable */
-  }
-
-  return { fetchedUser }
+      return {}
+    },
+    fetchedUser => ({ fetchedUser })
+  )
 }
 
 export default UserDetail
