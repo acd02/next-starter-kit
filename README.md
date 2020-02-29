@@ -10,4 +10,4 @@
 
 ## Features:
 
-- Styles: [emotion](https://emotion.sh/docs/introduction)
+- Styles: [Tailwind CSS](https://tailwindcss.com/)

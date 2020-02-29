@@ -1,4 +1,3 @@
-import { css } from '@emotion/core'
 import { NextPage } from 'next'
 import * as React from 'react'
 
@@ -6,16 +5,9 @@ type Props = {
   statusCode?: number
 }
 
-const styles = css({
-  display: 'flex',
-  height: '100%',
-  justifyContent: 'center',
-  alignItems: 'center'
-})
-
 const Error: NextPage<Props, {}> = ({ statusCode }) => {
   return (
-    <div css={styles}>
+    <div className="flex justify-center items-center h-full">
       {(() => {
         if (statusCode)
           return statusCode === 404

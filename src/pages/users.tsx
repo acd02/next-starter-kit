@@ -1,4 +1,3 @@
-import { css } from '@emotion/core'
 import { when } from 'acd-utils'
 import { MainLayout } from 'components/layouts/main'
 import { User } from 'models/user'
@@ -6,20 +5,11 @@ import { NextPage } from 'next'
 import { RenderUsers } from 'pagesContent/users'
 import { api, useStore } from 'pagesContent/users/store'
 import * as React from 'react'
-import { Theme } from 'theme'
 import { get } from 'utils/http'
 
 type Props = {
   fetchedUsers: User[]
 }
-
-const btnStyles = (t: Theme) =>
-  css({
-    backgroundColor: t.colors.primary,
-    marginBottom: t.spacings.sm,
-    padding: `${t.spacings.xs} ${t.spacings.sm}`,
-    cursor: 'pointer'
-  })
 
 const Users: NextPage<Props, {}> = props => {
   const [showUsers, setShowUsers] = React.useState(true)
@@ -33,7 +23,10 @@ const Users: NextPage<Props, {}> = props => {
 
   return (
     <MainLayout title="users">
-      <button css={btnStyles} onClick={() => setShowUsers(s => !s)}>
+      <button
+        className="cursor-pointer py-1 px-2 bg-gray-300 mb-2"
+        onClick={() => setShowUsers(s => !s)}
+      >
         {showUsers ? 'hide' : 'show'} users
       </button>
       {showUsers && <RenderUsers users={users} />}
