@@ -3,8 +3,6 @@ import { User } from 'models/user'
 import * as React from 'react'
 import { DynamicRoutes, getRouteDetails } from 'routes'
 
-import { styles } from './styles'
-
 type Props = {
   users: User[]
 }
@@ -12,11 +10,9 @@ type Props = {
 export function RenderUsers(props: Props) {
   return (
     <>
-      <h2 className="text-gray-900" css={styles.title}>
-        Users:
-      </h2>
+      <h2 className="text-4xl mb-4">Users:</h2>
       {props.users.map(u => (
-        <span key={u.id} css={styles.user}>
+        <span className="block mb-2" key={u.id}>
           <DynamicLink
             routeDetails={getRouteDetails(DynamicRoutes.user)}
             param={`${u.id}`}

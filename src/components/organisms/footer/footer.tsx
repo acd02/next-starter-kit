@@ -1,9 +1,9 @@
 import * as React from 'react'
 
-import { styles } from './styles'
-
 export const Footer = () => (
   <>
-    <footer css={styles.root}>footer</footer>
+    <footer className="flex-none py-4 text-center border-t border-gray-300">
+      footer
+    </footer>
   </>
 )

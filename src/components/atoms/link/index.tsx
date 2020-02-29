@@ -2,12 +2,12 @@ import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 import * as React from 'react'
 import { DynamicRoutesDetail, Routes } from 'routes'
-
-import { styles } from './styles'
+import cx from 'classcat'
 
 type Props = {
   to: Routes
   label: string
+  className?: string
 }
 
 export function Link(props: Props) {
@@ -18,7 +18,11 @@ export function Link(props: Props) {
     <NextLink href={props.to}>
       <a
         tabIndex={0}
-        css={[styles.root, isActive && styles.isActive]}
+        className={cx([
+          'cursor-pointer text-gray-600',
+          isActive && 'border-b border-gray-600',
+          props.className
+        ])}
         onKeyPress={handleKeyPress}
       >
         {props.label}
@@ -41,7 +45,11 @@ export function DynamicLink(props: DynamicLinkProps) {
       href={`${routeDetails.basePath}/${routeDetails.paramBracket}`}
       as={`${routeDetails.basePath}/${param}`}
     >
-      <a tabIndex={0} onKeyPress={handleKeyPress} css={[styles.root]}>
+      <a
+        tabIndex={0}
+        onKeyPress={handleKeyPress}
+        className={cx('cursor-pointer text-gray-600')}
+      >
         {label}
       </a>
     </NextLink>
