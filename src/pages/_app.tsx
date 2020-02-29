@@ -1,3 +1,5 @@
+import '../css/tailwind.css'
+
 import { ThemeProvider } from 'emotion-theming'
 import App from 'next/app'
 import Router from 'next/router'

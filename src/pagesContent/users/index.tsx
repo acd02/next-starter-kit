@@ -12,7 +12,9 @@ type Props = {
 export function RenderUsers(props: Props) {
   return (
     <>
-      <h2 css={styles.title}>Users:</h2>
+      <h2 className="text-gray-900" css={styles.title}>
+        Users:
+      </h2>
       {props.users.map(u => (
         <span key={u.id} css={styles.user}>
           <DynamicLink
