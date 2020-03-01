@@ -1,8 +1,8 @@
+import cx from 'classcat'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 import * as React from 'react'
 import { DynamicRoutesDetail, Routes } from 'routes'
-import cx from 'classcat'
 
 type Props = {
   to: Routes
