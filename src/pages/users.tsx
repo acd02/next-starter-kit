@@ -24,7 +24,8 @@ const Users: NextPage<Props, {}> = props => {
   return (
     <MainLayout title="users">
       <button
-        className="cursor-pointer py-1 px-2 bg-gray-300 mb-2"
+        className="cursor-pointer py-1 px-2 bg-gray-300 mb-2
+        hover:bg-gray-400 focus:bg-gray-400 transition-colors duration-200"
         onClick={() => setShowUsers(s => !s)}
       >
         {showUsers ? 'hide' : 'show'} users
