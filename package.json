@@ -24,6 +24,7 @@
     "@babel/core": "7.8.3",
     "@fullhuman/postcss-purgecss": "2.1.0",
     "@types/nprogress": "0.2.0",
+    "@types/node": "13.7.7",
     "@types/react-transition-group": "4.2.3",
     "@typescript-eslint/eslint-plugin": "2.16.0",
     "@typescript-eslint/parser": "2.16.0",
@@ -47,7 +48,7 @@
     "husky": "4.2.3",
     "isomorphic-unfetch": "3.0.0",
     "lint-staged": "10.0.8",
-    "next": "9.2.1",
+    "next": "9.2.2",
     "next-absolute-url": "1.2.0",
     "now": "16.7.3",
     "nprogress": "0.2.0",
@@ -59,7 +60,7 @@
     "react-transition-group": "4.3.0",
     "tailwindcss": "1.2.0",
     "ts-node": "8.6.2",
-    "typescript": "3.7.5",
+    "typescript": "3.8.3",
     "zustand": "2.2.2"
   }
 }
