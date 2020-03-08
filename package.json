@@ -9,7 +9,7 @@
     "dev": "next",
     "export": "rm -rf .next && npm run build && next export",
     "lint": "eslint --config .eslintrc.js ./src --ext .ts,.tsx,.js --fix",
-    "lint-styles": "stylelint --fix \"./src/**/*.module.css\"",
+    "lint:styles": "stylelint --fix \"./src/**/*.module.css\"",
     "lint:prod": "eslint --config .eslintrc.prod.js ./src --ext .ts,.tsx,.js --fix",
     "lint-staged": "lint-staged --config .lintstagedrc.json",
     "now": "now --prod",
