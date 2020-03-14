@@ -1,11 +1,9 @@
-import { when } from 'acd-utils'
 import { MainLayout } from 'components/layouts/main'
 import { User } from 'models/user'
-import { GetServerSideProps, NextPage } from 'next'
+import { GetStaticProps, NextPage } from 'next'
 import { RenderUsers } from 'pagesContent/users'
-import { api, useStore } from 'pagesContent/users/store'
 import * as React from 'react'
-import { asyncIdentity, identity } from 'utils/function'
+import { identity } from 'utils/function'
 import { get } from 'utils/http'
 
 type Props = {
@@ -14,13 +12,6 @@ type Props = {
 
 const Users: NextPage<Props, {}> = props => {
   const [showUsers, setShowUsers] = React.useState(true)
-  const initUsers = useStore(s => s.initUsers)
-  const storeUsers = useStore(s => s.maybeUsers)
-  const users = when(storeUsers).getOrElse(props.fetchedUsers)
-
-  React.useEffect(() => {
-    !storeUsers && initUsers(props.fetchedUsers)
-  }, [])
 
   return (
     <MainLayout title="users">
@@ -31,23 +22,19 @@ const Users: NextPage<Props, {}> = props => {
       >
         {showUsers ? 'hide' : 'show'} users
       </button>
-      {showUsers && <RenderUsers users={users} />}
+      {showUsers && <RenderUsers users={props.fetchedUsers} />}
     </MainLayout>
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({
-  req
-}): Promise<{ props: Partial<Props> }> => {
-  const { maybeUsers } = api.getState()
-
+export const getStaticProps: GetStaticProps = async (): Promise<{
+  props: Partial<Props>
+}> => {
   return {
     props: {
-      fetchedUsers: await when(maybeUsers).fold(async () => {
-        const fetchedUsers = await get<User[], {}>('api/users', req)
-
-        return fetchedUsers.fold(() => [], identity)
-      }, asyncIdentity)
+      fetchedUsers: await (
+        await get<User[], {}>('https://jsonplaceholder.typicode.com/users')
+      ).fold(() => [], identity)
     }
   }
 }

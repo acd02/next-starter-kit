@@ -1,56 +1,50 @@
-import { when } from 'acd-utils'
 import { MainLayout } from 'components/layouts/main'
 import { User } from 'models/user'
-import { GetServerSideProps, NextPage } from 'next'
-import { useRouter } from 'next/router'
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { RenderUser } from 'pagesContent/user'
-import { useStore } from 'pagesContent/users/store'
 import * as React from 'react'
-import { DynamicRoutes, getRouteDetails, Routes } from 'routes'
-import { identity } from 'utils/function'
+import { identity, noop } from 'utils/function'
 import { get } from 'utils/http'
 
 type Props = {
-  fetchedUser: User
+  fetchedUser?: User
 }
 
 const UserDetail: NextPage<Props, {}> = props => {
   const { fetchedUser } = props
-  const maybeUsers = useStore(s => s.maybeUsers)
-
-  const router = useRouter()
-  const { paramKey } = getRouteDetails(DynamicRoutes.user)
-
-  const user = when(maybeUsers).fold(
-    () => fetchedUser,
-    users => users.find(u => String(u.id) === (router.query[paramKey] as string))
-  )
 
   return (
-    <MainLayout title={user?.name ?? ''}>{user && <RenderUser user={user} />}</MainLayout>
+    <MainLayout title={fetchedUser?.name ?? ''}>
+      {fetchedUser && <RenderUser user={fetchedUser} />}
+    </MainLayout>
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({
-  req,
-  res,
-  query
-}): Promise<{ props: Partial<Props> }> => {
-  const { paramKey } = getRouteDetails(DynamicRoutes.user)
-  const userID = query[paramKey] as string
+export const getStaticPaths: GetStaticPaths = async () => {
+  const fetchedUsers = await get<User[], {}>('https://jsonplaceholder.typicode.com/users')
+
+  const paths = fetchedUsers
+    .fold(() => [], identity)
+    .map(u => ({ params: { id: String(u.id) } }))
 
   return {
-    props: {
-      fetchedUser: (await get<User, {}>(`api/user?id=${userID}`, req)).fold(() => {
-        /* eslint-disable no-unused-expressions */
-        res?.writeHead(301, {
-          Location: Routes.users
-        })
-        res?.end()
-        /* eslint-enable */
+    paths,
+    fallback: false
+  }
+}
 
-        return {} as User
-      }, identity)
+export const getStaticProps: GetStaticProps = async ({
+  params
+}): Promise<{
+  props: Partial<Props>
+}> => {
+  return {
+    props: {
+      fetchedUser: await (
+        await get<User, {}>(
+          `https://jsonplaceholder.typicode.com/users/${params?.id ?? ''}`
+        )
+      ).fold(noop, identity)
     }
   }
 }
