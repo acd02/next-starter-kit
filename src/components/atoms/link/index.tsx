@@ -56,6 +56,8 @@ export function DynamicLink(props: DynamicLinkProps) {
   )
 }
 
+// utils
+
 function handleKeyPress(e: React.KeyboardEvent<HTMLAnchorElement>) {
   e.preventDefault()
 
