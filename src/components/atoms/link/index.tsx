@@ -39,11 +39,12 @@ type DynamicLinkProps = {
 
 export function DynamicLink(props: DynamicLinkProps) {
   const { routeDetails, label, param } = props
+  const { basePath } = routeDetails
 
   return (
     <NextLink
-      href={`${routeDetails.basePath}/${routeDetails.paramBracket}`}
-      as={`${routeDetails.basePath}/${param}`}
+      href={`${basePath}/${routeDetails.paramBracket}`}
+      as={`${basePath}/${param}`}
     >
       <a
         tabIndex={0}
