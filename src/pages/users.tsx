@@ -1,10 +1,11 @@
 import { when } from 'acd-utils'
 import { MainLayout } from 'components/layouts/main'
 import { User } from 'models/user'
-import { NextPage } from 'next'
+import { GetServerSideProps, NextPage } from 'next'
 import { RenderUsers } from 'pagesContent/users'
 import { api, useStore } from 'pagesContent/users/store'
 import * as React from 'react'
+import { asyncIdentity, identity } from 'utils/function'
 import { get } from 'utils/http'
 
 type Props = {
@@ -35,22 +36,20 @@ const Users: NextPage<Props, {}> = props => {
   )
 }
 
-Users.getInitialProps = async ({ req }): Promise<Partial<Props>> => {
+export const getServerSideProps: GetServerSideProps = async ({
+  req
+}): Promise<{ props: Partial<Props> }> => {
   const { maybeUsers } = api.getState()
 
-  return when(maybeUsers).fold(
-    async () => {
-      const fetchedUsers = await get<User[], {}>('api/users', req)
+  return {
+    props: {
+      fetchedUsers: await when(maybeUsers).fold(async () => {
+        const fetchedUsers = await get<User[], {}>('api/users', req)
 
-      return {
-        fetchedUsers: fetchedUsers.fold(
-          () => [],
-          users => users
-        )
-      }
-    },
-    async users => ({ fetchedUsers: users })
-  )
+        return fetchedUsers.fold(() => [], identity)
+      }, asyncIdentity)
+    }
+  }
 }
 
 export default Users

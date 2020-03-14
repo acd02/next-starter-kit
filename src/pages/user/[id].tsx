@@ -1,12 +1,13 @@
 import { when } from 'acd-utils'
 import { MainLayout } from 'components/layouts/main'
 import { User } from 'models/user'
-import { NextPage } from 'next'
+import { GetServerSideProps, NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { RenderUser } from 'pagesContent/user'
 import { useStore } from 'pagesContent/users/store'
 import * as React from 'react'
 import { DynamicRoutes, getRouteDetails, Routes } from 'routes'
+import { identity } from 'utils/function'
 import { get } from 'utils/http'
 
 type Props = {
@@ -30,26 +31,28 @@ const UserDetail: NextPage<Props, {}> = props => {
   )
 }
 
-UserDetail.getInitialProps = async ({ req, res, query }): Promise<Partial<Props>> => {
-  // if page is being rendered on the client
-  if (!req) return {}
-
+export const getServerSideProps: GetServerSideProps = async ({
+  req,
+  res,
+  query
+}): Promise<{ props: Partial<Props> }> => {
   const { paramKey } = getRouteDetails(DynamicRoutes.user)
   const userID = query[paramKey] as string
 
-  return (await get<User, {}>(`api/user?id=${userID}`, req)).fold(
-    () => {
-      /* eslint-disable no-unused-expressions */
-      res?.writeHead(301, {
-        Location: Routes.users
-      })
-      res?.end()
-      /* eslint-enable */
+  return {
+    props: {
+      fetchedUser: (await get<User, {}>(`api/user?id=${userID}`, req)).fold(() => {
+        /* eslint-disable no-unused-expressions */
+        res?.writeHead(301, {
+          Location: Routes.users
+        })
+        res?.end()
+        /* eslint-enable */
 
-      return {}
-    },
-    fetchedUser => ({ fetchedUser })
-  )
+        return {} as User
+      }, identity)
+    }
+  }
 }
 
 export default UserDetail
