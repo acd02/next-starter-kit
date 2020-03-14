@@ -1,7 +1,7 @@
 import { MainLayout } from 'components/layouts/main'
 import { User } from 'models/user'
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { RenderUser } from 'pagesContent/user'
+import { GetStaticPaths, GetStaticProps } from 'next'
+import { RenderUser } from 'pagesContent/users/[id]'
 import * as React from 'react'
 import { identity, noop } from 'utils/function'
 import { get } from 'utils/http'
@@ -10,7 +10,7 @@ type Props = {
   fetchedUser?: User
 }
 
-const UserDetail: NextPage<Props, {}> = props => {
+export default function UserDetail(props: Props) {
   const { fetchedUser } = props
 
   return (
@@ -19,6 +19,8 @@ const UserDetail: NextPage<Props, {}> = props => {
     </MainLayout>
   )
 }
+
+// Next.js API
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const fetchedUsers = await get<User[], {}>('https://jsonplaceholder.typicode.com/users')
@@ -48,5 +50,3 @@ export const getStaticProps: GetStaticProps = async ({
     }
   }
 }
-
-export default UserDetail

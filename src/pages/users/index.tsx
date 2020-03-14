@@ -1,6 +1,6 @@
 import { MainLayout } from 'components/layouts/main'
 import { User } from 'models/user'
-import { GetStaticProps, NextPage } from 'next'
+import { GetStaticProps } from 'next'
 import { RenderUsers } from 'pagesContent/users'
 import * as React from 'react'
 import { identity } from 'utils/function'
@@ -10,7 +10,7 @@ type Props = {
   fetchedUsers: User[]
 }
 
-const Users: NextPage<Props, {}> = props => {
+export default function Users(props: Props) {
   const [showUsers, setShowUsers] = React.useState(true)
 
   return (
@@ -27,6 +27,8 @@ const Users: NextPage<Props, {}> = props => {
   )
 }
 
+// Next.js API
+
 export const getStaticProps: GetStaticProps = async (): Promise<{
   props: Partial<Props>
 }> => {
@@ -38,5 +40,3 @@ export const getStaticProps: GetStaticProps = async (): Promise<{
     }
   }
 }
-
-export default Users

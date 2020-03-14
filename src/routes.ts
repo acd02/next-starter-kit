@@ -1,7 +1,6 @@
 export enum Routes {
   index = '/',
-  users = '/users',
-  user = '/user/'
+  users = '/users'
 }
 
 export enum DynamicRoutes {
@@ -17,6 +16,6 @@ export type DynamicRoutesDetail = {
 export function getRouteDetails(route: DynamicRoutes): DynamicRoutesDetail {
   switch (route) {
     case DynamicRoutes.user:
-      return { basePath: 'user', paramBracket: '[id]', paramKey: 'id' }
+      return { basePath: 'users', paramBracket: '[id]', paramKey: 'id' }
   }
 }
