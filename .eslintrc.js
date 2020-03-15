@@ -49,7 +49,7 @@ module.exports = {
     'max-len': ['error', { code: 90, ignoreTemplateLiterals: true }],
     'max-depth': [2, 2],
     'max-nested-callbacks': [1, 2],
-    'newline-before-return': 2,
+    'newline-before-return': 1,
     'no-console': [1, { allow: ['error'] }],
     'no-debugger': 1,
     'no-shadow': 2,
