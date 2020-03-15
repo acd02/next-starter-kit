@@ -66,5 +66,6 @@
     "tailwindcss": "1.2.0",
     "ts-node": "8.6.2",
     "typescript": "3.8.3"
-  }
+  },
+  "dependencies": {}
 }
