@@ -3,7 +3,7 @@ import { User } from 'models/user'
 import { GetStaticProps } from 'next'
 import { RenderUsers } from 'pagesContent/users'
 import * as React from 'react'
-import { identity } from 'utils/function'
+import { constant, identity } from 'utils/function'
 import { get } from 'utils/http'
 
 type Props = {
@@ -36,7 +36,7 @@ export const getStaticProps: GetStaticProps = async (): Promise<{
     props: {
       fetchedUsers: await (
         await get<User[], {}>('https://jsonplaceholder.typicode.com/users')
-      ).fold(() => [], identity)
+      ).fold(constant([]), identity)
     }
   }
 }

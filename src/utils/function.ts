@@ -7,8 +7,15 @@ export function identity<T>(x: T) {
 }
 
 /**
- * A function that returns `undefined`
+ * A function that returns `undefined`.
  */
 export function noop() {
   return undefined
+}
+
+/**
+ * Returns a function that always returns the given value.
+ */
+export function constant<T>(x: T): () => T {
+  return () => x
 }

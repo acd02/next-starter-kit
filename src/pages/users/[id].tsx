@@ -3,7 +3,7 @@ import { User } from 'models/user'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { RenderUser } from 'pagesContent/users/[id]'
 import * as React from 'react'
-import { identity, noop } from 'utils/function'
+import { constant, identity, noop } from 'utils/function'
 import { get } from 'utils/http'
 
 type Props = {
@@ -26,7 +26,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const fetchedUsers = await get<User[], {}>('https://jsonplaceholder.typicode.com/users')
 
   const paths = fetchedUsers
-    .fold(() => [], identity)
+    .fold(constant([]), identity)
     .map(u => ({ params: { id: String(u.id) } }))
 
   return {
