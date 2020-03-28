@@ -1,9 +1,0 @@
-.user {
-  & span {
-    @apply font-bold;
-  }
-
-  & > p {
-    @apply mb-4;
-  }
-}

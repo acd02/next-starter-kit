@@ -7,11 +7,11 @@ type Props = {
   users: User[]
 }
 
-export function RenderUsers(props: Props) {
+export function RenderUsers({ users }: Props) {
   return (
     <>
       <h2 className="text-4xl mb-4">Users:</h2>
-      {props.users.map(u => (
+      {users.map(u => (
         <span className="block mb-2" key={u.id}>
           <DynamicLink
             routeDetails={getRouteDetails(DynamicRoutes.user)}

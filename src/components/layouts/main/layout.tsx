@@ -7,11 +7,11 @@ type Props = {
   title: string
 }
 
-export const MainLayout = (props: Props & React.Props<{}>) => (
+export const MainLayout = ({ title, children }: Props & React.Props<{}>) => (
   <div className="flex flex-col h-full">
-    <Meta title={props.title} />
+    <Meta title={title} />
     <Nav />
-    <div className="p-4 flex-grow">{props.children}</div>
+    <div className="p-4 flex-grow">{children}</div>
     <Footer />
   </div>
 )

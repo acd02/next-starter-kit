@@ -1,32 +1,28 @@
 import { User } from 'models/user'
 import * as React from 'react'
 
-import styles from './styles.module.css'
-
 type Props = {
   user: User
 }
 
-export function RenderUser(props: Props) {
-  const { user } = props
-
+export function RenderUser({ user }: Props) {
   return (
-    <div className={styles.user}>
-      <p>
-        <span>name:</span> {user.name}
-      </p>
-      <p>
-        <span>email:</span> {user.email}
-      </p>
-      <p>
-        <span>company:</span> {user.company.name}
-      </p>
-      <p>
-        <span>city:</span> {user.address.city}
-      </p>
-      <p>
-        <span>street:</span> {user.address.street}
-      </p>
-    </div>
+    <>
+      <P label="name" value={user.name} />
+      <P label="email" value={user.email} />
+      <P label="company" value={user.company.name} />
+      <P label="city" value={user.address.city} />
+      <P label="street" value={user.address.street} />
+    </>
+  )
+}
+
+// utils
+
+function P({ label, value }: { label: string; value: string }) {
+  return (
+    <p className="mb-4">
+      <span className="font-bold">{label}:</span> {value}
+    </p>
   )
 }

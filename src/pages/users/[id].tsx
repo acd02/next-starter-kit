@@ -10,9 +10,7 @@ type Props = {
   fetchedUser?: User
 }
 
-export default function UserDetail(props: Props) {
-  const { fetchedUser } = props
-
+export default function UserDetail({ fetchedUser }: Props) {
   return (
     <MainLayout title={fetchedUser?.name ?? ''}>
       {fetchedUser && <RenderUser user={fetchedUser} />}

@@ -10,7 +10,7 @@ type Props = {
   fetchedUsers: User[]
 }
 
-export default function Users(props: Props) {
+export default function Users({ fetchedUsers }: Props) {
   const [showUsers, setShowUsers] = React.useState(true)
 
   return (
@@ -22,7 +22,7 @@ export default function Users(props: Props) {
       >
         {showUsers ? 'hide' : 'show'} users
       </button>
-      {showUsers && <RenderUsers users={props.fetchedUsers} />}
+      {showUsers && <RenderUsers users={fetchedUsers} />}
     </MainLayout>
   )
 }
