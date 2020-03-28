@@ -44,8 +44,8 @@ module.exports = {
     // Misc
     complexity: [1, 5],
     curly: ['error', 'multi', 'consistent'],
-    'max-lines': [1, { max: 180, skipBlankLines: true, skipComments: true }],
-    'max-lines-per-function': [1, { max: 50, skipComments: true }],
+    'max-lines': [1, { max: 150, skipBlankLines: true, skipComments: true }],
+    'max-lines-per-function': [1, { max: 50, skipBlankLines: true, skipComments: true }],
     'max-len': ['error', { code: 90, ignoreTemplateLiterals: true }],
     'max-depth': [2, 2],
     'max-nested-callbacks': [1, 2],
