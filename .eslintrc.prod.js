@@ -11,17 +11,21 @@ module.exports = {
   ],
   ignorePatterns: ['out/', 'utils.js', '.next/', 'next.config.js', 'node_modules/'],
   parserOptions: {
+    project: './tsconfig.json',
     ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
     sourceType: 'module' // Allows for the use of imports
   },
   rules: {
     // Overwrite rules specified from the extended configs or add ones
     // Typescript
+    '@typescript-eslint/consistent-type-definitions': [2, 'type'],
+    '@typescript-eslint/array-type': [2, { default: 'array', readonly: 'array' }],
     '@typescript-eslint/prefer-interface': 0,
     '@typescript-eslint/no-object-literal-type-assertion': 0,
     '@typescript-eslint/explicit-function-return-type': 0,
     '@typescript-eslint/no-unused-vars': 0,
     '@typescript-eslint/no-use-before-define': 0,
+    '@typescript-eslint/switch-exhaustiveness-check': 2,
     // React
     'react-hooks/rules-of-hooks': 'error',
     'react/prop-types': 0,
