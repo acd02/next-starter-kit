@@ -29,7 +29,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false
+    fallback: false,
   }
 }
 
@@ -40,7 +40,7 @@ export const getStaticProps: GetStaticProps<Partial<Props>> = async ({ params })
         await get<User, {}>(
           `https://jsonplaceholder.typicode.com/users/${params?.id ?? ''}`
         )
-      ).fold(noop, identity)
-    }
+      ).fold(noop, identity),
+    },
   }
 }

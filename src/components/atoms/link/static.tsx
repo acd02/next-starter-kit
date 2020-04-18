@@ -23,7 +23,7 @@ export function Link({ to, label, className }: Props) {
         className={cx([
           'cursor-pointer text-gray-600',
           isActive && 'border-b border-gray-600',
-          className
+          className,
         ])}
         onKeyPress={handleKeyPress}
       >

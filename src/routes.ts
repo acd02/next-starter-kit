@@ -1,10 +1,10 @@
 export enum Routes {
   index = '/',
-  users = '/users'
+  users = '/users',
 }
 
 export enum DynamicRoutes {
-  user
+  user,
 }
 
 export type DynamicRoutesDetail = {

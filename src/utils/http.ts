@@ -15,14 +15,14 @@ export async function get<Res, Err>(url: string): Promise<Result<Err, Res>> {
 export function post<Data, Res>(body: Data) {
   /* eslint-disable-next-line no-undef */
   const headers = new Headers({
-    'Content-type': 'application/json; charset=UTF-8'
+    'Content-type': 'application/json; charset=UTF-8',
   })
 
   return (url: string): Promise<Res> =>
     fetch(url, {
       method: 'POST',
       headers,
-      body: JSON.stringify(body)
+      body: JSON.stringify(body),
     })
       .then(handleErrors)
       .then(i => i.json())
