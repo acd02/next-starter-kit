@@ -33,11 +33,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-export const getStaticProps: GetStaticProps = async ({
-  params
-}): Promise<{
-  props: Partial<Props>
-}> => {
+export const getStaticProps: GetStaticProps<Partial<Props>> = async ({ params }) => {
   return {
     props: {
       fetchedUser: await (

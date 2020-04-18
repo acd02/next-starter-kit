@@ -20,9 +20,7 @@ export default function Users({ fetchedUsers }: Props) {
 
 // Next.js API
 
-export const getStaticProps: GetStaticProps = async (): Promise<{
-  props: Partial<Props>
-}> => {
+export const getStaticProps: GetStaticProps<Partial<Props>> = async () => {
   return {
     props: {
       fetchedUsers: await (
