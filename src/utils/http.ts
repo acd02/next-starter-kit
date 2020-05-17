@@ -1,6 +1,5 @@
 import { err, ok, Result, result } from 'acd-utils'
 import to from 'await-to-js'
-import fetch from 'isomorphic-unfetch'
 
 export async function get<Res, Err>(url: string): Promise<Result<Err, Res>> {
   const [error, data] = await to<Res, Err>(

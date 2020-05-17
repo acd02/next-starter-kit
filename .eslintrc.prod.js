@@ -7,13 +7,16 @@ module.exports = {
     'plugin:@typescript-eslint/recommended', // Uses the recommended rules from the @typescript-eslint/eslint-plugin
     'prettier/@typescript-eslint', // Uses eslint-config-prettier to disable ESLint rules from @typescript-eslint/eslint-plugin that would conflict with prettier
     'plugin:react/recommended',
-    'plugin:prettier/recommended' // Enables eslint-plugin-prettier and displays prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
+    'plugin:prettier/recommended', // Enables eslint-plugin-prettier and displays prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
   ],
+  globals: {
+    fetch: 'readonly',
+  },
   ignorePatterns: ['out/', 'utils.js', '.next/', 'next.config.js', 'node_modules/'],
   parserOptions: {
     project: './tsconfig.json',
     ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
-    sourceType: 'module' // Allows for the use of imports
+    sourceType: 'module', // Allows for the use of imports
   },
   rules: {
     // Overwrite rules specified from the extended configs or add ones
@@ -35,8 +38,8 @@ module.exports = {
     'fp/no-mutation': [
       2,
       {
-        exceptions: [{ property: 'getInitialProps' }]
-      }
+        exceptions: [{ property: 'getInitialProps' }],
+      },
     ],
     'fp/no-nil': 'off',
     'fp/no-unused-expression': 'off',
@@ -62,7 +65,7 @@ module.exports = {
     quotes: ['error', 'single', { allowTemplateLiterals: false }],
     'space-before-function-paren': [
       2,
-      { anonymous: 'never', named: 'never', asyncArrow: 'always' }
-    ]
-  }
+      { anonymous: 'never', named: 'never', asyncArrow: 'always' },
+    ],
+  },
 }
