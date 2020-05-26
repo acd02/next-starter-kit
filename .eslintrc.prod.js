@@ -23,6 +23,7 @@ module.exports = {
     // Typescript
     '@typescript-eslint/consistent-type-definitions': [2, 'type'],
     '@typescript-eslint/array-type': [2, { default: 'array', readonly: 'array' }],
+    '@typescript-eslint/explicit-module-boundary-types': 0,
     '@typescript-eslint/prefer-interface': 0,
     '@typescript-eslint/no-object-literal-type-assertion': 0,
     '@typescript-eslint/explicit-function-return-type': 0,

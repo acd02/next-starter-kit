@@ -7,7 +7,7 @@ type Props = {
   title: string
 }
 
-export const MainLayout = ({ title, children }: Props & React.Props<{}>) => (
+export const MainLayout = ({ title, children }: Props & React.Props<Props>) => (
   <div className="flex flex-col h-full">
     <Meta title={title} />
     <Nav />

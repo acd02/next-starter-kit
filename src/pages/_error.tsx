@@ -5,7 +5,7 @@ type Props = {
   statusCode?: number
 }
 
-const Error: NextPage<Props, {}> = ({ statusCode }) => {
+const Error: NextPage<Props, unknown> = ({ statusCode }) => {
   return (
     <div className="flex justify-center items-center h-full">
       {(() => {
