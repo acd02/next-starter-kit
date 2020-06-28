@@ -31,6 +31,7 @@ module.exports = {
     '@typescript-eslint/no-use-before-define': 0,
     '@typescript-eslint/switch-exhaustiveness-check': 2,
     // React
+    'jsx-quotes': [2, "prefer-double"],
     'react-hooks/rules-of-hooks': 'error',
     'react/prop-types': 0,
     'react/jsx-key': 0,

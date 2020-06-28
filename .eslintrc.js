@@ -20,6 +20,8 @@ module.exports = {
   },
   rules: {
     // Overwrite rules specified from the extended configs or add ones
+    // Prettier
+    'prettier/prettier': 0,
     // Typescript
     '@typescript-eslint/consistent-type-definitions': [2, 'type'],
     '@typescript-eslint/array-type': [2, { default: 'array', readonly: 'array' }],
@@ -31,17 +33,20 @@ module.exports = {
     '@typescript-eslint/no-use-before-define': 0,
     '@typescript-eslint/switch-exhaustiveness-check': 2,
     // React
+    'jsx-quotes': [1, "prefer-double"],
     'react-hooks/rules-of-hooks': 'error',
     'react/prop-types': 0,
     'react/jsx-key': 0,
     'react/display-name': [0, { ignoreTranspilerName: false }],
     // fp
     'fp/no-mutation': [
-      2,
+      1,
       {
         exceptions: [{ property: 'getInitialProps' }],
       },
     ],
+    'fp/no-let': 1,
+    'fp/no-loops': 1,
     'fp/no-nil': 'off',
     'fp/no-unused-expression': 'off',
     'fp/no-rest-parameters': 'off',
@@ -51,7 +56,7 @@ module.exports = {
     'simple-import-sort/sort': 1,
     // Misc
     complexity: [1, 5],
-    curly: ['error', 'multi', 'consistent'],
+    curly: [1, 'multi', 'consistent'],
     'max-lines': [1, { max: 150, skipBlankLines: true, skipComments: true }],
     'max-lines-per-function': [1, { max: 50, skipBlankLines: true, skipComments: true }],
     'max-len': ['error', { code: 90, ignoreTemplateLiterals: true }],
@@ -61,11 +66,11 @@ module.exports = {
     'no-console': [1, { allow: ['error'] }],
     'no-debugger': 1,
     'no-shadow': 2,
-    'no-unused-expressions': [2, { allowShortCircuit: true }],
+    'no-unused-expressions': [1, { allowShortCircuit: true }],
     'no-var': 2,
-    quotes: ['error', 'single', { allowTemplateLiterals: false }],
+    quotes: [1, 'single', { allowTemplateLiterals: false }],
     'space-before-function-paren': [
-      2,
+      1,
       { anonymous: 'always', named: 'never', asyncArrow: 'always' },
     ],
   },
