@@ -55,7 +55,7 @@ module.exports = {
     curly: ['error', 'multi', 'consistent'],
     'max-lines': [1, { max: 150, skipBlankLines: true, skipComments: true }],
     'max-lines-per-function': [1, { max: 50, skipBlankLines: true, skipComments: true }],
-    'max-len': ['error', { code: 90, ignoreTemplateLiterals: true }],
+    'max-len': ['error', { code: 90, ignoreTemplateLiterals: true, ignoreStrings: true }],
     'max-depth': [2, 2],
     'max-nested-callbacks': [1, 2],
     'newline-before-return': 2,
