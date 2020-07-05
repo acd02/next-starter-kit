@@ -1,5 +1,13 @@
+import styled from '@emotion/styled'
 import * as React from 'react'
 
+const Root = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+`
+
 export default function Custom404() {
-  return <div className="flex justify-center items-center h-full">missing page</div>
+  return <Root>missing page</Root>
 }

@@ -9,7 +9,7 @@
       "pagesContent/*": ["./src/pagesContent/*"],
       "utils/*": ["./src/utils/*"],
       "routes": ["./src/routes.ts"],
-      "theme": ["./src/theme.ts"]
+      "theme": ["./src/theme/index.ts"]
     },
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,

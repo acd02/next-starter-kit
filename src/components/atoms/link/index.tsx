@@ -1,2 +1,2 @@
-export { Link } from './static'
-export { DynamicLink } from './dynamic'
+export { Link } from './StaticLink'
+export { DynamicLink } from './DynamicLink'

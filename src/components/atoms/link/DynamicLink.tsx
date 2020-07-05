@@ -1,17 +1,18 @@
-import cx from 'classcat'
 import NextLink from 'next/link'
 import * as React from 'react'
 import { DynamicRoutesDetail } from 'routes'
 
 import { handleKeyPress } from './common'
+import { Root } from './styles'
 
 type Props = {
   routeDetails: DynamicRoutesDetail
   param: string
   label: string
+  className?: string
 }
 
-export function DynamicLink({ routeDetails, label, param }: Props) {
+export function DynamicLink({ className, routeDetails, label, param }: Props) {
   const { basePath } = routeDetails
 
   return (
@@ -19,13 +20,9 @@ export function DynamicLink({ routeDetails, label, param }: Props) {
       href={`${basePath}/${routeDetails.paramBracket}`}
       as={`${basePath}/${param}`}
     >
-      <a
-        tabIndex={0}
-        onKeyPress={handleKeyPress}
-        className={cx('cursor-pointer text-gray-600')}
-      >
+      <Root className={className} tabIndex={0} onKeyPress={handleKeyPress}>
         {label}
-      </a>
+      </Root>
     </NextLink>
   )
 }

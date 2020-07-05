@@ -1,9 +1,9 @@
-import '../css/tailwind.css'
-
+import { ThemeProvider } from 'emotion-theming'
 import { AppProps } from 'next/app'
 import Router from 'next/router'
 import * as NProgress from 'nprogress'
 import * as React from 'react'
+import { theme } from 'theme'
 
 Router.events.on('routeChangeStart', () => {
   NProgress.start()
@@ -11,8 +11,10 @@ Router.events.on('routeChangeStart', () => {
 Router.events.on('routeChangeComplete', () => NProgress.done())
 Router.events.on('routeChangeError', () => NProgress.done())
 
-function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+export default function ({ Component, pageProps }: AppProps) {
+  return (
+    <ThemeProvider theme={theme}>
+      <Component {...pageProps} />
+    </ThemeProvider>
+  )
 }
-
-export default App

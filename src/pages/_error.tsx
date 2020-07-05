@@ -1,3 +1,4 @@
+import styled from '@emotion/styled'
 import { NextPage } from 'next'
 import * as React from 'react'
 
@@ -5,9 +6,16 @@ type Props = {
   statusCode?: number
 }
 
+const Root = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+`
+
 const Error: NextPage<Props, unknown> = ({ statusCode }) => {
   return (
-    <div className="flex justify-center items-center h-full">
+    <Root>
       {(() => {
         if (statusCode)
           return statusCode === 404
@@ -15,7 +23,7 @@ const Error: NextPage<Props, unknown> = ({ statusCode }) => {
             : `An error ${statusCode} occurred on server`
         else return 'An error occurred on client'
       })()}
-    </div>
+    </Root>
   )
 }
 

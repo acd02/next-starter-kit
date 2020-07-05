@@ -1,6 +1,8 @@
 import { User } from 'models/user'
 import * as React from 'react'
 
+import { Root } from './styles'
+
 type Props = {
   user: User
 }
@@ -21,8 +23,8 @@ export function RenderUser({ user }: Props) {
 
 function P({ label, value }: { label: string; value: string }) {
   return (
-    <p className="mb-4">
-      <span className="font-bold">{label}:</span> {value}
-    </p>
+    <Root>
+      <span>{label}:</span> {value}
+    </Root>
   )
 }

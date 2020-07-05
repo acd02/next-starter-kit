@@ -1,10 +1,10 @@
-import cx from 'classcat'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 import * as React from 'react'
 import { Routes } from 'routes'
 
 import { handleKeyPress } from './common'
+import { Root } from './styles'
 
 type Props = {
   to: Routes
@@ -18,17 +18,14 @@ export function Link({ to, label, className }: Props) {
 
   return (
     <NextLink href={to}>
-      <a
+      <Root
+        className={className}
         tabIndex={0}
-        className={cx([
-          'cursor-pointer text-gray-600',
-          isActive && 'border-b border-gray-600',
-          className,
-        ])}
+        isActive={isActive}
         onKeyPress={handleKeyPress}
       >
         {label}
-      </a>
+      </Root>
     </NextLink>
   )
 }
