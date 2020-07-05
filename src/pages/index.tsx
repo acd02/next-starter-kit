@@ -9,7 +9,7 @@ const P = styled.p<NoProps, Theme>`
 
 export default function Home() {
   return (
-    <MainLayout title="app">
+    <MainLayout title="app" description="home">
       <P>content</P>
     </MainLayout>
   )

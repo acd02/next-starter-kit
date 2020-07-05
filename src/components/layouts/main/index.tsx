@@ -4,13 +4,15 @@ import { Meta } from '../../atoms/meta'
 import { Footer, Nav } from '../../organisms'
 import { Content, Root } from './styles'
 
-type Props = {
-  title: string
-}
+type Props = Parameters<typeof Meta>[0]
 
-export const MainLayout = ({ title, children }: Props & React.Props<Props>) => (
+export const MainLayout = ({
+  title,
+  description,
+  children,
+}: Props & React.Props<Props>) => (
   <Root>
-    <Meta title={title} />
+    <Meta title={title} description={description} />
     <Nav />
     <Content>{children}</Content>
     <Footer />

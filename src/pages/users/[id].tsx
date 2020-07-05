@@ -12,7 +12,7 @@ type Props = {
 
 export default function UserDetail({ fetchedUser }: Props) {
   return (
-    <MainLayout title={fetchedUser?.name ?? ''}>
+    <MainLayout title={fetchedUser?.name ?? ''} description="user details">
       {fetchedUser && <RenderUser user={fetchedUser} />}
     </MainLayout>
   )
