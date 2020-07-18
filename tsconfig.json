@@ -9,6 +9,7 @@
       "pagesContent/*": ["./src/pagesContent/*"],
       "utils/*": ["./src/utils/*"],
       "routes": ["./src/routes.ts"],
+      "rtl": ["./src/rtl/index.tsx"],
       "theme": ["./src/theme/index.ts"]
     },
     "esModuleInterop": true,
