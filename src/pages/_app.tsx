@@ -1,8 +1,8 @@
 import { ThemeProvider } from 'emotion-theming'
 import { AppProps } from 'next/app'
 import Router from 'next/router'
-import * as NProgress from 'nprogress'
-import * as React from 'react'
+import NProgress from 'nprogress'
+import React from 'react'
 import { theme } from 'theme'
 
 import { GlobalStyles } from '../styles/Global'

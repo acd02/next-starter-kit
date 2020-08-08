@@ -1,5 +1,5 @@
 import { User } from 'models/user'
-import * as React from 'react'
+import React from 'react'
 
 import { Button, Header } from './styles'
 import { UserLink } from './UserLink'

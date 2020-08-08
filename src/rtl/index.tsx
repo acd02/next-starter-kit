@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 import { ThemeProvider } from 'emotion-theming'
-import * as React from 'react'
+import React from 'react'
 import { theme } from 'theme'
 
 const wrapper: React.FC = ({ children }) => (

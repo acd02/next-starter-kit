@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { NextPage } from 'next'
-import * as React from 'react'
+import React from 'react'
 
 type Props = {
   statusCode?: number

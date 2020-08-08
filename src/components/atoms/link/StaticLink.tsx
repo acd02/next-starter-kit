@@ -1,6 +1,6 @@
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
-import * as React from 'react'
+import React from 'react'
 import { Routes } from 'routes'
 
 import { handleKeyPress } from './common'
