@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { Theme } from 'theme'
 
-export const Root = styled.button<NoProps, Theme>`
+export const Root = styled.button<UnkownObj, Theme>`
   padding: ${({ theme: { spacings } }) => `${spacings[1]} ${spacings[2]}`};
   font-size: ${({ theme: { fontSize } }) => fontSize.base};
   background-color: ${({ theme: { colors } }) => colors.grey[300]};

@@ -1,1 +1,1 @@
-type NoProps = Record<string, unknown>
+type UnkownObj = Record<string, unknown>

@@ -7,7 +7,7 @@ export const Root = styled.div`
   height: 100%;
 `
 
-export const Content = styled.div<NoProps, Theme>`
+export const Content = styled.div<UnkownObj, Theme>`
   flex-grow: 1;
   padding: ${({ theme: { spacings } }) => spacings[4]};
 `

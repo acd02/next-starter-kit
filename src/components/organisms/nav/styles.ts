@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { Theme } from 'theme'
 
-export const Root = styled.nav<NoProps, Theme>`
+export const Root = styled.nav<UnkownObj, Theme>`
   flex: none;
   padding: ${({ theme: { spacings } }) => `${spacings[4]} 0`};
   border-bottom: ${({
@@ -12,11 +12,11 @@ export const Root = styled.nav<NoProps, Theme>`
   text-align: center;
 `
 
-export const Header = styled.header<NoProps, Theme>`
+export const Header = styled.header<UnkownObj, Theme>`
   margin-bottom: ${({ theme: { spacings } }) => spacings[4]};
 `
 
-export const LinksContainer = styled.div<NoProps, Theme>`
+export const LinksContainer = styled.div<UnkownObj, Theme>`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

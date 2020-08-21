@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { Theme } from 'theme'
 
-export const Root = styled.footer<NoProps, Theme>`
+export const Root = styled.footer<UnkownObj, Theme>`
   flex: none;
   padding: ${({ theme: { spacings } }) => `${spacings[4]} 0`};
   border-top: ${({
