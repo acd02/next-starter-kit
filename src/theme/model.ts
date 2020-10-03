@@ -1,22 +1,3 @@
-export type Theme = {
-  colors: {
-    primary: string
-    secondary: string
-    grey: ColorWheel
-  }
-  spacings: Spacings
-  borderWidth: BorderWidths
-  borderRadius: BorderRadiuses
-  boxShadow: BoxShadows
-  fontSize: FontSizes
-  fontWeight: FontWeights
-  letterSpacing: LetterSpacings
-  lineHeight: LineHeights
-  maxWitdh: MaxWidths
-  screens: Screens
-  zIndex: ZIndexes
-}
-
 type ColorWheel = {
   100: string
   200: string
@@ -152,4 +133,23 @@ type Screens = {
   md: string
   lg: string
   xl: string
+}
+
+export type Theme = {
+  colors: {
+    primary: string
+    secondary: string
+    grey: ColorWheel
+  }
+  spacings: Spacings
+  borderWidth: BorderWidths
+  borderRadius: BorderRadiuses
+  boxShadow: BoxShadows
+  fontSize: FontSizes
+  fontWeight: FontWeights
+  letterSpacing: LetterSpacings
+  lineHeight: LineHeights
+  maxWitdh: MaxWidths
+  screens: Screens
+  zIndex: ZIndexes
 }
