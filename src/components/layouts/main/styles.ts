@@ -1,5 +1,7 @@
 import styled from '@emotion/styled'
-import { Theme } from 'theme'
+import { theme } from 'theme'
+
+const { spacings } = theme
 
 export const Root = styled.div`
   display: flex;
@@ -7,7 +9,7 @@ export const Root = styled.div`
   height: 100%;
 `
 
-export const Content = styled.div<UnkownObj, Theme>`
+export const Content = styled.div`
   flex-grow: 1;
-  padding: ${({ theme: { spacings } }) => spacings[4]};
+  padding: ${spacings[4]};
 `

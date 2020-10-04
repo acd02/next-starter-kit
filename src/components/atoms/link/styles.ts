@@ -1,9 +1,11 @@
 import styled from '@emotion/styled'
-import { Theme } from 'theme'
+import { theme } from 'theme'
 
-export const Root = styled.a<{ isActive?: boolean }, Theme>`
+const { colors } = theme
+
+export const Root = styled.a<{ isActive?: boolean }>`
   cursor: pointer;
-  color: ${({ theme: { colors } }) => colors.grey[600]};
+  color: ${colors.grey[600]};
   border-bottom: 1px solid
-    ${({ isActive, theme }) => (isActive ? theme.colors.grey[600] : 'transparent')};
+    ${({ isActive }) => (isActive ? colors.grey[600] : 'transparent')};
 `

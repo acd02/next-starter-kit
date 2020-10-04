@@ -1,10 +1,12 @@
 import styled from '@emotion/styled'
 import { MainLayout } from 'components/layouts/main'
 import React from 'react'
-import { Theme } from 'theme'
+import { theme } from 'theme'
 
-const P = styled.p<UnkownObj, Theme>`
-  font-weight: ${({ theme: { fontWeight } }) => fontWeight.medium};
+const { fontWeight } = theme
+
+const P = styled.p`
+  font-weight: ${fontWeight.medium};
 `
 
 export default function Home() {

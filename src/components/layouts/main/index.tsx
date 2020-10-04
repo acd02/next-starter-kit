@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropsWithChildren } from 'react'
 
 import { Meta } from '../../atoms/meta'
 import { Footer, Nav } from '../../organisms'
@@ -10,7 +10,7 @@ export const MainLayout = ({
   title,
   description,
   children,
-}: Props & React.Props<Props>) => (
+}: PropsWithChildren<Props>) => (
   <Root>
     <Meta title={title} description={description} />
     <Nav />

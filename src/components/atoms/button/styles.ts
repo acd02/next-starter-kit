@@ -1,15 +1,17 @@
 import styled from '@emotion/styled'
-import { Theme } from 'theme'
+import { theme } from 'theme'
 
-export const Root = styled.button<UnkownObj, Theme>`
-  padding: ${({ theme: { spacings } }) => `${spacings[1]} ${spacings[2]}`};
-  font-size: ${({ theme: { fontSize } }) => fontSize.base};
-  background-color: ${({ theme: { colors } }) => colors.grey[300]};
+const { spacings, colors, fontSize } = theme
+
+export const Root = styled.button`
+  padding: ${spacings[1]} ${spacings[2]};
+  font-size: ${fontSize.base};
+  background-color: ${colors.grey[300]};
   transition-property: background-color;
   transition-duration: 0.2s;
   cursor: pointer;
   &:hover,
   &:focus {
-    background-color: ${({ theme: { colors } }) => colors.grey[400]};
+    background-color: ${colors.grey[400]};
   }
 `

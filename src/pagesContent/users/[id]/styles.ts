@@ -1,9 +1,11 @@
 import styled from '@emotion/styled'
-import { Theme } from 'theme'
+import { theme } from 'theme'
 
-export const Root = styled.p<UnkownObj, Theme>`
-  margin-bottom: ${({ theme: { spacings } }) => spacings[4]};
+const { spacings, fontWeight } = theme
+
+export const Root = styled.p`
+  margin-bottom: ${spacings[4]};
   span {
-    font-weight: ${({ theme: { fontWeight } }) => fontWeight.bold};
+    font-weight: ${fontWeight.bold};
   }
 `

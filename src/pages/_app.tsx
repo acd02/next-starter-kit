@@ -1,11 +1,10 @@
-import { ThemeProvider } from 'emotion-theming'
+import '../styles/nprogress.css'
+import '../styles/reset.css'
+
 import { AppProps } from 'next/app'
 import Router from 'next/router'
 import NProgress from 'nprogress'
 import React from 'react'
-import { theme } from 'theme'
-
-import { GlobalStyles } from '../styles/Global'
 
 Router.events.on('routeChangeStart', () => {
   NProgress.start()
@@ -14,10 +13,5 @@ Router.events.on('routeChangeComplete', () => NProgress.done())
 Router.events.on('routeChangeError', () => NProgress.done())
 
 export default function App({ Component, pageProps }: AppProps) {
-  return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      <Component {...pageProps} />
-    </ThemeProvider>
-  )
+  return <Component {...pageProps} />
 }
