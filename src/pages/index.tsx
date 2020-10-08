@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { MainLayout } from 'components/layouts/main'
+import { NextPageWithLayout } from 'global'
 import React from 'react'
 import { theme } from 'theme'
 
@@ -10,9 +11,11 @@ const P = styled.p`
 `
 
 export default function Home() {
-  return (
-    <MainLayout title="app" description="home">
-      <P>content</P>
-    </MainLayout>
-  )
+  return <P>content</P>
 }
+
+;(Home as NextPageWithLayout<unknown>).getLayout = page => (
+  <MainLayout title="app" description="home">
+    {page}
+  </MainLayout>
+)
