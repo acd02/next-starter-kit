@@ -1,11 +1,8 @@
-import styled from '@emotion/styled'
-import { theme } from 'theme'
+import { styled } from 'stitches'
 
-const { spacings, colors } = theme
-
-export const Root = styled.footer`
-  flex: none;
-  padding: ${spacings[4]} 0;
-  border-top: 1px solid ${colors.grey[300]};
-  text-align: center;
-`
+export const Root = styled('footer', {
+  flex: '0 0 auto',
+  padding: '$4 0',
+  borderTop: '1px solid $grey300',
+  textAlign: 'center',
+})

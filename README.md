@@ -12,4 +12,4 @@
 
 ## Features:
 
-- Styles: [Emotion](https://emotion.sh/docs/introduction)
+- Styles: [Stitches](https://stitches.dev/)

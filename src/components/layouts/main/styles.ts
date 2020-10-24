@@ -1,15 +1,12 @@
-import styled from '@emotion/styled'
-import { theme } from 'theme'
+import { styled } from 'stitches'
 
-const { spacings } = theme
+export const Root = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  height: '100%',
+})
 
-export const Root = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-`
-
-export const Content = styled.div`
-  flex-grow: 1;
-  padding: ${spacings[4]};
-`
+export const Content = styled('div', {
+  flexGrow: 1,
+  padding: '$4',
+})

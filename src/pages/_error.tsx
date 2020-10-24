@@ -1,17 +1,17 @@
-import styled from '@emotion/styled'
 import { NextPage } from 'next'
 import React from 'react'
+import { styled } from 'stitches'
 
 type Props = {
   statusCode?: number
 }
 
-const Root = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-`
+const Root = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  height: '100%',
+})
 
 const Error: NextPage<Props, unknown> = ({ statusCode }) => {
   return (

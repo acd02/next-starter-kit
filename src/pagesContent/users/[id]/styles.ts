@@ -1,11 +1,8 @@
-import styled from '@emotion/styled'
-import { theme } from 'theme'
+import { styled } from 'stitches'
 
-const { spacings, fontWeight } = theme
-
-export const Root = styled.p`
-  margin-bottom: ${spacings[4]};
-  span {
-    font-weight: ${fontWeight.bold};
-  }
-`
+export const Root = styled('p', {
+  marginBottom: '$4',
+  span: {
+    fontWeight: '$bold',
+  },
+})

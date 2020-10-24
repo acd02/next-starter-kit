@@ -21,7 +21,7 @@ export function Link({ to, label, className }: Props) {
       <Root
         className={className}
         tabIndex={0}
-        isActive={isActive}
+        status={isActive ? 'active' : undefined}
         onKeyPress={handleKeyPress}
       >
         {label}

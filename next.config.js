@@ -18,7 +18,7 @@ module.exports = {
       pagesContent: computePath('./src/pagesContent/'),
       public: computePath('./public/'),
       routes: computePath('./src/routes.ts'),
-      theme: computePath('./src/theme/'),
+      stitches: computePath('./src/stitches.config.ts'),
       utils: computePath('./src/utils')
     }
 
