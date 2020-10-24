@@ -20,7 +20,12 @@ export function DynamicLink({ className, routeDetails, label, param }: Props) {
       href={`${basePath}/${routeDetails.paramBracket}`}
       as={`${basePath}/${param}`}
     >
-      <Root className={className} tabIndex={0} onKeyPress={handleKeyPress}>
+      <Root
+        href={`${basePath}/${param}`}
+        className={className}
+        tabIndex={0}
+        onKeyPress={handleKeyPress}
+      >
         {label}
       </Root>
     </NextLink>

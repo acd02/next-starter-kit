@@ -19,6 +19,7 @@ export function Link({ to, label, className }: Props) {
   return (
     <NextLink href={to}>
       <Root
+        href={to}
         className={className}
         tabIndex={0}
         status={isActive ? 'active' : undefined}
