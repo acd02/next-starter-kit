@@ -1,7 +1,7 @@
 import { styled } from 'stitches'
 
 export const Root = styled('nav', {
-  flex: '0 0 auto',
+  uFlexNone: true,
   padding: '$4 0',
   borderBottom: '1px solid $grey300',
   textAlign: 'center',
