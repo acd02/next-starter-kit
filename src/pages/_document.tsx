@@ -41,7 +41,10 @@ export default class MyDocument extends Document {
   public render() {
     return (
       <Html {...{ lang: 'en' }}>
-        <Head />
+        <Head>
+          <link rel="stylesheet" type="text/css" href="/nprogress.css" />
+          <link rel="stylesheet" type="text/css" href="/reset.css" />
+        </Head>
         <body>
           <Main />
           <NextScript />
