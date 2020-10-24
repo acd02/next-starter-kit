@@ -5,6 +5,7 @@ export const Root = styled('a', {
   color: '$grey600',
   borderBottom: '1px solid',
   borderBottomColor: 'transparent',
+  textDecoration: 'none',
   variants: {
     status: {
       active: {
