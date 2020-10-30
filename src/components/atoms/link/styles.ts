@@ -7,8 +7,8 @@ export const Root = styled('a', {
   borderBottomColor: 'transparent',
   textDecoration: 'none',
   variants: {
-    status: {
-      active: {
+    active: {
+      true: {
         borderBottomColor: '$grey600',
       },
     },

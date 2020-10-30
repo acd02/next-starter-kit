@@ -22,7 +22,7 @@ export function Link({ to, label, className }: Props) {
         href={to}
         className={className}
         tabIndex={0}
-        status={isActive ? 'active' : undefined}
+        active={isActive}
         onKeyPress={handleKeyPress}
       >
         {label}
