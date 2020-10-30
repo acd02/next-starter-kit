@@ -34,6 +34,7 @@ export default class MyDocument extends Document {
           </>
         ),
       }
+      /* eslint-disable-next-line no-empty */
     } finally {
     }
   }
