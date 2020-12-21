@@ -1,6 +1,3 @@
-import '../styles/nprogress.css'
-import '../styles/reset.css'
-
 import { NextPageWithLayout } from 'global'
 import { AppProps } from 'next/app'
 import Router from 'next/router'

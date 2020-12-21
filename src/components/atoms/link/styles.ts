@@ -1,11 +1,16 @@
-import styled from '@emotion/styled'
-import { theme } from 'theme'
+import { styled } from 'stitches'
 
-const { colors } = theme
-
-export const Root = styled.a<{ isActive?: boolean }>`
-  cursor: pointer;
-  color: ${colors.grey[600]};
-  border-bottom: 1px solid
-    ${({ isActive }) => (isActive ? colors.grey[600] : 'transparent')};
-`
+export const Root = styled('a', {
+  cursor: 'pointer',
+  color: '$grey600',
+  borderBottom: '1px solid',
+  borderBottomColor: 'transparent',
+  textDecoration: 'none',
+  variants: {
+    active: {
+      true: {
+        borderBottomColor: '$grey600',
+      },
+    },
+  },
+})
