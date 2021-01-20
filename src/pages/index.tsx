@@ -2,15 +2,13 @@ import styled from '@emotion/styled'
 import { MainLayout } from 'components/layouts/main'
 import { NextPageWithLayout } from 'global'
 import React from 'react'
-import { theme } from 'theme'
-
-const { fontWeight } = theme
+import { themeGet } from 'theme/utils'
 
 const P = styled.p`
-  font-weight: ${fontWeight.medium};
+  font-weight: ${themeGet('fontWeights', '$medium')};
 `
 
-export default function Home() {
+function Home() {
   return <P>content</P>
 }
 
@@ -19,3 +17,5 @@ export default function Home() {
     {page}
   </MainLayout>
 )
+
+export default Home

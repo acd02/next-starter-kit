@@ -1,11 +1,11 @@
 import { DynamicLink } from 'components/atoms/link'
-import { User } from 'models/user'
 import React from 'react'
 import { DynamicRoutes, getRouteDetails } from 'routes'
+import { User } from 'types/user'
 
 import { LinkWrapper } from './styles'
 
-export function UserLink({ id, name }: User) {
+function UserLink({ id, name }: User) {
   return (
     <LinkWrapper key={id}>
       <DynamicLink
@@ -16,3 +16,5 @@ export function UserLink({ id, name }: User) {
     </LinkWrapper>
   )
 }
+
+export { UserLink }

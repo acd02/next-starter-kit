@@ -1,9 +1,9 @@
 import { MainLayout } from 'components/layouts/main'
 import { NextPageWithLayout } from 'global'
-import { User } from 'models/user'
 import { GetStaticProps } from 'next'
 import { RenderUsers } from 'pagesContent/users'
 import React from 'react'
+import { User } from 'types/user'
 import { constant, identity } from 'utils/function'
 import { get } from 'utils/http'
 
@@ -11,7 +11,7 @@ type Props = {
   fetchedUsers: User[]
 }
 
-export default function Users({ fetchedUsers }: Props) {
+function Users({ fetchedUsers }: Props) {
   return <RenderUsers users={fetchedUsers} />
 }
 
@@ -23,7 +23,7 @@ export default function Users({ fetchedUsers }: Props) {
 
 // Next.js API
 
-export const getStaticProps: GetStaticProps<Partial<Props>> = async () => {
+const getStaticProps: GetStaticProps<Partial<Props>> = async () => {
   return {
     props: {
       fetchedUsers: await (
@@ -32,3 +32,6 @@ export const getStaticProps: GetStaticProps<Partial<Props>> = async () => {
     },
   }
 }
+
+export default Users
+export { getStaticProps }

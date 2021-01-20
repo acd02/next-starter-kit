@@ -6,11 +6,7 @@ import { Content, Root } from './styles'
 
 type Props = Parameters<typeof Meta>[0]
 
-export const MainLayout = ({
-  title,
-  description,
-  children,
-}: PropsWithChildren<Props>) => (
+const MainLayout = ({ title, description, children }: PropsWithChildren<Props>) => (
   <Root>
     <Meta title={title} description={description} />
     <Nav />
@@ -18,3 +14,5 @@ export const MainLayout = ({
     <Footer />
   </Root>
 )
+
+export { MainLayout }

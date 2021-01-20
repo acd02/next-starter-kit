@@ -29,6 +29,10 @@ module.exports = {
     '@typescript-eslint/no-shadow': 2,
     '@typescript-eslint/explicit-function-return-type': 0,
     '@typescript-eslint/no-unused-vars': 0,
+    '@typescript-eslint/no-use-before-define': [
+      2,
+      { functions: false, classes: true, variables: true },
+    ],
     '@typescript-eslint/no-use-before-define': 0,
     '@typescript-eslint/switch-exhaustiveness-check': 2,
     // React
@@ -54,9 +58,11 @@ module.exports = {
     'fp/no-rest-parameters': 'off',
     // import
     'import/no-absolute-path': 0,
+    'import/exports-last': 2,
     // simple-import-sort
-    'simple-import-sort/sort': 1,
+    'simple-import-sort/imports': 1,
     // Misc
+    'array-callback-return': 0,
     complexity: [1, 5],
     curly: ['error', 'multi', 'consistent'],
     'max-lines': [1, { max: 150, skipBlankLines: true, skipComments: true }],
@@ -68,8 +74,9 @@ module.exports = {
     'no-debugger': 2,
     'no-shadow': 0,
     'no-unused-expressions': [2, { allowShortCircuit: true }],
+    'no-use-before-define': 0,
     'no-var': 2,
-    quotes: ['error', 'single', { allowTemplateLiterals: false }],
+    quotes: ['error', 'single', { allowTemplateLiterals: false, avoidEscape: true }],
     'space-before-function-paren': [
       2,
       { anonymous: 'always', named: 'never', asyncArrow: 'always' },

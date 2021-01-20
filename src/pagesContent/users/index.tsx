@@ -1,19 +1,23 @@
-import { User } from 'models/user'
+import { Button } from 'components/atoms/button'
 import React from 'react'
+import { User } from 'types/user'
 
-import { Button, Header } from './styles'
+import { Header } from './styles'
 import { UserLink } from './UserLink'
 
 type Props = {
   users: User[]
 }
 
-export function RenderUsers({ users }: Props) {
+function RenderUsers({ users }: Props) {
   const [showUsers, setShowUsers] = React.useState(true)
 
   return (
     <>
-      <Button onClick={() => setShowUsers(s => !s)}>
+      <Button<'button'>
+        css={({ space }) => ({ marginBottom: space.$2 })}
+        onClick={() => setShowUsers(s => !s)}
+      >
         {showUsers ? 'hide' : 'show'} users
       </Button>
       <Header>Users:</Header>
@@ -21,3 +25,5 @@ export function RenderUsers({ users }: Props) {
     </>
   )
 }
+
+export { RenderUsers }

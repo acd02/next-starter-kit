@@ -12,7 +12,7 @@ type Props = {
   className?: string
 }
 
-export function Link({ to, label, className }: Props) {
+function Link({ to, label, className }: Props) {
   const { pathname } = useRouter()
   const isActive = to === pathname
 
@@ -29,3 +29,5 @@ export function Link({ to, label, className }: Props) {
     </NextLink>
   )
 }
+
+export { Link }

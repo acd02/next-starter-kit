@@ -1,8 +1,8 @@
 import { MainLayout } from 'components/layouts/main'
-import { User } from 'models/user'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { RenderUser } from 'pagesContent/users/[id]'
 import React from 'react'
+import { User } from 'types/user'
 import { constant, identity, noop } from 'utils/function'
 import { get } from 'utils/http'
 
@@ -10,7 +10,7 @@ type Props = {
   fetchedUser?: User
 }
 
-export default function UserDetail({ fetchedUser }: Props) {
+function UserDetail({ fetchedUser }: Props) {
   return (
     <MainLayout title={fetchedUser?.name ?? ''} description="user details">
       {fetchedUser && <RenderUser user={fetchedUser} />}
@@ -20,7 +20,7 @@ export default function UserDetail({ fetchedUser }: Props) {
 
 // Next.js API
 
-export const getStaticPaths: GetStaticPaths = async () => {
+const getStaticPaths: GetStaticPaths = async () => {
   const fetchedUsers = await get<User[], unknown>(
     'https://jsonplaceholder.typicode.com/users'
   )
@@ -35,7 +35,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-export const getStaticProps: GetStaticProps<Partial<Props>> = async ({ params }) => {
+const getStaticProps: GetStaticProps<Partial<Props>> = async ({ params }) => {
   return {
     props: {
       fetchedUser: await (
@@ -46,3 +46,6 @@ export const getStaticProps: GetStaticProps<Partial<Props>> = async ({ params })
     },
   }
 }
+
+export default UserDetail
+export { getStaticPaths, getStaticProps }

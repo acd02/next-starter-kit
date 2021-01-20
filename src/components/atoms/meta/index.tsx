@@ -6,7 +6,7 @@ type Props = {
   description: string
 }
 
-export const Meta = ({ title, description }: Props) => (
+const Meta = ({ title, description }: Props) => (
   <Head>
     <meta charSet="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,3 +14,5 @@ export const Meta = ({ title, description }: Props) => (
     <title>{title}</title>
   </Head>
 )
+
+export { Meta }

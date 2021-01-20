@@ -12,17 +12,16 @@ type Props = {
   className?: string
 }
 
-export function DynamicLink({ className, routeDetails, label, param }: Props) {
+function DynamicLink({ className, routeDetails, label, param }: Props) {
   const { basePath } = routeDetails
 
   return (
-    <NextLink
-      href={`${basePath}/${routeDetails.paramBracket}`}
-      as={`${basePath}/${param}`}
-    >
+    <NextLink href={`${basePath}/${param}`}>
       <Root className={className} tabIndex={0} onKeyPress={handleKeyPress}>
         {label}
       </Root>
     </NextLink>
   )
 }
+
+export { DynamicLink }

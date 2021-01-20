@@ -1,17 +1,15 @@
 import styled from '@emotion/styled'
-import { theme } from 'theme'
-
-const { spacings, colors } = theme
+import { themeGet } from 'theme/utils'
 
 export const Root = styled.nav`
   flex: none;
-  padding: ${spacings[4]} 0;
-  border-bottom: 1px solid ${colors.grey[300]};
+  padding: ${themeGet('space', '$4')} 0;
+  border-bottom: 1px solid ${themeGet('colors', '$grey300')};
   text-align: center;
 `
 
 export const Header = styled.header`
-  margin-bottom: ${spacings[4]};
+  margin-bottom: ${themeGet('space', '$4')};
 `
 
 export const LinksContainer = styled.div`
@@ -19,6 +17,6 @@ export const LinksContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   & > a:not(:last-of-type) {
-    margin-right: ${spacings[3]};
+    margin-right: ${themeGet('space', '$3')};
   }
 `

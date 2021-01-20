@@ -4,17 +4,19 @@
     "baseUrl": ".",
     "paths": {
       "components/*": ["./src/components/*"],
-      "models/*": ["./src/models/*"],
       "pages/*": ["./src/pages/*"],
       "pagesContent/*": ["./src/pagesContent/*"],
       "utils/*": ["./src/utils/*"],
       "routes": ["./src/routes.ts"],
       "rtl": ["./src/rtl/index.tsx"],
-      "theme": ["./src/theme/index.ts"]
+      "theme": ["./src/theme"],
+      "theme/*": ["./src/theme/*"],
+      "types/*": ["./src/types/*"]
     },
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "preserve",
+    "jsxImportSource": "@emotion/react",
     "lib": ["dom", "es2018", "es5"],
     "module": "esnext",
     "moduleResolution": "node",

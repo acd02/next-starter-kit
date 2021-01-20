@@ -13,12 +13,12 @@ module.exports = {
     config.resolve.alias = {
       ...config.resolve.alias,
       components: computePath('./src/components/'),
-      models: computePath('./src/models/'),
       pages: computePath('./src/pages/'),
       pagesContent: computePath('./src/pagesContent/'),
       public: computePath('./public/'),
       routes: computePath('./src/routes.ts'),
       theme: computePath('./src/theme/'),
+      types: computePath('./src/types/'),
       utils: computePath('./src/utils')
     }
 

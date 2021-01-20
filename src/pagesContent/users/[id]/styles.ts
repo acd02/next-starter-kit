@@ -1,11 +1,9 @@
 import styled from '@emotion/styled'
-import { theme } from 'theme'
-
-const { spacings, fontWeight } = theme
+import { themeGet } from 'theme/utils'
 
 export const Root = styled.p`
-  margin-bottom: ${spacings[4]};
+  margin-bottom: ${themeGet('space', '$4')};
   span {
-    font-weight: ${fontWeight.bold};
+    font-weight: ${themeGet('fontWeights', '$bold')};
   }
 `

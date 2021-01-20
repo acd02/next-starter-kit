@@ -1,16 +1,23 @@
-import React, { PropsWithChildren } from 'react'
+import React, { ComponentPropsWithoutRef, ElementType, PropsWithChildren } from 'react'
 
 import { Root } from './styles'
 
 type Props = {
-  onClick: React.MouseEventHandler
   className?: string
+  as?: ElementType
 }
 
-export function Button({ className, children, onClick }: PropsWithChildren<Props>) {
+function Button<T extends ElementType = 'button'>({
+  className,
+  children,
+  as,
+  ...rest
+}: PropsWithChildren<Props> & ComponentPropsWithoutRef<T>) {
   return (
-    <Root className={className} onClick={onClick}>
+    <Root as={as} className={className} {...rest}>
       {children}
     </Root>
   )
 }
+
+export { Button }

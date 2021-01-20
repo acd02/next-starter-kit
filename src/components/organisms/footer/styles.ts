@@ -1,11 +1,9 @@
 import styled from '@emotion/styled'
-import { theme } from 'theme'
-
-const { spacings, colors } = theme
+import { themeGet } from 'theme/utils'
 
 export const Root = styled.footer`
   flex: none;
-  padding: ${spacings[4]} 0;
-  border-top: 1px solid ${colors.grey[300]};
+  padding: ${themeGet('space', '$4')} 0;
+  border-top: 1px solid ${themeGet('colors', '$grey300')};
   text-align: center;
 `
