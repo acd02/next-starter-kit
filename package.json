@@ -20,11 +20,6 @@
     "test:coverage:only": "npx jest \"$npm_config_src\" \"--coverage\" \"--collectCoverageFrom='$npm_config_src/**/*.(ts|tsx)'\"",
     "postinstall": "husky install"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "devDependencies": {
     "@babel/core": "7.13.8",
     "@emotion/babel-plugin": "11.2.0",
