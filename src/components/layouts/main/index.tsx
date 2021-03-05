@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react'
+import { PropsWithChildren } from 'react'
 
 import { Meta } from '../../atoms/meta'
 import { Footer, Nav } from '../../organisms'

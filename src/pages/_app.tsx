@@ -5,7 +5,6 @@ import { NextPageWithLayout } from 'global'
 import { AppProps } from 'next/app'
 import Router from 'next/router'
 import NProgress from 'nprogress'
-import React from 'react'
 import { theme } from 'theme'
 
 import { reset } from '../styles/reset'

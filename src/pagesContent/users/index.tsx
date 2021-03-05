@@ -1,5 +1,5 @@
 import { Button } from 'components/atoms/button'
-import React from 'react'
+import { useState } from 'react'
 import { User } from 'types/user'
 
 import { Header } from './styles'
@@ -10,11 +10,11 @@ type Props = {
 }
 
 function RenderUsers({ users }: Props) {
-  const [showUsers, setShowUsers] = React.useState(true)
+  const [showUsers, setShowUsers] = useState(true)
 
   return (
     <>
-      <Button<'button'>
+      <Button
         css={({ space }) => ({ marginBottom: space.$2 })}
         onClick={() => setShowUsers(s => !s)}
       >

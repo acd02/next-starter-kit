@@ -1,7 +1,6 @@
 import styled from '@emotion/styled'
 import { MainLayout } from 'components/layouts/main'
 import { NextPageWithLayout } from 'global'
-import React from 'react'
 import { themeGet } from 'theme/utils'
 
 const P = styled.p`

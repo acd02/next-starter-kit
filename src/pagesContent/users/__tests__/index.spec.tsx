@@ -1,4 +1,3 @@
-import React from 'react'
 import { render } from 'rtl'
 
 import { RenderUsers } from '../index'

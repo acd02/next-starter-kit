@@ -1,5 +1,4 @@
 import { DynamicLink } from 'components/atoms/link'
-import React from 'react'
 import { DynamicRoutes, getRouteDetails } from 'routes'
 import { User } from 'types/user'
 

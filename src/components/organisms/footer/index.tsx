@@ -1,5 +1,5 @@
-import React from 'react'
+import { memo } from 'react'
 
 import { Root } from './styles'
 
-export const Footer = React.memo(() => <Root>footer</Root>)
+export const Footer = memo(() => <Root>footer</Root>)

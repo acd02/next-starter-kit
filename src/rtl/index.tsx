@@ -1,7 +1,11 @@
+import { ThemeProvider } from '@emotion/react'
 import { render } from '@testing-library/react'
-import React from 'react'
+import { FC } from 'react'
+import { theme } from 'theme'
 
-const wrapper: React.FC = ({ children }) => <>{children}</>
+const wrapper: FC = ({ children }) => (
+  <ThemeProvider theme={theme}>{children}</ThemeProvider>
+)
 
 // see: https://bit.ly/305a0g1
 const customRender = (ui: JSX.Element, options = {}) => {
