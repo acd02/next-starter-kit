@@ -78,6 +78,7 @@ module.exports = {
     'newline-before-return': 2,
     'no-console': ['error', { allow: ['error'] }],
     'no-debugger': 2,
+    'no-nested-ternary': 2,
     'no-shadow': 0,
     'no-unused-expressions': [2, { allowShortCircuit: true }],
     'no-use-before-define': 0,
