@@ -2,8 +2,8 @@ import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 import { Routes } from 'routes'
 
-import { handleKeyPress } from './common'
 import { Root } from './styles'
+import { handleKeyPress } from './utils'
 
 type Props = {
   to: Routes

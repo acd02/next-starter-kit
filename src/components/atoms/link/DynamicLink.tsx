@@ -1,8 +1,8 @@
 import NextLink from 'next/link'
 import { DynamicRoutesDetail } from 'routes'
 
-import { handleKeyPress } from './common'
 import { Root } from './styles'
+import { handleKeyPress } from './utils'
 
 type Props = {
   routeDetails: DynamicRoutesDetail
