@@ -1,8 +1,10 @@
+import { css } from '@emotion/react'
 import { Button } from 'components/atoms/button'
 import { useState } from 'react'
+import { themeGet } from 'theme/get'
 import { User } from 'types/user'
 
-import { Header } from './styles'
+import { styles } from './styles'
 import { UserLink } from './UserLink'
 
 type Props = {
@@ -15,12 +17,14 @@ function RenderUsers({ users }: Props) {
   return (
     <>
       <Button
-        css={({ space }) => ({ marginBottom: space.$2 })}
+        css={css`
+          margin-bottom: ${themeGet('space', '$2')};
+        `}
         onClick={() => setShowUsers(s => !s)}
       >
         {showUsers ? 'hide' : 'show'} users
       </Button>
-      <Header>Users:</Header>
+      <h2 css={styles.header}>Users:</h2>
       {showUsers && users.map(UserLink)}
     </>
   )

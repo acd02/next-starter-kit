@@ -1,11 +1,15 @@
-import styled from '@emotion/styled'
-import { themeGet } from 'theme/utils'
+import { css } from '@emotion/react'
+import { themeGet } from 'theme/get'
 
-const Root = styled.a<{ isActive?: boolean }>`
+const root = css`
   cursor: pointer;
   color: ${themeGet('colors', '$grey600')};
-  border-bottom: 1px solid
-    ${({ isActive }) => (isActive ? themeGet('colors', '$grey600') : 'transparent')};
+  border-bottom: 1px solid;
+  border-color: transparent;
 `
 
-export { Root }
+const isActive = css`
+  border-color: ${themeGet('colors', '$grey600')};
+`
+
+export const styles = { root, isActive }

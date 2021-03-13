@@ -1,13 +1,18 @@
-import styled from '@emotion/styled'
-import { themeGet } from 'theme/utils'
+import { css } from '@emotion/react'
+import { themeGet } from 'theme/get'
 
-export const Root = styled.div`
+const root = css`
   display: flex;
   flex-direction: column;
   height: 100%;
 `
 
-export const Content = styled.div`
+const content = css`
   flex-grow: 1;
   padding: ${themeGet('space', '$4')};
 `
+
+export const styles = {
+  root,
+  content,
+}

@@ -1,13 +1,16 @@
 import '../styles/nprogress.css'
 
-import { Global, ThemeProvider } from '@emotion/react'
+import { Global } from '@emotion/react'
 import { NextPageWithLayout } from 'global'
 import { AppProps } from 'next/app'
 import Router from 'next/router'
 import NProgress from 'nprogress'
 import { theme } from 'theme'
+import { toCSSVariables } from 'theme/utils'
 
 import { reset } from '../styles/reset'
+
+const cssVariablesTheme = toCSSVariables(theme)
 
 Router.events.on('routeChangeStart', () => {
   NProgress.start()
@@ -20,10 +23,16 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <Global styles={reset} />
-      <ThemeProvider theme={theme}>
-        {getLayout(<Component {...pageProps}></Component>)}
-      </ThemeProvider>
+      <Global
+        styles={[
+          reset,
+          {
+            ':root': cssVariablesTheme,
+          },
+        ]}
+      />
+
+      {getLayout(<Component {...pageProps}></Component>)}
     </>
   )
 }

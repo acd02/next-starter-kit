@@ -1,14 +1,18 @@
-import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 import { MainLayout } from 'components/layouts/main'
 import { NextPageWithLayout } from 'global'
-import { themeGet } from 'theme/utils'
-
-const P = styled.p`
-  font-weight: ${themeGet('fontWeights', '$medium')};
-`
+import { themeGet } from 'theme/get'
 
 function Home() {
-  return <P>content</P>
+  return (
+    <p
+      css={css`
+        font-weight: ${themeGet('fontWeights', '$medium')};
+      `}
+    >
+      content
+    </p>
+  )
 }
 
 ;(Home as NextPageWithLayout<unknown>).getLayout = page => (

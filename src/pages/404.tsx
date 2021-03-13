@@ -1,6 +1,6 @@
-import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 
-const Root = styled.div`
+const styles = css`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,5 +8,5 @@ const Root = styled.div`
 `
 
 export default function Custom404() {
-  return <Root>missing page</Root>
+  return <div css={styles}>missing page</div>
 }

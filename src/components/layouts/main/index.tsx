@@ -2,18 +2,18 @@ import { PropsWithChildren } from 'react'
 
 import { Meta } from '../../atoms/meta'
 import { Footer, Nav } from '../../organisms'
-import { Content, Root } from './styles'
+import { styles } from './styles'
 
 type Props = Parameters<typeof Meta>[0]
 
 function MainLayout({ title, description, children }: PropsWithChildren<Props>) {
   return (
-    <Root>
+    <div css={styles.root}>
       <Meta title={title} description={description} />
       <Nav />
-      <Content>{children}</Content>
+      <div css={styles.content}>{children}</div>
       <Footer />
-    </Root>
+    </div>
   )
 }
 

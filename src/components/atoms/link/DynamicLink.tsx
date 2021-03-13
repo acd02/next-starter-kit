@@ -1,7 +1,7 @@
 import NextLink from 'next/link'
 import { DynamicRoutesDetail } from 'routes'
 
-import { Root } from './styles'
+import { styles } from './styles'
 import { handleKeyPress } from './utils'
 
 type Props = {
@@ -16,14 +16,15 @@ function DynamicLink({ className, routeDetails, label, param }: Props) {
 
   return (
     <NextLink href={`${basePath}/${param}`}>
-      <Root
+      <a
         href={`${basePath}/${param}`}
         className={className}
+        css={styles.root}
         tabIndex={0}
         onKeyPress={handleKeyPress}
       >
         {label}
-      </Root>
+      </a>
     </NextLink>
   )
 }

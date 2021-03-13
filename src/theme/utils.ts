@@ -1,17 +1,28 @@
-import type { Theme } from './types'
+/* eslint-disable fp/no-mutation */
+import { objectEntries, objectKeys } from 'utils/object'
 
-// see: https://codewithstyle.info/Deep-property-access-in-TypeScript/
-function themeGet<
-  P1 extends keyof NonNullable<Theme>,
-  P2 extends keyof NonNullable<NonNullable<Theme>[P1]>
->(prop1: P1, prop2: P2): NonNullable<NonNullable<Theme>[P1]>[P2] | undefined
-function themeGet(...props: [string, string]): unknown {
-  return ({ theme }: { theme: Theme }) =>
-    props.reduce(
-      /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-      (result, prop) => (result === null ? undefined : (result as any)[prop]),
-      theme
-    )
+import type { CSSVariablesTheme, InvertedTheme, Theme } from './types'
+
+function toCSSVariables(theme: Theme): CSSVariablesTheme {
+  return objectKeys(theme).reduce<CSSVariablesTheme>((acc, cur) => {
+    objectEntries(theme[cur]).forEach(([key, value]) => {
+      acc[`--${cur}-${(key as string).replace('$', '')}`] = value
+    })
+
+    return acc
+  }, {})
 }
 
-export { themeGet }
+function invertTheme(theme: Theme): InvertedTheme {
+  return objectKeys(theme).reduce<InvertedTheme>((acc, cur) => {
+    acc[cur] = objectKeys(theme[cur]).reduce((tokensObj, key: string) => {
+      tokensObj[key] = `var(--${cur}-${key.replace('$', '')})`
+
+      return tokensObj
+    }, {} as Record<string, string>)
+
+    return acc
+  }, {} as InvertedTheme)
+}
+
+export { toCSSVariables, invertTheme }

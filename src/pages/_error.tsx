@@ -1,4 +1,4 @@
-import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 import { maybe } from 'acd-utils'
 import { NextPage } from 'next'
 
@@ -6,7 +6,7 @@ type Props = {
   statusCode?: number
 }
 
-const Root = styled.div`
+const styles = css`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,13 +15,13 @@ const Root = styled.div`
 
 const Error: NextPage<Props, unknown> = ({ statusCode }) => {
   return (
-    <Root>
+    <div css={styles}>
       {maybe(statusCode)
         .map(code =>
           code === 404 ? 'Oops, missing page' : `An error ${code} occurred on the server`
         )
         .getOrElse('An error occurred on the client')}
-    </Root>
+    </div>
   )
 }
 

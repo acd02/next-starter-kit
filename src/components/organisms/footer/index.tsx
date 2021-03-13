@@ -1,9 +1,9 @@
 import { memo } from 'react'
 
-import { Root } from './styles'
+import { styles } from './styles'
 
 function _Footer() {
-  return <Root>footer</Root>
+  return <footer css={styles.root}>footer</footer>
 }
 
 export const Footer = memo(_Footer)

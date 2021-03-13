@@ -1,6 +1,6 @@
 import { ComponentPropsWithoutRef, ElementType, PropsWithChildren } from 'react'
 
-import { Root } from './styles'
+import { styles } from './styles'
 
 type Props = {
   className?: string
@@ -11,13 +11,15 @@ type Props = {
 function Button({
   className,
   children,
-  as,
+  as = 'button',
   ...rest
 }: PropsWithChildren<Props> & ComponentPropsWithoutRef<ElementType>) {
+  const Comp = as
+
   return (
-    <Root as={as} className={className} {...rest}>
+    <Comp css={styles.root} className={className} {...rest}>
       {children}
-    </Root>
+    </Comp>
   )
 }
 

@@ -1,6 +1,6 @@
 import { User } from 'types/user'
 
-import { Root } from './styles'
+import { styles } from './styles'
 
 type Props = {
   user: User
@@ -21,9 +21,9 @@ function RenderUser({ user }: Props) {
 // utils
 function Field({ label, value }: { label: string; value: string }) {
   return (
-    <Root>
+    <p css={styles.root}>
       <span>{label}:</span> {value}
-    </Root>
+    </p>
   )
 }
 

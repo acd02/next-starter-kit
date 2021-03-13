@@ -2,17 +2,17 @@ import { DynamicLink } from 'components/atoms/link'
 import { DynamicRoutes, getRouteDetails } from 'routes'
 import { User } from 'types/user'
 
-import { LinkWrapper } from './styles'
+import { styles } from './styles'
 
 function UserLink({ id, name }: User) {
   return (
-    <LinkWrapper key={id}>
+    <span css={styles.linkWrapper} key={id}>
       <DynamicLink
         routeDetails={getRouteDetails(DynamicRoutes.user)}
         param={`${id}`}
         label={name}
       />
-    </LinkWrapper>
+    </span>
   )
 }
 

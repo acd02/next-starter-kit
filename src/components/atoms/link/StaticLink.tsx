@@ -2,7 +2,7 @@ import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 import { Routes } from 'routes'
 
-import { Root } from './styles'
+import { styles } from './styles'
 import { handleKeyPress } from './utils'
 
 type Props = {
@@ -17,15 +17,15 @@ function Link({ to, label, className }: Props) {
 
   return (
     <NextLink href={to}>
-      <Root
+      <a
         href={to}
         className={className}
         tabIndex={0}
-        isActive={isActive}
+        css={[styles.root, isActive && styles.isActive]}
         onKeyPress={handleKeyPress}
       >
         {label}
-      </Root>
+      </a>
     </NextLink>
   )
 }

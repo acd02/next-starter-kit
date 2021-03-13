@@ -1,7 +1,7 @@
-import styled from '@emotion/styled'
-import { themeGet } from 'theme/utils'
+import { css } from '@emotion/react'
+import { themeGet } from 'theme/get'
 
-export const Root = styled.button`
+export const root = css`
   padding: ${themeGet('space', '$1')} ${themeGet('space', '$2')};
   font-size: ${themeGet('fontSizes', '$base')};
   background-color: ${themeGet('colors', '$grey300')};
@@ -13,3 +13,5 @@ export const Root = styled.button`
     background-color: ${themeGet('colors', '$grey400')};
   }
 `
+
+export const styles = { root }
