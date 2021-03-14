@@ -11,11 +11,9 @@ type Props = {
 function Button({
   className,
   children,
-  as = 'button',
+  as: Comp = 'button',
   ...rest
 }: PropsWithChildren<Props> & ComponentPropsWithoutRef<ElementType>) {
-  const Comp = as
-
   return (
     <Comp css={styles.root} className={className} {...rest}>
       {children}
