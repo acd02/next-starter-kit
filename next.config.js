@@ -13,6 +13,7 @@ module.exports = {
     config.resolve.alias = {
       ...config.resolve.alias,
       components: computePath('./src/components/'),
+      hooks: computePath('./src/components/hooks'),
       pages: computePath('./src/pages/'),
       pagesContent: computePath('./src/pagesContent/'),
       public: computePath('./public/'),

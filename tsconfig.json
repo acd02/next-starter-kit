@@ -4,6 +4,7 @@
     "baseUrl": ".",
     "paths": {
       "components/*": ["./src/components/*"],
+      "hooks/*": ["./src/hooks/*"],
       "pages/*": ["./src/pages/*"],
       "pagesContent/*": ["./src/pagesContent/*"],
       "utils/*": ["./src/utils/*"],
