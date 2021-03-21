@@ -1,5 +1,6 @@
 import { MainLayout } from 'components/layouts/main'
-import { GetStaticPaths, GetStaticProps } from 'next'
+import type { NextPageWithLayout } from 'global'
+import type { GetStaticPaths, GetStaticProps } from 'next'
 import { RenderUser } from 'pagesContent/users/[id]'
 import { User } from 'types/user'
 import { constant, identity, noop } from 'utils/function'
@@ -10,12 +11,14 @@ type Props = {
 }
 
 function UserDetail({ fetchedUser }: Props) {
-  return (
-    <MainLayout title={fetchedUser?.name ?? ''} description="user details">
-      {fetchedUser && <RenderUser user={fetchedUser} />}
-    </MainLayout>
-  )
+  return fetchedUser && <RenderUser user={fetchedUser} />
 }
+
+;(UserDetail as NextPageWithLayout<Props>).getLayout = page => (
+  <MainLayout title={page.props.fetchedUser?.name ?? ''} description="user details">
+    {page}
+  </MainLayout>
+)
 
 // Next.js API
 const getStaticPaths: GetStaticPaths = async () => {
@@ -36,7 +39,7 @@ const getStaticPaths: GetStaticPaths = async () => {
 const getStaticProps: GetStaticProps<Partial<Props>> = async ({ params }) => {
   return {
     props: {
-      fetchedUser: await (
+      fetchedUser: (
         await get<User, unknown>(
           `https://jsonplaceholder.typicode.com/users/${params?.id ?? ''}`
         )

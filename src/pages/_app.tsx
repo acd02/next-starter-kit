@@ -1,9 +1,9 @@
 import '../styles/nprogress.css'
 
 import { Global } from '@emotion/react'
-import { NextPageWithLayout } from 'global'
+import type { NextPageWithLayout } from 'global'
 import { useScrollRestoration } from 'hooks/useScrollRestoration'
-import { AppProps } from 'next/app'
+import type { AppProps } from 'next/app'
 import Router from 'next/router'
 import NProgress from 'nprogress'
 import { theme } from 'theme'

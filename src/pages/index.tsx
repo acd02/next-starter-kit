@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 import { MainLayout } from 'components/layouts/main'
-import { NextPageWithLayout } from 'global'
+import type { NextPageWithLayout } from 'global'
 import { themeGet } from 'theme/get'
 
 function Home() {

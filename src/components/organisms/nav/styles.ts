@@ -9,6 +9,7 @@ export const root = css`
 `
 
 export const header = css`
+  display: inline-block;
   margin-bottom: ${themeGet('space', '$4')};
 `
 

@@ -18,7 +18,7 @@ function RenderUsers({ users }: Props) {
     <>
       <Button
         css={css`
-          margin-bottom: ${themeGet('space', '$2')};
+          margin-bottom: ${themeGet('space', '$4')};
         `}
         onClick={() => setShowUsers(s => !s)}
       >

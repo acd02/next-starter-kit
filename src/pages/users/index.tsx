@@ -1,6 +1,6 @@
 import { MainLayout } from 'components/layouts/main'
-import { NextPageWithLayout } from 'global'
-import { GetStaticProps } from 'next'
+import type { NextPageWithLayout } from 'global'
+import type { GetStaticProps } from 'next'
 import { RenderUsers } from 'pagesContent/users'
 import { User } from 'types/user'
 import { constant, identity } from 'utils/function'
@@ -25,7 +25,7 @@ function Users({ fetchedUsers }: Props) {
 const getStaticProps: GetStaticProps<Partial<Props>> = async () => {
   return {
     props: {
-      fetchedUsers: await (
+      fetchedUsers: (
         await get<User[], unknown>('https://jsonplaceholder.typicode.com/users')
       ).fold(constant([]), identity),
     },

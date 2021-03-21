@@ -13,7 +13,7 @@ function Button({
   children,
   as: Comp = 'button',
   ...rest
-}: PropsWithChildren<Props> & ComponentPropsWithoutRef<ElementType>) {
+}: PropsWithChildren<Props> & ComponentPropsWithoutRef<'button'>) {
   return (
     <Comp css={styles.root} className={className} {...rest}>
       {children}

@@ -2,7 +2,7 @@ import { css } from '@emotion/react'
 import { themeGet } from 'theme/get'
 
 export const root = css`
-  padding: ${themeGet('space', '$1')} ${themeGet('space', '$2')};
+  padding: ${themeGet('space', '$2')} ${themeGet('space', '$3')};
   font-size: ${themeGet('fontSizes', '$base')};
   background-color: ${themeGet('colors', '$grey300')};
   transition-property: background-color;
