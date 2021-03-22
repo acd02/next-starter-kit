@@ -2,7 +2,7 @@ import { css } from '@emotion/react'
 import { Button } from 'components/atoms/button'
 import { useState } from 'react'
 import { themeGet } from 'theme/get'
-import { User } from 'types/user'
+import type { User } from 'types/user'
 
 import { styles } from './styles'
 import { UserLink } from './UserLink'

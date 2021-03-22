@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
-import { maybe } from 'acd-utils'
 import { NextPage } from 'next'
+import { __, match } from 'ts-pattern'
 
 type Props = {
   statusCode?: number
@@ -16,11 +16,10 @@ const styles = css`
 const Error: NextPage<Props, unknown> = ({ statusCode }) => {
   return (
     <div css={styles}>
-      {maybe(statusCode)
-        .map(code =>
-          code === 404 ? 'Oops, missing page' : `An error ${code} occurred on the server`
-        )
-        .getOrElse('An error occurred on the client')}
+      {match(statusCode)
+        .with(404, () => 'Oops, missing page')
+        .with(__.number, code => `An error ${code} occurred on the server`)
+        .otherwise(() => 'An error occurred on the client')}
     </div>
   )
 }

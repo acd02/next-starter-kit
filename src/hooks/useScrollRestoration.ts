@@ -1,4 +1,3 @@
-import { maybe } from 'acd-utils'
 import Router, { NextRouter } from 'next/router'
 import { useEffect } from 'react'
 
@@ -13,11 +12,12 @@ function saveScrollPos(url: string) {
 }
 
 function restoreScrollPos(url: string) {
-  maybe(sessionStorage.getItem(url)).map(lsData => {
-    const { x, y } = JSON.parse(lsData) as ScrollPos
+  const lsData = sessionStorage.getItem(url)
 
+  if (lsData) {
+    const { x, y } = JSON.parse(lsData) as ScrollPos
     window.scrollTo(x, y)
-  })
+  }
 }
 
 /* eslint-disable fp/no-delete, fp/no-mutation, fp/no-let */

@@ -2,7 +2,7 @@ import { MainLayout } from 'components/layouts/main'
 import type { NextPageWithLayout } from 'global'
 import type { GetStaticProps } from 'next'
 import { RenderUsers } from 'pagesContent/users'
-import { User } from 'types/user'
+import type { User } from 'types/user'
 import { constant, identity } from 'utils/function'
 import { get } from 'utils/http'
 

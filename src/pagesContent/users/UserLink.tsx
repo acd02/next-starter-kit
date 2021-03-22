@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 import { DynamicLink } from 'components/atoms/link'
 import { DynamicRoutes, getRouteDetails } from 'routes'
-import { User } from 'types/user'
+import type { User } from 'types/user'
 
 import { styles } from './styles'
 
