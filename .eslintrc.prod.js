@@ -36,9 +36,8 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 0,
     '@typescript-eslint/no-use-before-define': [
       2,
-      { functions: false, classes: true, variables: true },
+      { functions: false, classes: true, variables: false },
     ],
-    '@typescript-eslint/no-use-before-define': 0,
     '@typescript-eslint/switch-exhaustiveness-check': 2,
     // React
     'jsx-quotes': [2, 'prefer-double'],
