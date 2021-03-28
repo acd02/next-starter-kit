@@ -15,7 +15,12 @@ function RenderUsers({ users }: Props) {
 
   return (
     <>
-      <Button css={styles.button} onClick={() => setShowUsers(s => !s)}>
+      <Button
+        color="$grey300"
+        textColor="#333"
+        css={styles.button}
+        onClick={() => setShowUsers(s => !s)}
+      >
         {showUsers ? 'hide' : 'show'} users
       </Button>
       <h2 css={styles.header}>Users:</h2>
