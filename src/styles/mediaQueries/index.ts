@@ -1,28 +1,17 @@
-import { css, SerializedStyles } from '@emotion/react'
 import { theme } from 'theme'
+import type { Theme } from 'theme/types'
 
-type MQProps = {
-  sm?: SerializedStyles
-  md?: SerializedStyles
-  lg?: SerializedStyles
-  xl?: SerializedStyles
-}
+type Breakpoint = 'sm' | 'md' | 'lg' | 'xl'
 
-function mq({ sm, md, lg, xl }: MQProps) {
-  return css`
-    @media screen and (min-width: ${theme.sizes.$maxSm}) {
-      ${sm}
-    }
-    @media screen and (min-width: ${theme.sizes.$maxmd}) {
-      ${md}
-    }
-    @media screen and (min-width: ${theme.sizes.$maxlg}) {
-      ${lg}
-    }
-    @media screen and (min-width: ${theme.sizes.$maxXl}) {
-      ${xl}
-    }
-  `
+function mq(bp: Breakpoint) {
+  const mapper: Record<Breakpoint, keyof Theme['sizes']> = {
+    sm: '$maxSm',
+    md: '$maxmd',
+    lg: '$maxlg',
+    xl: '$maxXl',
+  }
+
+  return `@media screen and (min-width: ${theme.sizes[mapper[bp]]})`
 }
 
 export { mq }
