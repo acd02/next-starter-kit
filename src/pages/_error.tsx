@@ -1,6 +1,5 @@
 import { css } from '@emotion/react'
 import type { NextPage } from 'next'
-import { __, match } from 'ts-pattern'
 
 type Props = {
   statusCode?: number
@@ -14,14 +13,13 @@ const styles = css`
 `
 
 const Error: NextPage<Props, unknown> = ({ statusCode }) => {
-  return (
-    <div css={styles}>
-      {match(statusCode)
-        .with(404, () => 'Oops, missing page')
-        .with(__.number, code => `An error ${code} occurred on the server`)
-        .otherwise(() => 'An error occurred on the client')}
-    </div>
-  )
+  const getContent = () => {
+    if (statusCode === 404) return 'Oops, missing page'
+    if (statusCode) return `An error ${statusCode} occurred on the server`
+    else return 'An error occurred on the client'
+  }
+
+  return <div css={styles}>{getContent()}</div>
 }
 
 Error.getInitialProps = ({ err, res }): Props => {

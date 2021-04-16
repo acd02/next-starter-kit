@@ -64,7 +64,6 @@
     "react-transition-group": "4.4.1",
     "ts-jest": "26.5.4",
     "ts-node": "9.1.1",
-    "ts-pattern": "3.1.1",
     "typescript": "4.2.3",
     "vercel": "21.3.3"
   },
