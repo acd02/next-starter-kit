@@ -28,7 +28,7 @@ const getStaticPaths: GetStaticPaths = async () => {
 
   const paths = fetchedUsers
     .fold(constant([]), identity)
-    .map(u => ({ params: { id: String(u.id) } }))
+    .map(({ id }) => ({ params: { id: String(id) } }))
 
   return {
     paths,

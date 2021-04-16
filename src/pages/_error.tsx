@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import { NextPage } from 'next'
+import type { NextPage } from 'next'
 import { __, match } from 'ts-pattern'
 
 type Props = {
@@ -24,7 +24,7 @@ const Error: NextPage<Props, unknown> = ({ statusCode }) => {
   )
 }
 
-Error.getInitialProps = ({ err, res }) => {
+Error.getInitialProps = ({ err, res }): Props => {
   const getStatusCode = () => {
     if (err) return err.statusCode
     if (res) return res.statusCode
