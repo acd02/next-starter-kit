@@ -22,7 +22,6 @@ function Users({ fetchedUsers }: Props) {
 )
 
 // Next.js API
-
 const getStaticProps: GetStaticProps<Partial<Props>> = async () => {
   return {
     props: {
