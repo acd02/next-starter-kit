@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 import { Button } from 'components/atoms/button'
-import { useState } from 'react'
+import { useSomeContext, useSomeDispatch } from 'contexts/someContext'
 import { themeGet } from 'theme/get'
 import type { User } from 'types/user'
 
@@ -11,7 +11,8 @@ type Props = {
 }
 
 function RenderUsers({ users }: Props) {
-  const [showUsers, setShowUsers] = useState(true)
+  const { count } = useSomeContext()
+  const dispatch = useSomeDispatch()
 
   return (
     <>
@@ -19,12 +20,15 @@ function RenderUsers({ users }: Props) {
         color="$grey300"
         textColor="#333"
         css={styles.button}
-        onClick={() => setShowUsers(s => !s)}
+        onClick={() => dispatch({ type: 'UPDATE_COUNT', payload: 1 })}
       >
-        {showUsers ? 'hide' : 'show'} users
+        increment count
       </Button>
+      <p css={styles.count}>count value: {count}</p>
       <h2 css={styles.header}>Users:</h2>
-      {showUsers && users.map(UserLink)}
+      {users.map(user => (
+        <UserLink {...user} />
+      ))}
     </>
   )
 }
@@ -36,6 +40,9 @@ const styles = {
   header: css`
     font-size: ${themeGet('fontSizes', '$3xl')};
     margin-bottom: ${themeGet('space', '$4')};
+  `,
+  count: css`
+    margin: ${themeGet('space', '$4')} 0;
   `,
 }
 
