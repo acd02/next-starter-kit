@@ -28,7 +28,6 @@ function post<Data, Res>(body: Data) {
 }
 
 // utils
-
 // see: https://bit.ly/2JVfEgv
 function handleErrors<Err>(res: Response) {
   if (!res.ok)

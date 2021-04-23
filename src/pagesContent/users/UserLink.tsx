@@ -4,10 +4,9 @@ import { DynamicRoutes, getRouteDetails } from 'routes'
 import { themeGet } from 'theme/get'
 import type { User } from 'types/user'
 
-function UserLink({ id, name }: User) {
+function UserLink({ name, id }: User) {
   return (
     <DynamicLink
-      key={id}
       css={styles.link}
       routeDetails={getRouteDetails(DynamicRoutes.user)}
       param={`${id}`}

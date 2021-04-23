@@ -27,7 +27,7 @@ function RenderUsers({ users }: Props) {
       <p css={styles.count}>count value: {count}</p>
       <h2 css={styles.header}>Users:</h2>
       {users.map(user => (
-        <UserLink {...user} />
+        <UserLink key={user.id} {...user} />
       ))}
     </>
   )
