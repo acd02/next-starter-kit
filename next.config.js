@@ -1,6 +1,9 @@
 const computePath = require('./utils').computePath
 
 module.exports = {
+  future: {
+    webpack5: true,
+  },
   webpack(config, options) {
     const esLintRule = {
       test: /\.tsx$/,
