@@ -1,7 +1,6 @@
 import { css } from '@emotion/react'
 import { Link } from 'components/atoms/link'
 import { memo } from 'react'
-import { Routes } from 'routes'
 import { badgeStyles } from 'styles/common/badge'
 import { themeGet } from 'theme/get'
 
@@ -10,8 +9,8 @@ function _Nav() {
     <nav css={styles.root}>
       <header css={[styles.header, badgeStyles]}>nav</header>
       <div css={styles.linksContainer}>
-        <Link to={Routes.index} label="home" />
-        <Link to={Routes.users} label="users" />
+        <Link route="index" label="home" />
+        <Link route="users" label="users" />
       </div>
     </nav>
   )

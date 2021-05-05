@@ -1,18 +1,18 @@
 import NextLink from 'next/link'
-import { DynamicRoutesDetail } from 'routes'
+import { DynamicRoutes, getRouteDetails } from 'routes'
 
 import { styles } from './styles'
 import { handleKeyPress } from './utils'
 
 type Props = {
-  routeDetails: DynamicRoutesDetail
+  route: keyof DynamicRoutes
   param: string
   label: string
   className?: string
 }
 
-function DynamicLink({ className, routeDetails, label, param }: Props) {
-  const { basePath } = routeDetails
+function DynamicLink({ className, route, label, param }: Props) {
+  const { basePath } = getRouteDetails(route)
 
   return (
     <NextLink href={`${basePath}/${param}`}>

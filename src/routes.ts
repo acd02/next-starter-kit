@@ -1,20 +1,26 @@
-export enum Routes {
-  index = '/',
-  users = '/users',
+const routes = {
+  index: '/',
+  users: '/users',
+} as const
+
+const dynamicRoutes = {
+  users: '/users',
+} as const
+
+function getRouteDetails(route: keyof DynamicRoutes): DynamicRoutesDetail {
+  switch (route) {
+    case 'users':
+      return { basePath: dynamicRoutes[route], paramBracket: '[id]' }
+  }
 }
 
-export enum DynamicRoutes {
-  user,
-}
-
-export type DynamicRoutesDetail = {
+type DynamicRoutesDetail = {
   basePath: string
   paramBracket: string
 }
 
-export function getRouteDetails(route: DynamicRoutes): DynamicRoutesDetail {
-  switch (route) {
-    case DynamicRoutes.user:
-      return { basePath: 'users', paramBracket: '[id]' }
-  }
-}
+type Routes = typeof routes
+type DynamicRoutes = typeof dynamicRoutes
+
+export { routes, getRouteDetails }
+export type { DynamicRoutesDetail, DynamicRoutes, Routes }
