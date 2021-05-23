@@ -1,0 +1,7 @@
+.field {
+  margin-bottom: var(--space-4);
+
+  & span {
+    font-weight: var(--fontWeights-bold);
+  }
+}

@@ -1,0 +1,19 @@
+.btn {
+  margin-bottom: var(--space-4);
+}
+
+.header {
+  margin-bottom: var(--space-4);
+  font-size: var(--fontSizes-3xl);
+}
+
+.count {
+  margin: var(--space-4) 0;
+}
+
+.link {
+  display: block;
+  margin-bottom: var(--space-2);
+  width: fit-content;
+  text-decoration: underline;
+}

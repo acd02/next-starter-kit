@@ -19,7 +19,6 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "preserve",
-    "jsxImportSource": "@emotion/react",
     "lib": ["dom", "es2018", "es5"],
     "module": "esnext",
     "moduleResolution": "node",

@@ -1,0 +1,18 @@
+.root {
+  flex: none;
+  border-bottom: 1px solid var(--colors-grey300);
+  padding: var(--space-4) 0;
+  text-align: center;
+}
+
+.header {
+  display: inline-block;
+  margin-bottom: var(--space-4);
+}
+
+.linksContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: var(--space-3);
+}

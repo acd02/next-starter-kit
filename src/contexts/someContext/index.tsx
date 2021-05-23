@@ -7,8 +7,8 @@ const defaultState: State = {
   count: 0,
 }
 
-const SomeContext = createContext<State>((undefined as unknown) as State)
-const DispatchContext = createContext<Dispatch>((undefined as unknown) as Dispatch)
+const SomeContext = createContext<State>(undefined as unknown as State)
+const DispatchContext = createContext<Dispatch>(undefined as unknown as Dispatch)
 
 function SomeProvider({
   value,

@@ -12,4 +12,4 @@
 
 ## Features:
 
-- Styles: [Emotion](https://emotion.sh/docs/introduction)
+- Styles: [CSS Modules](https://nextjs.org/docs/basic-features/built-in-css-support#adding-component-level-css)

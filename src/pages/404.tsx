@@ -1,12 +1,5 @@
-import { css } from '@emotion/react'
-
-const styles = css`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-`
+import styles from './styles.module.css'
 
 export default function Custom404() {
-  return <div css={styles}>missing page</div>
+  return <div className={styles.genericPage}>missing page</div>
 }

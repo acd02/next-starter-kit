@@ -1,7 +1,8 @@
+import cx from 'classcat'
 import NextLink from 'next/link'
 import { DynamicRoutes, getRouteDetails } from 'routes'
 
-import { styles } from './styles'
+import styles from './styles.module.css'
 import { handleKeyPress } from './utils'
 
 type Props = {
@@ -18,8 +19,7 @@ function DynamicLink({ className, route, label, param }: Props) {
     <NextLink href={`${basePath}/${param}`}>
       <a
         href={`${basePath}/${param}`}
-        className={className}
-        css={styles.root}
+        className={cx([styles.root, className])}
         tabIndex={0}
         onKeyPress={handleKeyPress}
       >
