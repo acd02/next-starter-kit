@@ -37,3 +37,4 @@ const styles = {
 }
 
 export { RenderUser }
+export type { Props }

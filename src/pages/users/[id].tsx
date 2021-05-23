@@ -1,7 +1,8 @@
 import { MainLayout } from 'components/layouts/main'
 import type { NextPageWithLayout } from 'global'
 import type { GetStaticPaths, GetStaticProps } from 'next'
-import { RenderUser } from 'pagesContent/users/[id]'
+import dynamic from 'next/dynamic'
+import type { Props as RenderUserProps } from 'pagesContent/users/[id]'
 import type { User } from 'types/user'
 import { constant, identity, noop } from 'utils/function'
 import { get } from 'utils/http'
@@ -10,8 +11,12 @@ type Props = {
   fetchedUser?: User
 }
 
+const DynamicRenderUser = dynamic<RenderUserProps>(() =>
+  import('pagesContent/users/[id]').then(mod => mod.RenderUser)
+)
+
 function UserDetail({ fetchedUser }: Props) {
-  return fetchedUser && <RenderUser user={fetchedUser} />
+  return fetchedUser && <DynamicRenderUser user={fetchedUser} />
 }
 
 ;(UserDetail as NextPageWithLayout<Props>).getLayout = page => (
