@@ -1,6 +1,0 @@
-.root {
-  flex: none;
-  border-top: 1px solid var(--colors-grey300);
-  padding: var(--space-4) 0;
-  text-align: center;
-}

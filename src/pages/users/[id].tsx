@@ -1,4 +1,4 @@
-import { MainLayout } from 'components/layouts/main'
+import { MainLayout } from 'components/layouts/Main'
 import type { NextPageWithLayout } from 'global'
 import type { GetStaticPaths, GetStaticProps } from 'next'
 import dynamic from 'next/dynamic'

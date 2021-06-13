@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.14.5",
+    "@stitches/react": "0.2.0-canary.7",
     "@testing-library/jest-dom": "5.14.1",
     "@testing-library/react": "11.2.7",
     "@types/jest": "26.0.23",
@@ -65,6 +66,7 @@
     "prettier": "2.3.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-polymorphic-box": "3.0.3",
     "react-transition-group": "4.4.2",
     "stylelint": "13.13.1",
     "stylelint-config-concentric-order": "4.0.1",

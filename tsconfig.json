@@ -9,6 +9,7 @@
       "pages/*": ["./src/pages/*"],
       "pagesContent/*": ["./src/pagesContent/*"],
       "styles/*": ["./src/styles/*"],
+      "stitches": ["./src/styles/stitches.config.ts"],
       "utils/*": ["./src/utils/*"],
       "routes": ["./src/routes.ts"],
       "rtl": ["./src/rtl/index.tsx"],

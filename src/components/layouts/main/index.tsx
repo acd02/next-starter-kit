@@ -1,19 +1,19 @@
+import { Box } from 'components/atoms/Box'
 import { PropsWithChildren } from 'react'
 
-import { Meta } from '../../atoms/meta'
+import { Meta } from '../../atoms/Meta'
 import { Footer, Nav } from '../../organisms'
-import styles from './styles.module.css'
 
 type Props = Parameters<typeof Meta>[0]
 
 function MainLayout({ title, description, children }: PropsWithChildren<Props>) {
   return (
-    <div className={styles.root}>
+    <Box css={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
       <Meta title={title} description={description} />
       <Nav />
-      <div className={styles.content}>{children}</div>
+      <Box css={{ flexGrow: 1, padding: '$4' }}>{children}</Box>
       <Footer />
-    </div>
+    </Box>
   )
 }
 

@@ -1,19 +1,37 @@
-import cx from 'classcat'
-import { Link } from 'components/atoms/link'
+import { Box } from 'components/atoms/Box'
+import { Link } from 'components/atoms/Link'
 import { memo } from 'react'
-import badgeStyles from 'styles/common/badge/styles.module.css'
-
-import styles from './styles.module.css'
 
 function _Nav() {
   return (
-    <nav className={styles.root}>
-      <header className={cx([styles.header, badgeStyles.root])}>nav</header>
-      <div className={styles.linksContainer}>
+    <Box
+      as="nav"
+      css={{
+        flex: 'none',
+        py: '$4',
+        borderBottom: '1px solid $grey300',
+        textAlign: 'center',
+      }}
+    >
+      <Box
+        as="header"
+        css={{ uBadge: true, display: 'inline-block', marginBottom: '$4' }}
+      >
+        nav
+      </Box>
+      <Box
+        as="div"
+        css={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          columnGap: '$3',
+        }}
+      >
         <Link route="index" label="home" />
         <Link route="users" label="users" />
-      </div>
-    </nav>
+      </Box>
+    </Box>
   )
 }
 

@@ -1,6 +1,5 @@
+import { Box } from 'components/atoms/Box'
 import type { NextPage } from 'next'
-
-import styles from './styles.module.css'
 
 type Props = {
   statusCode?: number
@@ -13,7 +12,18 @@ const Error: NextPage<Props, unknown> = ({ statusCode }) => {
     else return 'An error occurred on the client'
   })()
 
-  return <div className={styles.genericPage}>{content}</div>
+  return (
+    <Box
+      css={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '100%',
+      }}
+    >
+      {content}
+    </Box>
+  )
 }
 
 Error.getInitialProps = ({ err, res }): Props => {

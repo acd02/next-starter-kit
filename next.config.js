@@ -23,6 +23,7 @@ module.exports = {
       public: computePath('./public/'),
       routes: computePath('./src/routes.ts'),
       styles: computePath('./src/styles'),
+      stitches: computePath('./src/styles/stitches.config.ts'),
       theme: computePath('./src/theme/'),
       types: computePath('./src/types/'),
       utils: computePath('./src/utils')

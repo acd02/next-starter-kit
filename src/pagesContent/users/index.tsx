@@ -1,8 +1,8 @@
-import { Button } from 'components/atoms/button'
+import { Button } from 'components/atoms/Button'
+import { Text } from 'components/atoms/Text'
 import { useSomeContext, useSomeDispatch } from 'contexts/someContext'
 import type { User } from 'types/user'
 
-import styles from './styles.module.css'
 import { UserLink } from './UserLink'
 
 type Props = {
@@ -16,15 +16,16 @@ function RenderUsers({ users }: Props) {
   return (
     <>
       <Button
-        color="$grey300"
-        textColor="#333"
-        className={styles.btn}
+        color="grey"
+        css={{ marginBottom: '$4' }}
         onClick={() => dispatch({ type: 'UPDATE_COUNT', payload: 1 })}
       >
         increment count
       </Button>
-      <p className={styles.count}>count value: {count}</p>
-      <h2 className={styles.header}>Users:</h2>
+      <Text css={{ my: '$4' }}>count value: {count}</Text>
+      <Text as="h2" fontSize="3xl" css={{ marginBottom: '$4' }}>
+        Users:
+      </Text>
       {users.map(user => (
         <UserLink key={user.id} {...user} />
       ))}

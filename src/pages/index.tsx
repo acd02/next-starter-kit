@@ -1,16 +1,15 @@
-import { MainLayout } from 'components/layouts/main'
+import { Text } from 'components/atoms/Text'
+import { MainLayout } from 'components/layouts/Main'
 import { SomeProvider, useSomeContext } from 'contexts/someContext'
 import type { NextPageWithLayout } from 'global'
-
-import styles from './styles.module.css'
 
 function Home() {
   const { count } = useSomeContext()
 
   return (
     <>
-      <p className={styles.text}>content</p>
-      <p className={styles.count}>count value: {count}</p>
+      <Text fontWeight="medium">content</Text>
+      <Text css={{ my: '$4' }}>count value: {count}</Text>
     </>
   )
 }

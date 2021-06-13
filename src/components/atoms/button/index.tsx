@@ -1,37 +1,29 @@
-import cx from 'classcat'
-import { ComponentPropsWithoutRef, ElementType, PropsWithChildren } from 'react'
-import { themeGet } from 'theme/get'
-import { Color } from 'theme/types'
+import { ElementType } from 'react'
+import { PolymorphicComponentProps } from 'react-polymorphic-box'
+import type { CSS } from 'stitches'
 
-import styles from './styles.module.css'
+import { Styled } from './styles'
 
 type Props = {
-  className?: string
-  as?: ElementType
-  href?: string
-  color?: Color
-  textColor?: string
+  css?: CSS
+  color?: keyof typeof Styled.Button['variants']['color']
 }
 
-function Button({
+type PolymorphicProps<Elm extends ElementType> = PolymorphicComponentProps<Elm, Props>
+
+const buttonElm = 'button'
+
+function Button<Elm extends ElementType = typeof buttonElm>({
   className,
   children,
-  color = '$primary',
-  textColor = '#fff',
-  as: Comp = 'button',
+  variants,
+  color,
   ...rest
-}: PropsWithChildren<Props> & ComponentPropsWithoutRef<'button'>) {
+}: PolymorphicProps<Elm>) {
   return (
-    <Comp
-      style={{
-        '--bg-color': themeGet('colors', color),
-        '--text-color': textColor,
-      }}
-      className={cx([styles.root, className])}
-      {...rest}
-    >
+    <Styled.Button color={color} as={buttonElm} className={className} {...rest}>
       {children}
-    </Comp>
+    </Styled.Button>
   )
 }
 

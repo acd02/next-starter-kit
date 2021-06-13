@@ -1,32 +1,33 @@
-import cx from 'classcat'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 import type { Routes } from 'routes'
 import { routes } from 'routes'
+import type { CSS } from 'stitches'
 
-import styles from './styles.module.css'
+import { Styled } from './styles'
 import { handleKeyPress } from './utils'
 
 type Props = {
   route: keyof Routes
   label: string
-  className?: string
+  css?: CSS
 }
 
-function Link({ route, label, className }: Props) {
+function Link({ route, label, ...rest }: Props) {
   const { pathname } = useRouter()
   const isActive = routes[route] === pathname
 
   return (
     <NextLink href={routes[route]}>
-      <a
+      <Styled.Root
         href={routes[route]}
-        className={cx([styles.root, isActive && styles.isActive, className])}
+        active={isActive}
         tabIndex={0}
         onKeyPress={handleKeyPress}
+        {...rest}
       >
         {label}
-      </a>
+      </Styled.Root>
     </NextLink>
   )
 }

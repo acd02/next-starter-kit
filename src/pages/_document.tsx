@@ -1,10 +1,5 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document'
-import { theme } from 'theme'
-import { toCSSVariables } from 'theme/utils'
-
-const stringifiedTheme = Object.entries(toCSSVariables(theme))
-  .map(([k, v]) => `${k}:${v}`)
-  .join(';')
+import { getCssString } from 'stitches'
 
 /* eslint-disable-next-line fp/no-class */
 export default class MyDocument extends Document {
@@ -12,13 +7,7 @@ export default class MyDocument extends Document {
     return (
       <Html {...{ lang: 'en' }}>
         <Head />
-        <style>
-          {`
-          :root {
-            ${stringifiedTheme}
-          }
-        `}
-        </style>
+        <style id="stitches" dangerouslySetInnerHTML={{ __html: getCssString() }} />
         <body>
           <Main />
           <NextScript />

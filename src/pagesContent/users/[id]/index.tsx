@@ -1,6 +1,5 @@
+import { Text } from 'components/atoms/Text'
 import type { User } from 'types/user'
-
-import styles from './styles.module.css'
 
 type Props = {
   user: User
@@ -21,9 +20,12 @@ function RenderUser({ user }: Props) {
 // utils
 function Field({ label, value }: { label: string; value: string }) {
   return (
-    <p className={styles.field}>
-      <span>{label}:</span> {value}
-    </p>
+    <Text css={{ marginBottom: '$4' }}>
+      <Text as="span" fontWeight="bold">
+        {label}:
+      </Text>{' '}
+      {value}
+    </Text>
   )
 }
 

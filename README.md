@@ -12,4 +12,4 @@
 
 ## Features:
 
-- Styles: [CSS Modules](https://nextjs.org/docs/basic-features/built-in-css-support#adding-component-level-css)
+- Styles: [Stitches](https://stitches.dev/)

@@ -1,11 +1,19 @@
-import { DynamicLink } from 'components/atoms/link'
+import { DynamicLink } from 'components/atoms/Link'
 import type { User } from 'types/user'
-
-import styles from './styles.module.css'
 
 function UserLink({ name, id }: User) {
   return (
-    <DynamicLink className={styles.link} route="users" param={`${id}`} label={name} />
+    <DynamicLink
+      css={{
+        display: 'block',
+        marginBottom: '$2',
+        width: 'fit-content',
+        textDecoration: 'underline',
+      }}
+      route="users"
+      param={`${id}`}
+      label={name}
+    />
   )
 }
 

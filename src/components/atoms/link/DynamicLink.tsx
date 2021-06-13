@@ -1,30 +1,30 @@
-import cx from 'classcat'
 import NextLink from 'next/link'
 import { DynamicRoutes, getRouteDetails } from 'routes'
+import type { CSS } from 'stitches'
 
-import styles from './styles.module.css'
+import { Styled } from './styles'
 import { handleKeyPress } from './utils'
 
 type Props = {
   route: keyof DynamicRoutes
   param: string
   label: string
-  className?: string
+  css?: CSS
 }
 
-function DynamicLink({ className, route, label, param }: Props) {
+function DynamicLink({ route, label, param, ...rest }: Props) {
   const { basePath } = getRouteDetails(route)
 
   return (
     <NextLink href={`${basePath}/${param}`}>
-      <a
+      <Styled.Root
         href={`${basePath}/${param}`}
-        className={cx([styles.root, className])}
         tabIndex={0}
         onKeyPress={handleKeyPress}
+        {...rest}
       >
         {label}
-      </a>
+      </Styled.Root>
     </NextLink>
   )
 }

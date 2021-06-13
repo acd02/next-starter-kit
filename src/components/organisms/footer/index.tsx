@@ -1,13 +1,26 @@
+import { Box } from 'components/atoms/Box'
 import { memo } from 'react'
-import badgeStyles from 'styles/common/badge/styles.module.css'
-
-import styles from './styles.module.css'
 
 function _Footer() {
   return (
-    <footer className={styles.root}>
-      <span className={badgeStyles.root}>footer</span>
-    </footer>
+    <Box
+      as="footer"
+      css={{
+        flex: 'none',
+        borderTop: '1px solid $grey300',
+        py: '$4',
+        textAlign: 'center',
+      }}
+    >
+      <Box
+        as="span"
+        css={{
+          uBadge: true,
+        }}
+      >
+        footer
+      </Box>
+    </Box>
   )
 }
 
