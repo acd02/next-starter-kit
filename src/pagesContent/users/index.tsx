@@ -34,4 +34,3 @@ function RenderUsers({ users }: Props) {
 }
 
 export { RenderUsers }
-export type { Props }
