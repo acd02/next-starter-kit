@@ -51,6 +51,7 @@ module.exports = {
       tsconfig: '<rootDir>/tsconfig.jest.json',
     },
   },
+  setupFiles: ['<rootDir>/jest/patch-cssom.js'],
   setupFilesAfterEnv: ['<rootDir>/jest/setupAfterEnv.ts'],
   watchPlugins: ['jest-watch-typeahead/filename', 'jest-watch-typeahead/testname'],
 }
