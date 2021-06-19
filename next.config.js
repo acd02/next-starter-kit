@@ -1,15 +1,12 @@
 const computePath = require('./utils').computePath
 
 module.exports = {
-  future: {
-    webpack5: true,
-  },
   webpack(config, options) {
     const esLintRule = {
       test: /\.tsx$/,
       enforce: 'pre',
       exclude: ['/node_modules/', '/.next/'],
-      loader: 'eslint-loader'
+      loader: 'eslint-loader',
     }
     config.module.rules.push(esLintRule)
 
@@ -26,9 +23,9 @@ module.exports = {
       stitches: computePath('./src/styles/stitches.config.ts'),
       theme: computePath('./src/theme/'),
       types: computePath('./src/types/'),
-      utils: computePath('./src/utils')
+      utils: computePath('./src/utils'),
     }
 
     return config
-  }
+  },
 }
