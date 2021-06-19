@@ -33,6 +33,30 @@ export const Text = styled('p', {
         fontWeight: '$bold',
       },
     },
+    preWrap: {
+      true: {
+        whiteSpace: 'pre-wrap',
+      },
+    },
+    tabularNums: {
+      true: {
+        fontVariantNumeric: 'tabular-nums',
+      },
+    },
+    textAlign: {
+      left: {
+        textAlign: 'left',
+      },
+      center: {
+        textAlign: 'center',
+      },
+      right: {
+        textAlign: 'right',
+      },
+      justify: {
+        textAlign: 'justify',
+      },
+    },
   },
   defaultVariants: {
     fontSize: 'default',

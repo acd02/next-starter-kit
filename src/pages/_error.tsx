@@ -14,10 +14,10 @@ const Error: NextPage<Props, unknown> = ({ statusCode }) => {
 
   return (
     <Box
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
       css={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
         height: '100%',
       }}
     >

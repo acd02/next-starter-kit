@@ -3,10 +3,10 @@ import { Box } from 'components/atoms/Box'
 export default function Custom404() {
   return (
     <Box
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
       css={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
         height: '100%',
       }}
     >

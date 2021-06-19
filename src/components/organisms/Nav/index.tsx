@@ -6,25 +6,22 @@ function _Nav() {
   return (
     <Box
       as="nav"
+      flexNone
+      textAlign="center"
       css={{
-        flex: 'none',
         py: '$4',
         borderBottom: '1px solid $grey300',
-        textAlign: 'center',
       }}
     >
-      <Box
-        as="header"
-        css={{ uBadge: true, display: 'inline-block', marginBottom: '$4' }}
-      >
+      <Box display="inline-block" as="header" css={{ uBadge: true, marginBottom: '$4' }}>
         nav
       </Box>
       <Box
         as="div"
+        display="flex"
+        justifyContent="center"
+        flexWrap
         css={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
           columnGap: '$3',
         }}
       >

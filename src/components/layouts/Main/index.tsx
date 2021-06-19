@@ -8,10 +8,12 @@ type Props = Parameters<typeof Meta>[0]
 
 function MainLayout({ title, description, children }: PropsWithChildren<Props>) {
   return (
-    <Box css={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+    <Box display="flex" flexDirection="column" css={{ height: '100%' }}>
       <Meta title={title} description={description} />
       <Nav />
-      <Box css={{ flexGrow: 1, padding: '$4' }}>{children}</Box>
+      <Box flexGrow="1" css={{ padding: '$4' }}>
+        {children}
+      </Box>
       <Footer />
     </Box>
   )

@@ -5,11 +5,11 @@ function _Footer() {
   return (
     <Box
       as="footer"
+      flexNone
+      textAlign="center"
       css={{
-        flex: 'none',
         borderTop: '1px solid $grey300',
         py: '$4',
-        textAlign: 'center',
       }}
     >
       <Box
