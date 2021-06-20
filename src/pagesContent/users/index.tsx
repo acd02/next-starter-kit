@@ -1,7 +1,7 @@
 import { Button } from 'components/atoms/Button'
 import { DynamicLink } from 'components/atoms/Link'
 import { Text } from 'components/atoms/Text'
-import { useSomeContext, useSomeDispatch } from 'contexts/someContext'
+import { useStore } from 'stores/someStore'
 import type { User } from 'types/user'
 
 type Props = {
@@ -9,8 +9,8 @@ type Props = {
 }
 
 function RenderUsers({ users }: Props) {
-  const { count } = useSomeContext()
-  const dispatch = useSomeDispatch()
+  const count = useStore(s => s.count)
+  const updateCount = useStore(s => s.updateCount)
 
   const links = users.map(({ id, name }) => (
     <DynamicLink
@@ -28,11 +28,7 @@ function RenderUsers({ users }: Props) {
 
   return (
     <>
-      <Button
-        color="grey"
-        css={{ marginBottom: '$4' }}
-        onClick={() => dispatch({ type: 'UPDATE_COUNT', payload: 1 })}
-      >
+      <Button color="grey" css={{ marginBottom: '$4' }} onClick={() => updateCount(1)}>
         increment count
       </Button>
       <Text css={{ my: '$4' }}>count value: {count}</Text>

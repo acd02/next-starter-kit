@@ -13,3 +13,4 @@
 ## Features:
 
 - Styles: [Stitches](https://stitches.dev/)
+- Stores: [Zustand](https://github.com/pmndrs/zustand)

@@ -1,5 +1,4 @@
 import { MainLayout } from 'components/layouts/Main'
-import { SomeProvider } from 'contexts/someContext'
 import type { NextPageWithLayout } from 'global'
 import type { GetStaticPaths, GetStaticProps } from 'next'
 import { RenderUser } from 'pagesContent/users/[id]'
@@ -17,7 +16,7 @@ function UserDetail({ fetchedUser }: Props) {
 
 ;(UserDetail as NextPageWithLayout<Props>).getLayout = page => (
   <MainLayout title={page.props.fetchedUser?.name ?? ''} description="user details">
-    <SomeProvider>{page}</SomeProvider>
+    {page}
   </MainLayout>
 )
 

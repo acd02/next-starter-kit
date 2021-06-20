@@ -1,10 +1,10 @@
 import { Text } from 'components/atoms/Text'
 import { MainLayout } from 'components/layouts/Main'
-import { SomeProvider, useSomeContext } from 'contexts/someContext'
 import type { NextPageWithLayout } from 'global'
+import { useStore } from 'stores/someStore'
 
 function Home() {
-  const { count } = useSomeContext()
+  const count = useStore(s => s.count)
 
   return (
     <>
@@ -16,7 +16,7 @@ function Home() {
 
 ;(Home as NextPageWithLayout<unknown>).getLayout = page => (
   <MainLayout title="app" description="home">
-    <SomeProvider>{page}</SomeProvider>
+    {page}
   </MainLayout>
 )
 
