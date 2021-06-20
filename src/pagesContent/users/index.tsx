@@ -1,9 +1,8 @@
 import { Button } from 'components/atoms/Button'
+import { DynamicLink } from 'components/atoms/Link'
 import { Text } from 'components/atoms/Text'
 import { useSomeContext, useSomeDispatch } from 'contexts/someContext'
 import type { User } from 'types/user'
-
-import { UserLink } from './UserLink'
 
 type Props = {
   users: User[]
@@ -12,6 +11,20 @@ type Props = {
 function RenderUsers({ users }: Props) {
   const { count } = useSomeContext()
   const dispatch = useSomeDispatch()
+
+  const links = users.map(({ id, name }) => (
+    <DynamicLink
+      css={{
+        display: 'block',
+        marginBottom: '$2',
+        width: 'fit-content',
+        textDecoration: 'underline',
+      }}
+      route="users"
+      param={`${id}`}
+      label={name}
+    />
+  ))
 
   return (
     <>
@@ -26,9 +39,7 @@ function RenderUsers({ users }: Props) {
       <Text as="h2" fontSize="3xl" css={{ marginBottom: '$4' }}>
         Users:
       </Text>
-      {users.map(user => (
-        <UserLink key={user.id} {...user} />
-      ))}
+      {links}
     </>
   )
 }
