@@ -1,4 +1,3 @@
 {
-  "src/**/*.ts?(x)": ["npm run lint:hook", "npm run prettier:hook"],
-  "src/**/*.module.css": ["npm run lint:styles:hook"]
+  "src/**/*.ts?(x)": ["npm run lint:hook", "npm run prettier:hook"]
 }
