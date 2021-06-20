@@ -21,7 +21,6 @@ module.exports = {
       stitches: computePath('./src/styles/stitches.config.ts'),
       stores: computePath('./src/stores/'),
       styles: computePath('./src/styles'),
-      theme: computePath('./src/theme/'),
       types: computePath('./src/types/'),
       utils: computePath('./src/utils'),
     }

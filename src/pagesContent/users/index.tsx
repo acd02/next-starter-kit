@@ -1,5 +1,5 @@
 import { Button } from 'components/atoms/Button'
-import { DynamicLink } from 'components/atoms/Link'
+import { Link } from 'components/atoms/Link'
 import { Text } from 'components/atoms/Text'
 import { useStore } from 'stores/someStore'
 import type { User } from 'types/user'
@@ -13,7 +13,7 @@ function RenderUsers({ users }: Props) {
   const updateCount = useStore(s => s.updateCount)
 
   const links = users.map(({ id, name }) => (
-    <DynamicLink
+    <Link
       key={id}
       css={{
         display: 'block',

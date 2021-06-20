@@ -13,8 +13,6 @@
       "utils/*": ["./src/utils/*"],
       "routes": ["./src/routes.ts"],
       "rtl": ["./src/rtl/index.tsx"],
-      "theme": ["./src/theme"],
-      "theme/*": ["./src/theme/*"],
       "types/*": ["./src/types/*"]
     },
     "esModuleInterop": true,
