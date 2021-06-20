@@ -14,6 +14,7 @@ function RenderUsers({ users }: Props) {
 
   const links = users.map(({ id, name }) => (
     <DynamicLink
+      key={id}
       css={{
         display: 'block',
         marginBottom: '$2',

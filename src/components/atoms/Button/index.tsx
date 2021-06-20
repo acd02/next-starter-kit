@@ -18,10 +18,11 @@ function Button<Elm extends ElementType = typeof buttonElm>({
   children,
   variants,
   color,
+  as = buttonElm as Elm,
   ...rest
 }: PolymorphicProps<Elm>) {
   return (
-    <Styled.Button color={color} as={buttonElm} className={className} {...rest}>
+    <Styled.Button color={color} as={as} className={className} {...rest}>
       {children}
     </Styled.Button>
   )
