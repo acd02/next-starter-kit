@@ -10,7 +10,7 @@ type Props = {
 
 function RenderUsers({ users }: Props) {
   const count = useStore(s => s.count)
-  const updateCount = useStore(s => s.updateCount)
+  const updateCount = useStore(s => s.actions.updateCount)
 
   const links = users.map(({ id, name }) => (
     <Link
