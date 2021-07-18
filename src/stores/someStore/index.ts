@@ -1,12 +1,9 @@
 import create from 'zustand'
 
+import { actions } from './actions'
 import type { Store } from './types'
 
-export const useStore = create<Store>(set => ({
+export const useStore = create<Store>((set, get) => ({
   count: 0,
-  actions: {
-    updateCount(value) {
-      set(s => ({ count: s.count + value < 0 ? 0 : s.count + value }))
-    },
-  },
+  actions: actions(set, get),
 }))

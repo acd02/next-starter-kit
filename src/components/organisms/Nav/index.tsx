@@ -17,7 +17,6 @@ function _Nav() {
         nav
       </Box>
       <Box
-        as="div"
         display="flex"
         justifyContent="center"
         flexWrap

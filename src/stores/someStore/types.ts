@@ -7,4 +7,4 @@ type Actions = {
   updateCount(value: number): void
 }
 
-export type { Store }
+export type { Store, Actions }
