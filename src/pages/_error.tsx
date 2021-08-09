@@ -8,16 +8,11 @@ type Props = {
 
 const Error: NextPage<Props, unknown> = ({ statusCode }) => {
   const content = makeMapper({
-    key: () => {
-      if (statusCode === 404) return 'missingPage'
-      if (statusCode) return 'serverError'
-      else return 'clientError'
-    },
-    mapper: {
-      missingPage: 'Oops, missing page',
-      serverError: `An error ${statusCode} occurred on the server`,
-      clientError: 'An error occurred on the client',
-    },
+    values: [
+      [() => statusCode === 404, () => 'Oops, missing page'],
+      [() => !!statusCode, () => `An error ${statusCode} occurred on the server`],
+    ],
+    fallback: () => 'An error occurred on the client',
   })
 
   return (
@@ -36,16 +31,11 @@ const Error: NextPage<Props, unknown> = ({ statusCode }) => {
 
 Error.getInitialProps = ({ err, res }): Props => {
   const statusCode = makeMapper({
-    key: () => {
-      if (err) return 'isErr'
-      if (res) return 'isRes'
-      else return 'isMissing'
-    },
-    mapper: {
-      isErr: err?.statusCode,
-      isRes: res?.statusCode,
-      isMissing: 404,
-    },
+    values: [
+      [() => !!err, () => err?.statusCode],
+      [() => !!res, () => res?.statusCode],
+    ],
+    fallback: () => 404,
   })
 
   return {
