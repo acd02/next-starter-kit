@@ -1,4 +1,4 @@
-import { createCss, StitchesCss } from '@stitches/react'
+import { createStitches, CSS as StitchesCSS, PropertyValue } from '@stitches/react'
 
 const theme = {
   colors: {
@@ -126,29 +126,29 @@ const theme = {
   },
 }
 
-const stitchesConfig = createCss({
+const stitchesConfig = createStitches({
   utils: {
-    uFlexNone: _config => () => ({
+    uFlexNone: () => ({
       flex: '0 0 auto',
     }),
-    uBadge: _config => () => ({
+    uBadge: () => ({
       border: '1px solid $grey400',
       borderRadius: '$sm',
       padding: '$1 $2',
     }),
-    mx: config => (value: `$${keyof typeof config['theme']['space']}`) => ({
+    mx: (value: PropertyValue<'margin'>) => ({
       marginLeft: value,
       marginRight: value,
     }),
-    my: config => (value: `$${keyof typeof config['theme']['space']}`) => ({
+    my: (value: PropertyValue<'margin'>) => ({
       marginTop: value,
       marginBottom: value,
     }),
-    px: config => (value: `$${keyof typeof config['theme']['space']}`) => ({
+    px: (value: PropertyValue<'padding'>) => ({
       paddingLeft: value,
       paddingRight: value,
     }),
-    py: config => (value: `$${keyof typeof config['theme']['space']}`) => ({
+    py: (value: PropertyValue<'padding'>) => ({
       paddingTop: value,
       paddingBottom: value,
     }),
@@ -162,8 +162,8 @@ const stitchesConfig = createCss({
   theme,
 })
 
-type CSS = StitchesCss<typeof stitchesConfig>
+type CSS = StitchesCSS<typeof stitchesConfig>
 
-export const { styled, css, getCssString, global, theme: stitchesTheme } = stitchesConfig
+export const { styled, css, getCssText, globalCss, theme: stitchesTheme } = stitchesConfig
 
 export type { CSS }

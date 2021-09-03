@@ -1,4 +1,5 @@
-import { ElementType } from 'react'
+import type { VariantProps } from '@stitches/react'
+import type { ElementType } from 'react'
 import { PolymorphicComponentProps } from 'react-polymorphic-box'
 import type { CSS } from 'stitches'
 
@@ -6,7 +7,7 @@ import { Styled } from './styles'
 
 type Props = {
   css?: CSS
-  color?: keyof typeof Styled.Button['variants']['color']
+  color?: VariantProps<typeof Styled.Button>['color']
 }
 
 type PolymorphicProps<Elm extends ElementType> = PolymorphicComponentProps<Elm, Props>

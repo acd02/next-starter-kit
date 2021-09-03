@@ -1,6 +1,6 @@
-import { global } from './stitches.config'
+import { globalCss } from './stitches.config'
 
-export const reset = global({
+export const reset = globalCss({
   'blockquote, body, dd, dl, dt, fieldset, figure, h1, h2, h3, h4, h5, h6, hr, html,iframe, legend, li, ol, p, pre, textarea, ul':
     {
       margin: '0',
