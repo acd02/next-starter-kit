@@ -1,11 +1,11 @@
-import { styled } from 'stitches'
+import { css } from 'stitches'
 
 const tokens = {
   color: '$$color',
   textColor: '$$textColor',
 }
 
-const Button = styled('button', {
+export const button = css({
   [tokens.color]: '',
   [tokens.textColor]: '',
   position: 'relative',
@@ -61,7 +61,3 @@ const Button = styled('button', {
     color: 'default',
   },
 })
-
-export const Styled = {
-  Button,
-}

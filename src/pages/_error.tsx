@@ -1,5 +1,5 @@
-import { Box } from 'components/atoms/Box'
 import type { NextPage } from 'next'
+import { box } from 'styles/box'
 import { makeMapper } from 'utils/makeMapper'
 
 type Props = {
@@ -16,16 +16,16 @@ const Error: NextPage<Props, unknown> = ({ statusCode }) => {
   })
 
   return (
-    <Box
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-      css={{
+    <div
+      className={box({
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
         height: '100%',
-      }}
+      })}
     >
       {content}
-    </Box>
+    </div>
   )
 }
 

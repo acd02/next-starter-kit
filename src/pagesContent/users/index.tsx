@@ -1,7 +1,8 @@
-import { Button } from 'components/atoms/Button'
 import { Link } from 'components/atoms/Link'
-import { Text } from 'components/atoms/Text'
 import { useStore } from 'stores/someStore'
+import { button } from 'styles/ button'
+import { box } from 'styles/box'
+import { text } from 'styles/text'
 import type { User } from 'types/user'
 
 type Props = {
@@ -14,12 +15,12 @@ function RenderUsers({ users }: Props) {
   const links = users.map(({ id, name }) => (
     <Link
       key={id}
-      css={{
+      css={box({
         display: 'block',
         marginBottom: '$2',
         width: 'fit-content',
         textDecoration: 'underline',
-      }}
+      })}
       route="users"
       param={`${id}`}
       label={name}
@@ -28,13 +29,23 @@ function RenderUsers({ users }: Props) {
 
   return (
     <>
-      <Button color="grey" css={{ marginBottom: '$4' }} onClick={() => updateCount(1)}>
+      <button
+        className={button({ color: 'grey', css: { mb: '$4' } })}
+        onClick={() => updateCount(1)}
+      >
         increment count
-      </Button>
-      <Text css={{ my: '$4' }}>count value: {count}</Text>
-      <Text as="h2" fontSize="3xl" css={{ marginBottom: '$4' }}>
+      </button>
+      <p className={box({ my: '$4' })}>count value: {count}</p>
+      <h2
+        className={text({
+          fontSize: '3xl',
+          css: {
+            mb: '$4',
+          },
+        })}
+      >
         Users:
-      </Text>
+      </h2>
       {links}
     </>
   )

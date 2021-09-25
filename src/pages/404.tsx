@@ -1,16 +1,16 @@
-import { Box } from 'components/atoms/Box'
+import { box } from 'styles/box'
 
 export default function Custom404() {
   return (
-    <Box
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-      css={{
+    <div
+      className={box({
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
         height: '100%',
-      }}
+      })}
     >
       missing page
-    </Box>
+    </div>
   )
 }

@@ -1,26 +1,18 @@
-import { Box } from 'components/atoms/Box'
 import { memo } from 'react'
+import { box } from 'styles/box'
 
 function _Footer() {
   return (
-    <Box
-      as="footer"
-      flexNone
-      textAlign="center"
-      css={{
-        borderTop: '1px solid $grey300',
+    <footer
+      className={box({
+        textAlign: 'center',
         py: '$4',
-      }}
+        uFlexNone: true,
+        borderTop: '1px solid $grey300',
+      })}
     >
-      <Box
-        as="span"
-        css={{
-          uBadge: true,
-        }}
-      >
-        footer
-      </Box>
-    </Box>
+      <span className={box({ uBadge: true })}>footer</span>
+    </footer>
   )
 }
 

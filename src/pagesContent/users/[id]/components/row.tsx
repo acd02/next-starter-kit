@@ -1,13 +1,12 @@
-import { Text } from 'components/atoms/Text'
+import { box } from 'styles/box'
+import { text } from 'styles/text'
 
 function Row({ label, value }: { label: string; value: string }) {
   return (
-    <Text css={{ marginBottom: '$4' }}>
-      <Text as="span" fontWeight="bold">
-        {label}:&nbsp;
-      </Text>
+    <p className={box({ mb: '$4' })}>
+      <span className={text({ fontWeight: 'bold' })}>{label}:&nbsp;</span>
       {value}
-    </Text>
+    </p>
   )
 }
 

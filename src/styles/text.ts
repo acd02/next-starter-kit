@@ -1,6 +1,6 @@
-import { styled } from 'stitches'
+import { css } from 'stitches'
 
-export const Text = styled('p', {
+export const text = css({
   variants: {
     fontSize: {
       default: {
@@ -33,6 +33,17 @@ export const Text = styled('p', {
         fontWeight: '$bold',
       },
     },
+    color: {
+      default: {
+        color: '$dark',
+      },
+      lightGrey: {
+        color: '$lightGrey',
+      },
+      frostBlue: {
+        color: '$frostBlue',
+      },
+    },
     preWrap: {
       true: {
         whiteSpace: 'pre-wrap',
@@ -61,5 +72,6 @@ export const Text = styled('p', {
   defaultVariants: {
     fontSize: 'default',
     fontWeight: 'default',
+    color: 'default',
   },
 })

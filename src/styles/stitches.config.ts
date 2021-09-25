@@ -1,4 +1,4 @@
-import { createStitches, CSS as StitchesCSS, PropertyValue } from '@stitches/react'
+import { createStitches, CSS as StitchesCSS, PropertyValue } from '@stitches/core'
 
 const theme = {
   colors: {
@@ -144,6 +144,18 @@ const stitchesConfig = createStitches({
       marginTop: value,
       marginBottom: value,
     }),
+    mt: (value: PropertyValue<'margin'>) => ({
+      marginTop: value,
+    }),
+    mr: (value: PropertyValue<'margin'>) => ({
+      marginRight: value,
+    }),
+    mb: (value: PropertyValue<'margin'>) => ({
+      marginBottom: value,
+    }),
+    ml: (value: PropertyValue<'margin'>) => ({
+      marginLeft: value,
+    }),
     px: (value: PropertyValue<'padding'>) => ({
       paddingLeft: value,
       paddingRight: value,
@@ -151,6 +163,18 @@ const stitchesConfig = createStitches({
     py: (value: PropertyValue<'padding'>) => ({
       paddingTop: value,
       paddingBottom: value,
+    }),
+    pt: (value: PropertyValue<'padding'>) => ({
+      paddingTop: value,
+    }),
+    pr: (value: PropertyValue<'padding'>) => ({
+      paddingRight: value,
+    }),
+    pb: (value: PropertyValue<'padding'>) => ({
+      paddingBottom: value,
+    }),
+    pl: (value: PropertyValue<'padding'>) => ({
+      paddingLeft: value,
     }),
   },
   media: {
@@ -162,8 +186,12 @@ const stitchesConfig = createStitches({
   theme,
 })
 
-type CSS = StitchesCSS<typeof stitchesConfig>
+export const { css, getCssText, config, globalCss, theme: stitchesTheme } = stitchesConfig
 
-export const { styled, css, getCssText, globalCss, theme: stitchesTheme } = stitchesConfig
-
-export type { CSS }
+export type CSS = StitchesCSS<typeof config>
+export type ClassName = string & {
+  className: string
+  selector: string
+  /* eslint-disable-next-line @typescript-eslint/ban-types */
+  props: {}
+}
