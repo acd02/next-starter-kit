@@ -15,12 +15,12 @@ function RenderUsers({ users }: Props) {
   const links = users.map(({ id, name }) => (
     <Link
       key={id}
-      css={box({
+      css={{
         display: 'block',
         marginBottom: '$2',
         width: 'fit-content',
         textDecoration: 'underline',
-      })}
+      }}
       route="users"
       param={`${id}`}
       label={name}

@@ -1,6 +1,6 @@
-import { css } from 'stitches'
+import { CSS } from 'stitches'
 
-const root = css({
+const root: CSS = {
   borderBottom: '1px solid',
   borderColor: 'transparent',
   cursor: 'pointer',
@@ -12,7 +12,7 @@ const root = css({
       },
     },
   },
-})
+}
 
 export const styles = {
   root,

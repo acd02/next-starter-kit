@@ -189,9 +189,3 @@ const stitchesConfig = createStitches({
 export const { css, getCssText, config, globalCss, theme: stitchesTheme } = stitchesConfig
 
 export type CSS = StitchesCSS<typeof config>
-export type ClassName = string & {
-  className: string
-  selector: string
-  /* eslint-disable-next-line @typescript-eslint/ban-types */
-  props: {}
-}

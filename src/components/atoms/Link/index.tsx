@@ -2,7 +2,7 @@ import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 import type { Routes } from 'routes'
 import { routes } from 'routes'
-import { ClassName, css as stitchesCss } from 'stitches'
+import { CSS, css as stitchesCss } from 'stitches'
 
 import { styles } from './styles'
 import { handleKeyPress } from './utils'
@@ -11,7 +11,7 @@ type Props = {
   route: keyof Routes
   label: string
   param?: string
-  css?: ClassName
+  css?: CSS
   isActive?: (pathname: string) => boolean
 }
 
@@ -24,8 +24,8 @@ function Link({ route, label, param, isActive, css, ...rest }: Props) {
       <a
         className={stitchesCss({
           ...styles.root,
+          ...css,
         })({
-          ...(css as any),
           active: isActive?.(pathname) ?? href === pathname,
         })}
         href={href}
