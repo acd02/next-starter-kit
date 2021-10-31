@@ -1,5 +1,6 @@
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
+import { ComponentPropsWithoutRef } from 'react'
 import type { Routes } from 'routes'
 import { routes } from 'routes'
 import { CSS, css as stitchesCss } from 'stitches'
@@ -15,7 +16,14 @@ type Props = {
   isActive?: (pathname: string) => boolean
 }
 
-function Link({ route, label, param, isActive, css, ...rest }: Props) {
+function Link({
+  route,
+  label,
+  param,
+  isActive,
+  css,
+  ...rest
+}: ComponentPropsWithoutRef<'a'> & Props) {
   const { pathname } = useRouter()
   const href = param ? `${routes[route]}/${param}` : routes[route]
 

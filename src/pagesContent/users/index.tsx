@@ -1,7 +1,7 @@
 import { Link } from 'components/atoms/Link'
 import { useStore } from 'stores/someStore'
-import { button } from 'styles/ button'
 import { box } from 'styles/box'
+import { button } from 'styles/button'
 import { text } from 'styles/text'
 import type { User } from 'types/user'
 
