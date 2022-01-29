@@ -1,3 +1,6 @@
 {
-  "src/**/*.ts?(x)": ["npm run lint:hook", "npm run prettier:hook"]
+  "src/**/*.ts?(x)": [
+    "eslint --config .eslintrc.prod.js --fix",
+    "prettier --config .prettierrc.json --write"
+  ]
 }
